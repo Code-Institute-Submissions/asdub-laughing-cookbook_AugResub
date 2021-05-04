@@ -1,0 +1,13 @@
+{%  extends "base.html" %}
+{% block content %}
+
+    {% for recipe in recipes %}
+        {% if (recipe.cooking_time_minutes > 0) and (recipe.program == "Mary Berry Cooks") %}
+        <p>{{ recipe.chef }}</p>
+        <p>{{ recipe.title }}</p>
+        <p>{{ recipe.total_time_minutes }}</p>
+
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}
