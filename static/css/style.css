@@ -1,6 +1,41 @@
 /* style.css */
 
+/* Mobile adjustments to Materializecss */
+@media only screen and (min-width: 993px){
+    .container {
+        width: 90%;
+    }
+}
+
 /* header */
+.icon-logo {
+    padding: 0 0 0 1.4rem;
+}
+
+.icon-nav {
+    font-size: 1rem;
+    padding: 0 0.2rem 0 0;
+}
+
 nav .brand-logo {
-    padding: 0 1rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.015em;
+    padding: 0 0.5rem;
+}
+
+
+/* Receipes/ Home */ 
+h3.heading {
+    font-size: 2rem;
+}
+
+.card .card-image .card-title {
+    padding: 0.2rem 0.5rem;
+}
+
+.card .card-title {
+    font-size: 1.4rem;
+    font-weight: 300;
 }

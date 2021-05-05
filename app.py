@@ -1,4 +1,5 @@
 import os
+import random
 from flask import (
     Flask, flash, render_template, redirect, 
     request, session, url_for)
@@ -25,15 +26,17 @@ def recipes():
     # filter data before being passed to UI
     recipes = list(mongo.db.recipes.find(
         {"photo_url": {"$exists": True, "$not": {"$type": 10}},
-            "total_time_minutes": {"$gt": 0}#,
-            # "chef": {"$regex": ".*James Martin.*"}
+            "total_time_minutes": {"$gt": 0},
+            "description": {"$exists": True},
+            "$expr": {"$gt": [{"$strLenCP": "$description"}, 50]}
         }))
+    random.shuffle(recipes)
     return render_template("recipes.html", recipes=recipes)
 
 
 @app.route("/recipe/<recipe_id>")
 def recipe(recipe_id):
-    # recipe id checked against database
+    # recipe id checked against database id
     recipe_id = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
 
     if recipe_id:
