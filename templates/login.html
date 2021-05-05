@@ -1,23 +1,11 @@
 {%  extends "base.html" %}
 {% block content %}
     <!-- Page Title-->
-    <h3 class="heading">Register</h3>
+    <h3 class="heading">Log In</h3>
     <!-- Page Content-->
     <div class="row">
         <div class="row">
-            <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
-            <!-- first and last name fields -->
-            <div class="row">
-                <div class="input-field col s6">
-                    <i class="fas fa-user-circle prefix"></i>
-                    <input id="fname" name="fname" type="text" class="validate">
-                    <label for="fname">First Name</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="lname" name="lname" type="text" class="validate">
-                    <label for="lanme">Last Name</label>
-                </div>
-            </div>
+            <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
             <!-- email field -->
             <div class="row">
                 <div class="input-field col s12">
@@ -37,7 +25,7 @@
              <!-- register submit -->
              <div class="row">
                     <button type="submit" class="col s12 btn-large orange lighten-1">
-                        Register <i class="fas fa-sign-in-alt"></i>
+                        Submit <i class="fas fa-sign-in-alt"></i>
                     </button>   
                 </div>
             </form>
@@ -47,7 +35,7 @@
     <div class="row">
         <div class="col s12">
             <p class="center-align">
-                Already registered? <a href="{{ url_for('login') }}" class="orange-text text-ligthen-1">Log In</a>
+                Not registered? <a href="{{ url_for('register') }}" class="orange-text text-ligthen-1">Sign Up here</a>
             </p>
         </div>
     </div>
