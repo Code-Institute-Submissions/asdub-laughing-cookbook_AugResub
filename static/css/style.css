@@ -12,24 +12,9 @@ body {
     background-color: #fafafa;
 }
 
-ol {
-    padding-inline-start: 0px;
-    list-style: none;
-    counter-reset: item;
+em {
+    font-size: 85%;
 }
-
-li {
-    counter-increment: item;
-    margin-bottom: 5px;
-  }
-  li:before {
-    display: inline-block;
-    text-align: center;
-    font-size: 80%;
-    margin-right: 12px;
-    content: counter(item);
-    color: #ffa726; 
-  }
 
 /* header */
 .icon-logo {
@@ -37,7 +22,7 @@ li {
 }
 
 .icon-nav {
-    font-size: 1rem;
+    font-size: 1rem !important;
     padding: 0 0.2rem 0 0;
 }
 
@@ -78,4 +63,16 @@ h4.heading-tag {
 
 .card .card-content .ingredients-card {
     padding: 12px;
+}
+
+.card-time-content {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-evenly;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.content-item-secondary {
+    font-size: 90%;
 }
