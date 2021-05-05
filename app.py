@@ -3,6 +3,7 @@ from flask import (
     Flask, flash, render_template, redirect, 
     request, session, url_for)
 from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
 if os.path.exists("env.py"):
     import env
 
@@ -23,6 +24,17 @@ mongo = PyMongo(app)
 def recipes():
     recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
+
+
+@app.route("/recipe/<recipe_id>")
+def recipe(recipe_id):
+    # recipe id checked against database
+    recipe_id = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+
+    if recipe_id:
+        return render_template("recipe.html", recipe_id=recipe_id)
+    
+    return render_template("recipe.html", recipe_id=recipe)
 
 
 if __name__ == "__main__":
