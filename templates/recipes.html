@@ -1,13 +1,29 @@
 {%  extends "base.html" %}
 {% block content %}
 
+<div class="row">
     {% for recipe in recipes %}
-        {% if (recipe.cooking_time_minutes > 0) and (recipe.program == "Mary Berry Cooks") %}
-        <p>{{ recipe.chef }}</p>
-        <p>{{ recipe.title }}</p>
-        <p>{{ recipe.total_time_minutes }}</p>
-
+        {% if (recipe.cooking_time_minutes > 0) and (recipe.program == "Mary Berry Cooks") and (recipe.photo_url != None) %}
+            <div class="col s12 m6 l4">
+              <div class="card">
+                <div class="card-image">
+                  <img src="{{ recipe.photo_url }}">
+                  <span class="card-title">{{ recipe.title }}</span>
+                </div>
+                <div class="card-content">
+                    <span class="">{{ recipe.total_time_minutes }} <strong>mins</strong></span>
+                    <p>{{ recipe.description | truncate(100) }}..</p>
+                    <p><em>by</em> {{ recipe.chef }}</p>
+                </div>
+                <div class="card-action">
+                  <a href="#">This is a link</a>
+                </div>
+              </div>
+            </div>
+        <p></p>
+        <p></p>
+        <p></p>
         {% endif %}
     {% endfor %}
-
+</div>
 {% endblock %}
