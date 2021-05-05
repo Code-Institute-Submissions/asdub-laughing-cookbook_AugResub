@@ -7,26 +7,27 @@
   <div class="row">
     <!-- For loop generation a grid of recipe cards - recipe list is randomised on each reload-->
       {% for recipe in recipes %}
-      {% if loop.index0 < 30 %}
-      <div class="col s12 m6 l4">
-        <div class="card hoverable">
-          <div class="card-image">
-            <img src="{{ recipe.photo_url }}">
-            <div class="recipe-title-container">
-              <span class="card-title">{{ recipe.title }}</span>
+        {% if loop.index0 < 30 %}
+          <div class="col s12 m6 l4">
+            <div class="card hoverable">
+              <div class="card-image">
+                <img src="{{ recipe.photo_url }}">
+                <div class="recipe-title-container">
+                  <span class="card-title">{{ recipe.title }}</span>
+                  <a class="btn-floating halfway-fab orange lighten-1"><i class="fas fa-plus"></i></a>
+                </div>
+              </div>
+              <div class="card-content">
+                <p>{{ recipe.description | truncate(60) }}</p>
+                <p><em>by</em> {{ recipe.chef }}</p>
+              </div>
+              <div class="card-action">
+                <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">View Receipe</a>
+                <span class="new badge orange lighten-1" data-badge-caption="mins"><i class="fas fa-clock"></i> {{ recipe.total_time_minutes }}</span>
+              </div>
             </div>
           </div>
-          <div class="card-content">
-            <span class="">{{ recipe.total_time_minutes }} <strong>mins</strong></span>
-            <p>{{ recipe.description | truncate(60) }}</p>
-            <p><em>by</em> {{ recipe.chef }}</p>
-          </div>
-          <div class="card-action">
-            <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">View More</a>
-          </div>
-        </div>
-      </div>
-      {% endif %}
+        {% endif %}
       {% endfor %}
   </div>
   
