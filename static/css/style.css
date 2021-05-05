@@ -7,6 +7,30 @@
     }
 }
 
+/* Global */
+body {
+    background-color: #fafafa;
+}
+
+ol {
+    padding-inline-start: 0px;
+    list-style: none;
+    counter-reset: item;
+}
+
+li {
+    counter-increment: item;
+    margin-bottom: 5px;
+  }
+  li:before {
+    display: inline-block;
+    text-align: center;
+    font-size: 80%;
+    margin-right: 12px;
+    content: counter(item);
+    color: #ffa726; 
+  }
+
 /* header */
 .icon-logo {
     padding: 0 0 0 1.4rem;
@@ -31,6 +55,11 @@ h3.heading {
     font-size: 2rem;
 }
 
+h4.heading-tag {
+    font-size: 1.4rem;
+    margin: 0 0 1rem 1rem;
+}
+
 .card .card-image .card-title {
     padding: 0.2rem 0.5rem;
 }
@@ -38,4 +67,15 @@ h3.heading {
 .card .card-title {
     font-size: 1.4rem;
     font-weight: 300;
+}
+
+.recipe-card-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+}
+
+.card .card-content .ingredients-card {
+    padding: 12px;
 }
