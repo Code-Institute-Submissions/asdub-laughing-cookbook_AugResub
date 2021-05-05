@@ -41,8 +41,13 @@ def recipe(recipe_id):
 
     if recipe_id:
         return render_template("recipe.html", recipe_id=recipe_id)
-    
+
     return render_template("recipe.html", recipe_id=recipe)
+
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    return render_template("register.html")
 
 
 if __name__ == "__main__":
