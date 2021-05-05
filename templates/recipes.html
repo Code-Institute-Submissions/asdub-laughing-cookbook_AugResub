@@ -1,26 +1,27 @@
 {%  extends "base.html" %}
 {% block content %}
 
-<div class="row">
-    {% for recipe in recipes %}
-        {% if (recipe.cooking_time_minutes > 0) and (recipe.chef == "Delia Smith") and (recipe.photo_url != None) %}
-            <div class="col s12 m6 l4">
-              <div class="card">
-                <div class="card-image">
-                  <img src="{{ recipe.photo_url }}">
-                  <span class="card-title">{{ recipe.title }}</span>
-                </div>
-                <div class="card-content">
-                    <span class="">{{ recipe.total_time_minutes }} <strong>mins</strong></span>
-                    <p>{{ recipe.description | truncate(100) }}..</p>
-                    <p><em>by</em> {{ recipe.chef }}</p>
-                </div>
-                <div class="card-action">
-                  <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">View More</a>
-                </div>
-              </div>
-            </div>
-        {% endif %}
-    {% endfor %}
-</div>
+  <div class="row">
+      {% for recipe in recipes %}
+      {% if loop.index0 < 30 %}
+      <div class="col s12 m6 l4">
+        <div class="card">
+          <div class="card-image">
+            <img src="{{ recipe.photo_url }}">
+            <span class="card-title">{{ recipe.title }}</span>
+          </div>
+          <div class="card-content">
+            <span class="">{{ recipe.total_time_minutes }} <strong>mins</strong></span>
+            <p>{{ recipe.description | truncate(50) }}..</p>
+            <p><em>by</em> {{ recipe.chef }}</p>
+          </div>
+          <div class="card-action">
+            <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">View More</a>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+  </div>
+  
 {% endblock %}

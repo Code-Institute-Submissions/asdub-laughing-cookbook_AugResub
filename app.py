@@ -22,7 +22,12 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/recipes")
 def recipes():
-    recipes = list(mongo.db.recipes.find())
+    # filter data before being passed to UI
+    recipes = list(mongo.db.recipes.find(
+        {"photo_url": {"$exists": True, "$not": {"$type": 10}},
+            "total_time_minutes": {"$gt": 0}#,
+            # "chef": {"$regex": ".*James Martin.*"}
+        }))
     return render_template("recipes.html", recipes=recipes)
 
 

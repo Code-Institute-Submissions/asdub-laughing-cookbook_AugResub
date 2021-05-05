@@ -1,22 +1,23 @@
 {%  extends "base.html" %}
 {% block content %}
 
-<div class="row">
-            <div class="col s12">
-              <div class="card">
-                <div class="card-image">
-                  <img src="{{ recipe_id.photo_url }}">
-                  <span class="card-title">{{ recipe_id.title }}</span>
-                </div>
-                <div class="card-content">
-                    <span class="">{{ recipe_id.total_time_minutes }} <strong>mins</strong></span>
-                    <p>{{ recipe_id.description }}..</p>
-                    <p><em>by</em> {{ recipe_id.chef }}</p>
-                </div>
-                <div class="card-action">
-                  <a href="">This is a link</a>
-                </div>
-              </div>
-            </div>
-</div>
+  <div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-image">
+          <img src="{{ recipe_id.photo_url }}">
+          <span class="card-title">{{ recipe_id.title }}</span>
+        </div>
+        <div class="card-content">
+          <span class="">{{ recipe_id.total_time_minutes }} <strong>mins</strong></span>
+          <p>{{ recipe_id.description }}</p>
+          <p><em>by</em> {{ recipe_id.chef }}</p>
+        </div>
+        <div class="card-action">
+          <a href="">This is a link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 {% endblock %}
