@@ -28,7 +28,7 @@ def recipes():
         {"photo_url": {"$exists": True, "$not": {"$type": 10}},
             "total_time_minutes": {"$gt": 0},
             "description": {"$exists": True},
-            "$expr": {"$gt": [{"$strLenCP": "$description"}, 50]}
+            "$expr": {"$gt": [{"$strLenCP": "$description"}, 100]}
         }))
     random.shuffle(recipes)
     return render_template("recipes.html", recipes=recipes)
