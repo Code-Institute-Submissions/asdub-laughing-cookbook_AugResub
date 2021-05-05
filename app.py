@@ -85,7 +85,7 @@ def login():
                 request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 session["is_admin"] = existing_user["is_admin"]
-                flash("Welcome, {}".format(request.form.get("username")))
+                flash("Welcome, {}".format(request.form.get("username").capitalize()))
                 return redirect(url_for("my_recipes", username=session["user"]))
             else:
                 # incorrect password

@@ -3,8 +3,8 @@
 
   <div class="row">
     <!-- My Recipes title -->
-    <h3 class="heading">My Recipes</h3>
-    <h4 class="heading-tag">{{ session.user }}'s Recipes</h4>
+    <h3 class="heading">{{ session.user.capitalize() }}'s Recipes</h3>
+    <h4 class="heading-tag">Tag</h4>
   </div>
 
 {% endblock %}
