@@ -41,6 +41,20 @@
                 <li><a href="">Register</a></li>
             </ul>
         </header>
+        <section>
+         <!-- flash message-->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="row flashes">
+                        <div class="card">
+                            <span class="new badge notification">{{ message }}</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith%}
+        </section>
         <main class="container">
             {% block content %}
             {% endblock %}
