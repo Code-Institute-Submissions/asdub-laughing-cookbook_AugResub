@@ -30,22 +30,29 @@
                             {% if session.is_admin == "yes" %}
                                 <li><a href=""><i class="fas fa-cog icon-nav"></i>Admin Dashboard</a></li>
                             {% endif %}
-                            <li><a href="">Log Out</a></li>
+                            <li><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt icon-nav"></i>Log Out</a></li>
                         {% else %}
-                            <li><a href="{{ url_for('login') }}">Log In</a></li>
+                            <li><a href="{{ url_for('login') }}"><i class="fas fa-lock icon-nav"></i>Log In</a></li>
                             <li><a href="{{ url_for('register') }}"><i class="fas fa-pencil-alt icon-nav"></i>Register</a></li>
                         {% endif %}
                     </ul>
                 </div>
             </nav>
             <ul class="sidenav" id="mobile-menu">
-                <li><a href="{{ url_for('recipes') }}">Discover Recipes</a></li>
-                <li><a href="{{ url_for('my_recipes', username=session['user']) }}">Your Recipes</a></li>
-                <li><a href="">Add Receipe</a></li>
-                <li><a href="">Admin Dashboard</a></li>
-                <li><a href="">Log Out</a></li>
-                <li><a href="{{ url_for('login') }}">Log In</a></li>
-                <li><a href="{{ url_for('register') }}">Register</a></li>
+                <li><a href="{{ url_for('recipes') }}"><i class="fas fa-search icon-nav"></i>Discover Recipes</a></li>
+                <!-- Check and display user menu level -->
+               {% if session.user %}
+                   <li><a href="{{ url_for('my_recipes', username=session['user']) }}"><i class="fas fa-user icon-nav"></i>Your Recipes</a></li>
+                   <li><a href=""><i class="fas fa-plus-square icon-nav"></i>Add Receipe</a></li>
+                   <!-- Admin only -->
+                   {% if session.is_admin == "yes" %}
+                       <li><a href=""><i class="fas fa-cog icon-nav"></i>Admin Dashboard</a></li>
+                   {% endif %}
+                   <li><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt icon-nav"></i>Log Out</a></li>
+               {% else %}
+                   <li><a href="{{ url_for('login') }}"><i class="fas fa-lock icon-nav"></i>Log In</a></li>
+                   <li><a href="{{ url_for('register') }}"><i class="fas fa-pencil-alt icon-nav"></i>Register</a></li>
+               {% endif %}
             </ul>
         </header>
         <section>

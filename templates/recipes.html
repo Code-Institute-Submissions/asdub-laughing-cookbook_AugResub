@@ -19,7 +19,8 @@
               </div>
               <div class="card-content">
                 <p>{{ recipe.description | truncate(60) }}</p>
-                <p><em>by</em> {{ recipe.chef }}</p>
+                <br>
+                <p><em>by</em> <strong>{{ recipe.chef }}</strong></p>
               </div>
               <div class="card-action">
                 <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">View Receipe</a>

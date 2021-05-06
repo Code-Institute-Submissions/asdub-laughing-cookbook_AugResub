@@ -111,6 +111,14 @@ def my_recipes(username):
     return render_template("my_recipes.html", username=username)
 
 
+@app.route("/logout")
+def logout():
+    #remove user session cookies
+    flash("You have been successfully logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
     port=int(os.environ.get("PORT")),
