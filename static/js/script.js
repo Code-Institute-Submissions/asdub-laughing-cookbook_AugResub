@@ -18,9 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                   });
   });
 
-  document.getElementById("ingredients").addEventListener("click", function add_ingredient() {
-    
-  var x = document.getElementById("ingredients");
+document.getElementById("addingredient").addEventListener("click", function add_ingredient() {
+  var x = document.getElementById("incredientsContainer");
   var new_field = document.createElement("input");
   new_field.setAttribute("type", "text");
   new_field.setAttribute("name", "ingredients");
@@ -30,14 +29,14 @@ document.addEventListener('DOMContentLoaded', function() {
   var pos = x.childElementCount;
 
   x.insertBefore(new_field, x.childNodes[pos]);
+
 });
 
-document.getElementById("instructions").addEventListener("click", function add_instruction() {
-
-  var x = document.getElementById("instructions");
+document.getElementById("addinstruction").addEventListener("click", function add_instruction() {
+  var x = document.getElementById("instructionsContainer");
   var new_field = document.createElement("input");
   new_field.setAttribute("type", "text");
-  new_field.setAttribute("name", "instruction");
+  new_field.setAttribute("name", "instructions");
   new_field.setAttribute("minlength", "5");
   new_field.setAttribute("maxlength", "30");
   new_field.setAttribute("class", "validate");
