@@ -7,10 +7,16 @@
     <h4 class="heading-tag">Tag</h4>
   </div>
 
+  {% if user_recipes %}
   <div class="row">
     {% for recipe in user_recipes %}
       <p>{{ recipe.title }}</p>
     {% endfor %}
   </div>
+  {% else%}
+  <div class="row">
+    <span>No recipes saved.</span>
+  </div>
+  {% endif %}
 
 {% endblock %}

@@ -114,9 +114,8 @@ def my_recipes(username):
             for object_id in user_recipes_ids:
                 recipe = mongo.db.recipes.find_one({"_id": ObjectId(object_id)})
                 user_recipes.append(recipe)
-
-        return render_template("my_recipes.html", username=username, user_recipes=user_recipes)
-
+            return render_template("my_recipes.html", username=username, user_recipes=user_recipes)
+           
     return render_template("my_recipes.html", username=username)
 
 
@@ -139,8 +138,8 @@ def pin_recipe(recipe_id):
     else:
         mongo.db.users.update_one({"username": session["user"]}, {'$push': {'user_recipes': recipe_id.get('_id')}}, upsert = True)
         flash("Recipe saved!")
-
-    return render_template("my_recipes.html", recipe_id=recipe_id)
+    # Redirect to profile
+    return redirect(url_for("my_recipes", username=session["user"]))
 
 
 if __name__ == "__main__":
