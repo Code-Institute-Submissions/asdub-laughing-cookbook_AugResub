@@ -119,6 +119,20 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route("/pin_recipe/<recipe_id>", methods=["GET", "POST"])
+def pin_recipe(recipe_id):
+    # Add recipe from recipes.html to user my recipes profile page
+    recipe_id = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    pinned_recipes = mongo.db.users.find({"username": session["user"], "user_recipes": {"$in": [ObjectId(recipe_id.get('_id'))],}}).count()
+    if pinned_recipes == 1:
+        flash(f"Error - Recipe already saved")
+    else:
+        mongo.db.users.update_one({"username": session["user"]}, {'$push': {'user_recipes': recipe_id.get('_id')}}, upsert = True)
+        flash("Recipe saved!")
+
+    return render_template("my_recipes.html", recipe_id=recipe_id)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
     port=int(os.environ.get("PORT")),
