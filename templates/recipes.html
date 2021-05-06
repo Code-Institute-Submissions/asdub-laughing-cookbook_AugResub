@@ -3,6 +3,17 @@
 
   <div class="row">
       <h3 class="heading"><i class="fas fa-search prefix"></i> Discover Receipes</h3>
+      <div class="col s12">
+        <p>
+          <!-- Display count of av available receipes in data-->
+          Discover up to <strong>{{ recipes|length }}</strong> recipes and counting!<br>
+          <span class="smaller-heading">From your favorite chefs to user submitted recipes</span>
+        </p>
+        <p>
+          <span>Store your favorite recipes on your <strong>My Recipes</strong> profile or submit your own for other users to enjoy</span><br>
+          <a href="{{ url_for('register') }}">Sign Up</a> now to start storing your favorites! 
+        </p>
+    </div>
   </div>
   <div class="row">
     <!-- For loop generation a grid of recipe cards - recipe list is randomised on each reload-->
@@ -14,7 +25,9 @@
                 <img src="{{ recipe.photo_url }}">
                 <div class="recipe-title-container">
                   <span class="card-title">{{ recipe.title }}</span>
-                  <a class="btn-floating halfway-fab orange lighten-1"><i class="fas fa-plus"></i></a>
+                  {% if session.user %}
+                  <a class="btn-floating halfway-fab orange darken-1 tooltipped"><i class="fas fa-plus"></i></a>
+                  {% endif %}
                 </div>
               </div>
               <div class="card-content">
@@ -23,8 +36,8 @@
                 <p><em>by</em> <strong>{{ recipe.chef }}</strong></p>
               </div>
               <div class="card-action">
-                <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">View Receipe</a>
-                <span class="new badge orange lighten-1" data-badge-caption="mins"><i class="fas fa-clock"></i> {{ recipe.total_time_minutes }}</span>
+                <a href="{{ url_for('recipe', recipe_id=recipe._id) }}" class="orange-text text-darken-1">View Receipe</a>
+                <span class="new badge orange darken-1" data-badge-caption="mins"><i class="fas fa-clock"></i> {{ recipe.total_time_minutes }}</span>
               </div>
             </div>
           </div>

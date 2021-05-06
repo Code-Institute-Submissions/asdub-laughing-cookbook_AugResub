@@ -16,6 +16,11 @@ em {
     font-size: 85%;
 }
 
+.smaller-heading {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
 .notification {
     margin: 0 2rem;
     font-size: 1rem;

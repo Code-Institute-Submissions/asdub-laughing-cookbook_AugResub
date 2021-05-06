@@ -29,7 +29,7 @@ def recipes():
         {"photo_url": {"$exists": True, "$not": {"$type": 10}},
             "total_time_minutes": {"$gt": 0},
             "description": {"$exists": True},
-            "$expr": {"$gt": [{"$strLenCP": "$description"}, 100]}
+            "$expr": {"$gt": [{"$strLenCP": "$description"}, 60]}
         }))
     random.shuffle(recipes)
     return render_template("recipes.html", recipes=recipes)
@@ -113,7 +113,7 @@ def my_recipes(username):
 
 @app.route("/logout")
 def logout():
-    #remove user session cookies
+    # remove user session cookies
     flash("You have been successfully logged out")
     session.pop("user")
     return redirect(url_for("login"))

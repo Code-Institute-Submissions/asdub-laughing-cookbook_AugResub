@@ -5,7 +5,7 @@
     <!-- Recipe title -->
     <h3 class="heading">{{ recipe_id.title }}</h3>
     <h4 class="heading-tag"><em>by</em> {{ recipe_id.chef }}</h4>
-    <span class="new badge orange lighten-1" data-badge-caption="servings"><i class="fas fa-utensils"></i>
+    <span class="new badge orange darken-1" data-badge-caption="servings"><i class="fas fa-utensils"></i>
       {{ recipe_id.serves }}</span>
     <!-- First Column -->
     <div class="col s12 m6 l4">
@@ -19,15 +19,15 @@
         <div class="card-content">
           <div class="card-time-content">
             <div class="card-time-content-item">
-              <i class="fas fa-clock orange-text text-lighten-1"></i>
+              <i class="fas fa-clock orange-text text-darken-1"></i>
               <strong>{{ recipe_id.total_time_minutes }} mins </strong><em>total time</em>
             </div>
             <div class="card-time-content-item content-item-secondary grey-text text-darken-2">
-              <i class="fas fa-clock orange-text text-lighten-1"></i>
+              <i class="fas fa-clock orange-text text-darken-1"></i>
               <strong>{{ recipe_id.preparation_time_minutes }} mins </strong><em>preparation time</em>
             </div>
             <div class="card-time-content-item content-item-secondary grey-text text-darken-2">
-              <i class="fas fa-clock orange-text text-lighten-1"></i>
+              <i class="fas fa-clock orange-text text-darken-1"></i>
               <strong>{{ recipe_id.cooking_time_minutes }} mins </strong><em>cooking time</em>
             </div>
           </div>
@@ -37,7 +37,7 @@
       <div class="card">
         <div class="card-image">
           <div class="card-content">
-            <i class="fas fa-shopping-basket orange-text text-lighten-1"></i>
+            <i class="fas fa-shopping-basket orange-text text-darken-1"></i>
             <span class="recipe-card-title"> Ingredients</span>
             {% for ingredient in recipe_id.ingredients %}
             <div class="card z-depth-0 orange lighten-5">
@@ -54,17 +54,17 @@
     <div class="col s12 m6 l8">
       <div class="card">
         <div class="card-content">
-          <i class="fas fa-pen orange-text text-lighten-1"></i>
+          <i class="fas fa-pen orange-text text-darken-1"></i>
             <span class="recipe-card-title"> Description</span>
           <p>{{ recipe_id.description }}</p>
         </div>
         <div class="card-action">
-          <a href="" class="btn orange lighten-1"><i class="fas fa-plus-square icon-nav"></i> My Recipes</a>
+          <a href="" class="btn orange darken-1"><i class="fas fa-plus-square icon-nav"></i> My Recipes</a>
         </div>
       </div>
       <div class="card">
         <div class="card-content">
-          <i class="fas fa-file-alt orange-text text-lighten-1"></i>
+          <i class="fas fa-file-alt orange-text text-darken-1"></i>
           <span class="recipe-card-title"> Recipe Steps</span>
           {% for instruction in recipe_id.instructions %}
           <div class="card z-depth-0 grey lighten-4">
