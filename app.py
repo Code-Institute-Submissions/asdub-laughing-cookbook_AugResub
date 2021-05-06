@@ -104,9 +104,18 @@ def my_recipes(username):
     # session username checked against database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-
+    user_data = mongo.db.users.find_one({"username": username})
+    user_recipes_ids = user_data.get('user_recipes')
+    # Pass username to my_recipes.html
     if session["user"]:
-        return render_template("my_recipes.html", username=username)
+        # Check if user has pinned recipes and send to profile
+        if user_recipes_ids:
+            user_recipes = []
+            for object_id in user_recipes_ids:
+                recipe = mongo.db.recipes.find_one({"_id": ObjectId(object_id)})
+                user_recipes.append(recipe)
+
+        return render_template("my_recipes.html", username=username, user_recipes=user_recipes)
 
     return render_template("my_recipes.html", username=username)
 
@@ -123,9 +132,10 @@ def logout():
 def pin_recipe(recipe_id):
     # Add recipe from recipes.html to user my recipes profile page
     recipe_id = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    # Check if recipe has already been added
     pinned_recipes = mongo.db.users.find({"username": session["user"], "user_recipes": {"$in": [ObjectId(recipe_id.get('_id'))],}}).count()
     if pinned_recipes == 1:
-        flash(f"Error - Recipe already saved")
+        flash("Error - Recipe already saved")
     else:
         mongo.db.users.update_one({"username": session["user"]}, {'$push': {'user_recipes': recipe_id.get('_id')}}, upsert = True)
         flash("Recipe saved!")
