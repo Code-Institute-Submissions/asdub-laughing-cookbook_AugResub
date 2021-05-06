@@ -27,12 +27,11 @@
                   <span class="card-title">{{ recipe.title }}</span>
                   {% if session.user %}
                     <a href="{{ url_for('pin_recipe', recipe_id=recipe._id) }}" class="btn-floating halfway-fab orange darken-1 tooltipped"><i class="fas fa-plus"></i></a>
-                </form>
                   {% endif %}
                 </div>
               </div>
               <div class="card-content">
-                <p>{{ recipe.description | truncate(60) }}</p>
+                <p>{{ recipe.description | truncate(75) }}</p>
                 <br>
                 <p><em>by</em> <strong>{{ recipe.chef }}</strong></p>
               </div>

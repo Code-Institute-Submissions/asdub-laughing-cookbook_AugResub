@@ -8,9 +8,28 @@
   </div>
 
   {% if user_recipes %}
-  <div class="row">
-    {% for recipe in user_recipes %}
-      <p>{{ recipe.title }}</p>
+    <div class="row">
+      {% for recipe in user_recipes %}
+      <div class="col s12 m6 l4">
+        <div class="card hoverable">
+          <div class="card-image">
+            <img src="{{ recipe.photo_url }}">
+            <div class="recipe-title-container">
+              <span class="card-title">{{ recipe.title }}</span>
+                <a href="{{ url_for('pin_recipe', recipe_id=recipe._id) }}" class="btn-floating halfway-fab red tooltipped"><i class="fas fa-trash-alt"></i></a>
+            </div>
+          </div>
+          <div class="card-content">
+            <p>{{ recipe.description | truncate(75) }}</p>
+            <br>
+            <p><em>by</em> <strong>{{ recipe.chef }}</strong></p>
+          </div>
+          <div class="card-action">
+            <a href="{{ url_for('recipe', recipe_id=recipe._id) }}" class="orange-text text-darken-1">View Receipe</a>
+            <span class="new badge orange darken-1" data-badge-caption="mins"><i class="fas fa-clock"></i> {{ recipe.total_time_minutes }}</span>
+          </div>
+        </div>
+      </div>
     {% endfor %}
   </div>
   {% else%}
