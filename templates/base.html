@@ -62,7 +62,7 @@
                 {% for message in messages %}
                     <div class="row flashes">
                         <div class="card">
-                            <span class="badge notification">{{ message }}</span>
+                            <span class="new badge notification" data-badge-caption="{{ message }}"></span>
                         </div>
                     </div>
                 {% endfor %}

@@ -10,4 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
                                     html: "Save to My Recipes",
                                     margin: 0.2
                                   });
+    var tooltip = document.querySelectorAll('.remove-fab');
+    var instances = M.Tooltip.init(tooltip, {
+                                    position: "top", 
+                                    html: "Remove from My Recipes",
+                                    margin: 0.2
+                                  });
   });

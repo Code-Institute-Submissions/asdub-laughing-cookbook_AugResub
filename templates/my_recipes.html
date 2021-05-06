@@ -16,7 +16,7 @@
             <img src="{{ recipe.photo_url }}">
             <div class="recipe-title-container">
               <span class="card-title">{{ recipe.title }}</span>
-                <a href="{{ url_for('pin_recipe', recipe_id=recipe._id) }}" class="btn-floating halfway-fab red tooltipped"><i class="fas fa-trash-alt"></i></a>
+                <a href="{{ url_for('remove_recipe', recipe_id=recipe._id) }}" class="btn-floating halfway-fab red remove-fab"><i class="fas fa-trash-alt"></i></a>
             </div>
           </div>
           <div class="card-content">

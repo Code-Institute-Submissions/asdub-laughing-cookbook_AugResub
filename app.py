@@ -95,8 +95,17 @@ def login():
             # username does not exist
             flash("Incorrect Username/ Password, please try again")
             return redirect(url_for("login"))
-       
+    
     return render_template("login.html")
+
+
+@app.route("/logout")
+def logout():
+    # remove user session cookies
+    flash("You have been successfully logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
+
 
 
 @app.route("/my_recipes/<username>", methods=["GET", "POST"])
@@ -115,30 +124,30 @@ def my_recipes(username):
                 recipe = mongo.db.recipes.find_one({"_id": ObjectId(object_id)})
                 user_recipes.append(recipe)
             return render_template("my_recipes.html", username=username, user_recipes=user_recipes)
-           
+       
     return render_template("my_recipes.html", username=username)
 
 
-@app.route("/logout")
-def logout():
-    # remove user session cookies
-    flash("You have been successfully logged out")
-    session.pop("user")
-    return redirect(url_for("login"))
-
-
-@app.route("/pin_recipe/<recipe_id>", methods=["GET", "POST"])
+@app.route("/pin_recipe/<recipe_id>")
 def pin_recipe(recipe_id):
     # Add recipe from recipes.html to user my recipes profile page
     recipe_id = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     # Check if recipe has already been added
-    pinned_recipes = mongo.db.users.find({"username": session["user"], "user_recipes": {"$in": [ObjectId(recipe_id.get('_id'))],}}).count()
+    pinned_recipes = mongo.db.users.find({"username": session["user"], "user_recipes": {"$in": [ObjectId(recipe_id.get("_id"))],}}).count()
     if pinned_recipes == 1:
         flash("Error - Recipe already saved")
     else:
-        mongo.db.users.update_one({"username": session["user"]}, {'$push': {'user_recipes': recipe_id.get('_id')}}, upsert = True)
+        mongo.db.users.update_one({"username": session["user"]}, {"$push": {"user_recipes": recipe_id.get("_id")}}, upsert = True)
         flash("Recipe saved!")
     # Redirect to profile
+    return redirect(url_for("my_recipes", username=session["user"]))
+
+
+@app.route("/remove_recipe/<recipe_id>")
+def remove_recipe(recipe_id):
+    user_id = mongo.db.users.find_one({"username": session["user"]})
+    mongo.db.users.update({"_id": user_id.get("_id")}, {"$pull": {"user_recipes": ObjectId(recipe_id)}})
+    flash(f"Recipe removed from Your Recipe")
     return redirect(url_for("my_recipes", username=session["user"]))
 
 
