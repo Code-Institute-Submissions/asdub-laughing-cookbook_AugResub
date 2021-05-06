@@ -107,7 +107,6 @@ def logout():
     return redirect(url_for("login"))
 
 
-
 @app.route("/my_recipes/<username>", methods=["GET", "POST"])
 def my_recipes(username):
     # session username checked against database
@@ -115,6 +114,7 @@ def my_recipes(username):
         {"username": session["user"]})["username"]
     user_data = mongo.db.users.find_one({"username": username})
     user_recipes_ids = user_data.get('user_recipes')
+    submited_recipes = list(mongo.db.recipes.find({"chef_id": session["user"]}))
     # Pass username to my_recipes.html
     if session["user"]:
         # Check if user has pinned recipes and send to profile
@@ -123,7 +123,7 @@ def my_recipes(username):
             for object_id in user_recipes_ids:
                 recipe = mongo.db.recipes.find_one({"_id": ObjectId(object_id)})
                 user_recipes.append(recipe)
-            return render_template("my_recipes.html", username=username, user_recipes=user_recipes)
+            return render_template("my_recipes.html", username=username, user_recipes=user_recipes, submited_recipes=submited_recipes)
        
     return render_template("my_recipes.html", username=username)
 
