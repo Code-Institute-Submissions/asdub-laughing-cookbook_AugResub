@@ -17,3 +17,33 @@ document.addEventListener('DOMContentLoaded', function() {
                                     margin: 0.2
                                   });
   });
+
+  document.getElementById("ingredients").addEventListener("click", function add_ingredient() {
+    
+  var x = document.getElementById("ingredients");
+  var new_field = document.createElement("input");
+  new_field.setAttribute("type", "text");
+  new_field.setAttribute("name", "ingredients");
+  new_field.setAttribute("minlength", "5");
+  new_field.setAttribute("maxlength", "30");
+  new_field.setAttribute("class", "validate");
+  var pos = x.childElementCount;
+
+  x.insertBefore(new_field, x.childNodes[pos]);
+});
+
+document.getElementById("instructions").addEventListener("click", function add_instruction() {
+
+  var x = document.getElementById("instructions");
+  var new_field = document.createElement("input");
+  new_field.setAttribute("type", "text");
+  new_field.setAttribute("name", "instruction");
+  new_field.setAttribute("minlength", "5");
+  new_field.setAttribute("maxlength", "30");
+  new_field.setAttribute("class", "validate");
+  var pos = x.childElementCount;
+
+  x.insertBefore(new_field, x.childNodes[pos]);
+});
+
+// CREDIT: https://dev.to/niick007/how-to-add-unlimited-fields-in-form-using-javascript-and-store-into-database-with-php-14ni

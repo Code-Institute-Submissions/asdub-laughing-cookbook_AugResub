@@ -25,7 +25,7 @@
                          <!-- Check and display user menu level -->
                         {% if session.user %}
                             <li><a href="{{ url_for('my_recipes', username=session['user']) }}"><i class="fas fa-user icon-nav"></i>Your Recipes</a></li>
-                            <li><a href=""><i class="fas fa-plus-square icon-nav"></i>Add Receipe</a></li>
+                            <li><a href="{{ url_for('add_recipe') }}"><i class="fas fa-plus-square icon-nav"></i>Add Receipe</a></li>
                             <!-- Admin only -->
                             {% if session.is_admin == "yes" %}
                                 <li><a href=""><i class="fas fa-cog icon-nav"></i>Admin Dashboard</a></li>
@@ -43,7 +43,7 @@
                 <!-- Check and display user menu level -->
                {% if session.user %}
                    <li><a href="{{ url_for('my_recipes', username=session['user']) }}"><i class="fas fa-user icon-nav"></i>Your Recipes</a></li>
-                   <li><a href=""><i class="fas fa-plus-square icon-nav"></i>Add Receipe</a></li>
+                   <li><a href="{{ url_for('add_recipe') }}"><i class="fas fa-plus-square icon-nav"></i>Add Receipe</a></li>
                    <!-- Admin only -->
                    {% if session.is_admin == "yes" %}
                        <li><a href=""><i class="fas fa-cog icon-nav"></i>Admin Dashboard</a></li>

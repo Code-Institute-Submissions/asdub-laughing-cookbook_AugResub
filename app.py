@@ -156,7 +156,7 @@ def add_recipe():
     if request.method == "POST":
         recipe = {
             "chef": request.form.get("name"),
-            "chef_id": request.form.get("name") + "_" + random.randint(1000, 9999),
+            "chef_id": session['user'],
             "cooking_time_minutes": int(request.form.get("cooking_time_minutes")),
             "description": request.form.get("description"),
             "ingredients": request.form.getlist("ingredients"),
@@ -171,7 +171,7 @@ def add_recipe():
         mongo.db.recipes.insert_one(recipe)
         flash("Your Recipe Has Been Successfully Added")
         return redirect(url_for("my-recipes"))
-    return redirect(url_for("my-recipes"))
+    return render_template("add_recipe.html")
 
 
 if __name__ == "__main__":
