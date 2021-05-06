@@ -147,8 +147,31 @@ def pin_recipe(recipe_id):
 def remove_recipe(recipe_id):
     user_id = mongo.db.users.find_one({"username": session["user"]})
     mongo.db.users.update({"_id": user_id.get("_id")}, {"$pull": {"user_recipes": ObjectId(recipe_id)}})
-    flash(f"Recipe removed from Your Recipe")
+    flash("Recipe removed from Your Recipes")
     return redirect(url_for("my_recipes", username=session["user"]))
+
+
+@app.route("/add_recipe", methods=["GET", "POST"])
+def add_recipe():
+    if request.method == "POST":
+        recipe = {
+            "chef": request.form.get("name"),
+            "chef_id": request.form.get("name") + "_" + random.randint(1000, 9999),
+            "cooking_time_minutes": int(request.form.get("cooking_time_minutes")),
+            "description": request.form.get("description"),
+            "ingredients": request.form.getlist("ingredients"),
+            "instructions": request.form.getlist("instructions"),
+            "photo_url": request.form.get("photo_url"),
+            "preparation_time_minutes": int(request.form.get("preparation_time_minutes")),
+            "serves": request.form.get("serves"),
+            "title": request.form.get("title"),
+            "total_time_minutes": int(request.form.get("cooking_time_minutes")) + int(request.form.get("preparation_time_minutes"))
+
+        }
+        mongo.db.recipes.insert_one(recipe)
+        flash("Your Recipe Has Been Successfully Added")
+        return redirect(url_for("my-recipes"))
+    return redirect(url_for("my-recipes"))
 
 
 if __name__ == "__main__":
