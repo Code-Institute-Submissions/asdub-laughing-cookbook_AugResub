@@ -16,6 +16,10 @@ em {
     font-size: 85%;
 }
 
+hr {
+    border: 1px solid #fb8c00;
+}
+
 .smaller-heading {
     font-size: 0.9rem;
     font-weight: 600;
@@ -55,7 +59,7 @@ h3.heading {
 }
 
 h4.heading-tag {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     margin: 0 0 1rem 1rem;
 }
 

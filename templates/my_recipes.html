@@ -4,7 +4,8 @@
   <div class="row">
     <!-- Page title -->
     <h3 class="heading">{{ session.user.capitalize() }}'s Recipes</h3>
-    <h4 class="heading-tag">Tag</h4>
+    <h4 class="heading-tag">Your submitted recipes</h4>
+    <hr>
   </div>
   <!-- user submitted recipes -->
   <div class="row">
@@ -32,6 +33,10 @@
     {% endfor %}
   </div>
 <!-- user pinned recipes -->
+<div class="row">
+  <h4 class="heading-tag">Your pinned recipes</h4>
+  <hr>
+</div>
   {% if user_recipes %}
     <div class="row">
       {% for recipe in user_recipes %}
