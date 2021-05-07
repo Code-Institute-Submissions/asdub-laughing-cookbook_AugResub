@@ -48,7 +48,7 @@ def recipe(recipe_id):
                 return render_template("recipe.html", recipe_id=recipe_id, user_recipe_id=recipe_id.get("_id"))
     else:
         return render_template("recipe.html", recipe_id=recipe_id)
-
+    return render_template("recipe.html", recipe_id=recipe_id)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -131,6 +131,12 @@ def my_recipes(username):
             return render_template("my_recipes.html", username=username, user_recipes=user_recipes, submited_recipes=submited_recipes)
 
     return render_template("my_recipes.html", username=username)
+
+
+@app.route("/admin/")
+def admin():
+    return render_template("admin.html")
+
 
 
 @app.route("/pin_recipe/<recipe_id>")

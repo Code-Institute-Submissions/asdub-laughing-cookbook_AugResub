@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="row">
+        <!-- Page title -->
+        <h3 class="heading"><i class="fas fa-plus-square orange-text text-darken-1"></i> Add a Recipe</h3>
+        <h4 class="heading-tag"> Complete the fields below to add your recipe</h4>
+    </div>
+     <!-- recipe form -->
+    <div class="row card-panel">
+        <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
+            <!-- name-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-user-alt prefix orange-text text-darken-1"></i>
+                    <input id="name" name="name" minlength="5" maxlength="50"
+                            value="{{ session.user }}" type="text" class="validate" required>
+                    <label for="name">Display Name</label>
+                </div>
+            </div>
+            <!-- recipe name-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-utensils prefix orange-text text-darken-1"></i>
+                    <input id="title" name="title" minlength="5" maxlength="50" 
+                            type="text" class=" validate" required>
+                    <label for="title">Recipe Name</label>
+                </div>
+            </div>
+            <!-- times/ numbers-->
+            <div class="row">
+                <div class="input-field col s4">
+                    <i class="fas fa-clock prefix orange-text text-darken-1"></i>
+                    <input placeholder="30" id="preparation_time_minutes" name="preparation_time_minutes"
+                            type="number" min="0" step="1" class="validate">
+                    <label for="preparation_time_minutes">Prep. Time</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">Whole numbers only. </span>
+                </div>
+                <div class="input-field col s4">
+                    <input placeholder="15" id="cooking_time_minutes" name="cooking_time_minutes" 
+                            type="number" min="0" step="1" class="validate">
+                    <label for="cooking_time_minutes">Cook Time</label>
+                    <span class="helper-text" data-error="wrong" data-success="right"></span>
+                </div>
+                <div class="input-field col s4">
+                    <input placeholder="2" id="serves" name="serves" 
+                            type="number" min="0" step="1" class="validate">
+                    <label for="serves">Servings</label>
+                    <span class="helper-text" data-error="wrong" data-success="right"></span>
+                </div>
+            </div>
+            <!-- description-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-sticky-note prefix orange-text text-darken-1"></i>
+                    <textarea id="description" name="description" minlength="5" 
+                                maxlength="140" class="materialize-textarea validate" required></textarea>
+                    <label for="description">Recipe Description</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">Make sure to provide a full description to be featured on Discover Recipes</span>
+                </div>
+            </div>
+            <div class="row">
+                 <!-- ingredients-->
+                <div id="incredientsContainer" class="input-field s6">
+                    <i class="fas fa-shopping-basket prefix orange-text text-darken-1"></i>
+                    <input id="ingredients" name="ingredients" minlength="2" maxlength="30" 
+                            type="text" class="validate" required>
+                    <label for="ingredients">Ingredient</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">Add a new line below for each new ingredient</span>
+                    <a id="addingredient" class="btn-sml form-add-line"><i class="fas fa-plus-square"></i> Add Ingredient</a>
+                </div>
+                 <!-- instructions-->
+                <div id="instructionsContainer" class="input-field s6">
+                    <i class="fas fa-list-ol prefix orange-text text-darken-1"></i>
+                    <input id="instructions" name="instructions" minlength="2" maxlength="30" 
+                            type="text" class="validate" required>
+                    <label for="instructions">Instruction</label>
+                    <a id="addinstruction" class="btn-sml form-add-line"><i class="fas fa-plus-square"></i> Add Instruction</a>
+                </div>
+                 <!-- Photo Url-->
+                <div class="input-field s6">
+                    <i class="fas fa-camera-retro prefix orange-text text-darken-1"></i>
+                    <input id="photo_url" name="photo_url" minlength="5"
+                            type="text" class="validate" required>
+                    <span class="helper-text" data-error="wrong" data-success="right">Include the full URL - including 'https://'</span>
+                    <label for="photo_url">Photo URL</label>
+                </div>
+            </div>
+            <!-- Submit button-->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button class="btn orange darken-1"
+                            type="submit" id="" name="action">Add Recipe
+                        <i class="fas fa-plus-square right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
