@@ -100,3 +100,19 @@ h4.heading-tag {
 .content-item-secondary {
     font-size: 90%;
 }
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+    margin: 0;
+}
+
+.card .card-action {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 1.2rem;
+    text-align: center;
+    border-top: 1px solid rgb(222 145 50 / 35%);
+}
+
+
+

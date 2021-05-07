@@ -20,13 +20,13 @@
           </div>
         </div>
         <div class="card-content">
-          <p>{{ subrecipe.description | truncate(75) }}</p>
+          <p>{{ subrecipe.description | truncate(65) }}</p>
           <br>
           <p><em>by</em> <strong>{{ subrecipe.chef }}</strong></p>
         </div>
         <div class="card-action">
           <a href="{{ url_for('recipe', recipe_id=subrecipe._id) }}" class="orange-text text-darken-1">View Receipe</a>
-          <a href="{{ url_for('edit_recipe', recipe_id=subrecipe._id) }}" class="orange-text text-darken-1">Edit Receipe</a>
+          <a href="{{ url_for('edit_recipe', recipe_id=subrecipe._id) }}" class="orange-text text-darken-1"><i class="far fa-edit"></i> Edit Receipe</a>
         </div>
       </div>
     </div>
