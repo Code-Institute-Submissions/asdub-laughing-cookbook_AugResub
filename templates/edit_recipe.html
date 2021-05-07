@@ -34,7 +34,7 @@
                     <input placeholder="30" id="preparation_time_minutes" name="preparation_time_minutes"
                             value="{{ recipe.preparation_time_minutes }}" type="number" min="0" step="1" class="validate">
                     <label for="preparation_time_minutes">Preperation Time</label>
-                    <span class="helper-text" data-error="wrong" data-success="right">Whole numbers only. </span>
+                    <span class="helper-text" data-error="wrong" data-success="right">Whole numbers only.</span>
                 </div>
                 <div class="input-field col s4">
                     <input placeholder="15" id="cooking_time_minutes" name="cooking_time_minutes" 
@@ -54,7 +54,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt prefix orange-text text-darken-1"></i>
                     <textarea id="description" name="description" minlength="5" 
-                                value="{{ recipe.description }}" maxlength="140" class="materialize-textarea validate" required></textarea>
+                                maxlength="140" class="materialize-textarea validate" required>{{- recipe.description -}}</textarea>
                     <label for="description">Recipe Description</label>
                     <span class="helper-text" data-error="wrong" data-success="right">Make sure to provide a full description to be featured on Discover Recipes</span>
                 </div>
@@ -67,7 +67,7 @@
                         <input id="ingredients" name="ingredients" minlength="2" maxlength="30" 
                                 value="{{ ingredient }}" type="text" class="validate" required>
                     {% endfor %}
-                    <label for="ingredients">Ingredient</label>
+                    <label for="ingredients">Ingredients</label>
                     <span class="helper-text" data-error="wrong" data-success="right">Add a new line below for each new ingredient</span>
                     <a id="addingredient" class="btn-sml form-add-line"><i class="fas fa-plus-square"></i> Add Ingredient</a>
                 </div>
@@ -76,12 +76,12 @@
                     <i class="fas fa-list-ol prefix orange-text text-darken-1"></i>
                     {% for instruction in recipe.instructions %}
                         <input id="instructions" name="instructions" minlength="2" maxlength="30" 
-                                value="{{ instructions }}" type="text" class="validate" required>
+                                value="{{ instruction }}" type="text" class="validate" required>
                     {% endfor %}
-                    <label for="instructions">Instruction</label>
+                    <label for="instructions">Instructions</label>
                     <a id="addinstruction" class="btn-sml form-add-line"><i class="fas fa-plus-square"></i> Add Instruction</a>
                 </div>
-                 <!-- Photo Url-->
+                 <!-- photo Url-->
                 <div class="input-field s6">
                     <i class="fas fa-camera-retro prefix orange-text text-darken-1"></i>
                     <input id="photo_url" name="photo_url" minlength="5"
@@ -89,13 +89,19 @@
                     <span class="helper-text" data-error="wrong" data-success="right">Include the full URL - including 'https://'</span>
                     <label for="photo_url">Photo URL</label>
                 </div>
+                <div class="row ">
+                    <div class="col s3">
+                        <img src="{{ recipe.photo_url }}" alt="{{ recipe.title }}" class="responsive-img form-add-line">
+                        <span class="helper-text form-add-line form-input-desc">Your current image</span>
+                    </div>
+                </div>
             </div>
             <!-- Submit button-->
             <div class="row">
                 <div class="col s12 center-align">
                     <button class="btn orange darken-1"
-                            type="submit" id="" name="action">Add Recipe
-                        <i class="fas fa-plus-square right"></i>
+                            type="submit" id="" name="action">Update Recipe
+                        <i class="fas fa-edit right"></i>
                     </button>
                 </div>
             </div>

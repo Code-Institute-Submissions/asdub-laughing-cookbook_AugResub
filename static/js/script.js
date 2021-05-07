@@ -51,4 +51,4 @@ document.getElementById("addinstruction").addEventListener("click", function add
   x.insertBefore(new_field, x.childNodes[pos]);
 });
 
-// CREDIT: https://dev.to/niick007/how-to-add-unlimited-fields-in-form-using-javascript-and-store-into-database-with-php-14ni
+// Adapted from: https://dev.to/niick007/how-to-add-unlimited-fields-in-form-using-javascript-and-store-into-database-with-php-14ni
