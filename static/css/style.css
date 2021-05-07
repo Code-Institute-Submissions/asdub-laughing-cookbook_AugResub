@@ -26,6 +26,10 @@ em {
     font-size: 1.1rem;
 }
 
+.form-add-line {
+    margin-left: 3rem;
+}
+
 /* header */
 .icon-logo {
     padding: 0 0 0 1.4rem;
