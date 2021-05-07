@@ -39,11 +39,17 @@ def recipes():
 def recipe(recipe_id):
     # recipe id checked against database id
     recipe_id = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    user_data = mongo.db.users.find_one({"username": session["user"]})
+    user_recipes_ids = user_data.get('user_recipes')
 
     if recipe_id:
-        return render_template("recipe.html", recipe_id=recipe_id)
+        if session["user"] and user_recipes_ids:
+            if recipe_id.get("_id") in user_recipes_ids:
+                return render_template("recipe.html", recipe_id=recipe_id, user_recipe_id=recipe_id.get("_id") )
+            flash(f"if session - {recipe_id.get('_id')}")
 
-    return render_template("recipe.html", recipe_id=recipe)
+    flash(user_recipes_ids)
+    return render_template("recipe.html", recipe_id=recipe_id)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -117,7 +123,7 @@ def my_recipes(username):
     submited_recipes = list(mongo.db.recipes.find({"chef_id": session["user"]}))
     # Pass username to my_recipes.html
     if session["user"]:
-        # Check if user has pinned recipes and send to profile
+        # Check if user has pinned recipes for rendering in My Recipe profile
         if user_recipes_ids:
             user_recipes = []
             for object_id in user_recipes_ids:
