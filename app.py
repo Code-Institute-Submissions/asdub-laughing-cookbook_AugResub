@@ -32,8 +32,8 @@ def recipes():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
-    tasks = list(mongo.db.tasks.find({"$text": {"$search": query}}))
-    return render_template("tasks.html", tasks=tasks)
+    recipes = list(mongo.db.recipes_clean.find({"$text": {"$search": query}}))
+    return render_template("recipes.html", recipes=recipes)
 
 
 @app.route("/recipe/<recipe_id>")
