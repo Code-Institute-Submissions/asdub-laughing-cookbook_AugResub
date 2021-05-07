@@ -25,6 +25,7 @@ mongo = PyMongo(app)
 @app.route("/recipes")
 def recipes():
     # filter data before being passed to UI
+    # Only displaying content rich data
     recipes = list(mongo.db.recipes.find(
         {"photo_url": {"$exists": True, "$not": {"$type": 10}},
             "total_time_minutes": {"$gt": 0},
@@ -45,10 +46,8 @@ def recipe(recipe_id):
     if recipe_id:
         if session["user"] and user_recipes_ids:
             if recipe_id.get("_id") in user_recipes_ids:
-                return render_template("recipe.html", recipe_id=recipe_id, user_recipe_id=recipe_id.get("_id") )
-            flash(f"if session - {recipe_id.get('_id')}")
+                return render_template("recipe.html", recipe_id=recipe_id, user_recipe_id=recipe_id.get("_id"))
 
-    flash(user_recipes_ids)
     return render_template("recipe.html", recipe_id=recipe_id)
 
 
