@@ -6,7 +6,7 @@
     <h3 class="heading">{{ session.user.capitalize() }}'s Recipes</h3>
     <h4 class="heading-tag">Tag</h4>
   </div>
-
+  <!-- user submitted recipes -->
   <div class="row">
     {% for subrecipe in submited_recipes %}
     <div class="col s12 m6 l4">
@@ -15,7 +15,7 @@
           <img src="{{ subrecipe.photo_url }}">
           <div class="recipe-title-container">
             <span class="card-title">{{ subrecipe.title }}</span>
-              <a href="{{ url_for('remove_recipe', recipe_id=subrecipe._id) }}" class="btn-floating halfway-fab red remove-fab"><i class="fas fa-trash-alt"></i></a>
+              <a href="{{ url_for('delete_recipe', recipe_id=subrecipe._id) }}" class="btn-floating halfway-fab red delete-fab"><i class="fas fa-trash-alt"></i></a>
           </div>
         </div>
         <div class="card-content">
@@ -31,7 +31,7 @@
     </div>
     {% endfor %}
   </div>
-
+<!-- user pinned recipes -->
   {% if user_recipes %}
     <div class="row">
       {% for recipe in user_recipes %}
@@ -41,7 +41,7 @@
             <img src="{{ recipe.photo_url }}">
             <div class="recipe-title-container">
               <span class="card-title">{{ recipe.title }}</span>
-                <a href="{{ url_for('remove_recipe', recipe_id=recipe._id) }}" class="btn-floating halfway-fab red remove-fab"><i class="fas fa-trash-alt"></i></a>
+                <a href="{{ url_for('remove_recipe', recipe_id=recipe._id) }}" class="btn-floating halfway-fab red remove-fab"><i class="fas fa-thumbtack"></i></a>
             </div>
           </div>
           <div class="card-content">

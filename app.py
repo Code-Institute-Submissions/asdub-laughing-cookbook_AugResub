@@ -145,9 +145,18 @@ def pin_recipe(recipe_id):
 
 @app.route("/remove_recipe/<recipe_id>")
 def remove_recipe(recipe_id):
+    # Remove pinned recipe from user profile (recipe not deleted)
     user_id = mongo.db.users.find_one({"username": session["user"]})
     mongo.db.users.update({"_id": user_id.get("_id")}, {"$pull": {"user_recipes": ObjectId(recipe_id)}})
     flash("Recipe removed from Your Recipes")
+    return redirect(url_for("my_recipes", username=session["user"]))
+
+
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    # Delete user submitted receipe
+    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    flash("Your submited Recipe has been deleted")
     return redirect(url_for("my_recipes", username=session["user"]))
 
 

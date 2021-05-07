@@ -4,18 +4,24 @@ document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems);
     // Vars and options for Materialize tooltip for 'Add to My Recipes'
-    var tooltip = document.querySelectorAll('.tooltipped');
-    var instances = M.Tooltip.init(tooltip, {
+    var save_tooltip = document.querySelectorAll('.tooltipped');
+    var instances = M.Tooltip.init(save_tooltip, {
                                     position: "top", 
                                     html: "Save to My Recipes",
                                     margin: 0.2
                                   });
-    var tooltip = document.querySelectorAll('.remove-fab');
-    var instances = M.Tooltip.init(tooltip, {
+    var remove_tooltip = document.querySelectorAll('.remove-fab');
+    var instances = M.Tooltip.init(remove_tooltip, {
                                     position: "top", 
-                                    html: "Remove from My Recipes",
+                                    html: "Unpin from My Recipes",
                                     margin: 0.2
                                   });
+    var delete_tooltip = document.querySelectorAll('.delete-fab');
+    var instances = M.Tooltip.init(delete_tooltip, {
+                                    position: "top", 
+                                    html: "Delete your Recipe",
+                                    margin: 0.2
+                                    });
   });
 
 document.getElementById("addingredient").addEventListener("click", function add_ingredient() {
