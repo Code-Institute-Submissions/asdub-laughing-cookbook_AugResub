@@ -13,12 +13,31 @@
           <span>Store your favorite recipes on your <strong>My Recipes</strong> profile or submit your own for other users to enjoy</span><br>
           <!-- Do not show the sign up link if user is alreay logged in -->
           {% if not session.user %}
-          <a href="{{ url_for('register') }}">Sign Up</a> now to start storing your favorites! 
+            <a href="{{ url_for('register') }}">Sign Up</a> now to start storing your favorites! 
           {% endif %}
         </p>
     </div>
   </div>
+  <!-- search recipe titles, desciptions and chefs -->
+  <div class="row card valign-wrapper">
+    <form action="{{ url_for('search') }}" method="POST" class="col s12">
+      <div class="valign-wrapper">
+        <div class="input-field col s12 m8">
+          <i class="fas fa-search prefix orange-text text-accent-1"></i>
+          <input type="search" name="query" id="query" minlength="3" class="validate" required>
+          <label for="query">Search</label>
+        </div>
+        <div class="col s12 m4">
+          <button type="submit" class="btn orange darken-1">
+            Search 
+          </button>
+          <a href="{{ url_for('recipes') }}" class="btn-flat orange-text text-accent-4">Reset</a>
+        </div>
+      </div>
+    </form>
+  </div>
   <div class="row">
+    <h4 class="heading-tag"></i> A random selection of 30 recipes</h4>
     <!-- For loop generation a grid of recipe cards - recipe list is randomised on each reload-->
       {% for recipe in recipes %}
         {% if loop.index0 < 30 %}

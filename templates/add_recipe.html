@@ -14,8 +14,8 @@
                 <div class="input-field col s12">
                     <i class="fas fa-user-alt prefix orange-text text-darken-1"></i>
                     <input id="name" name="name" minlength="5" maxlength="50"
-                            type="text" class="validate" required>
-                    <label for="name">Your Name</label>
+                            value="{{ session.user }}" type="text" class="validate" required>
+                    <label for="name">Display Name</label>
                 </div>
             </div>
             <!-- recipe name-->

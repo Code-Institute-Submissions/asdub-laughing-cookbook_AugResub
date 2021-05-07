@@ -40,15 +40,15 @@ def search():
 def recipe(recipe_id):
     # recipe id checked against database id
     recipe_id = mongo.db.recipes_clean.find_one({"_id": ObjectId(recipe_id)})
-    user_data = mongo.db.users.find_one({"username": session["user"]})
-    user_recipes_ids = user_data.get('user_recipes')
-
-    if recipe_id:
+    if "user" in session:
+        user_data = mongo.db.users.find_one({"username": session["user"]})
+        user_recipes_ids = user_data.get('user_recipes')
         if session["user"] and user_recipes_ids:
             if recipe_id.get("_id") in user_recipes_ids:
                 return render_template("recipe.html", recipe_id=recipe_id, user_recipe_id=recipe_id.get("_id"))
+    else:
+        return render_template("recipe.html", recipe_id=recipe_id)
 
-    return render_template("recipe.html", recipe_id=recipe_id)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -100,7 +100,7 @@ def login():
             # username does not exist
             flash("Incorrect Username/ Password, please try again")
             return redirect(url_for("login"))
-    
+
     return render_template("login.html")
 
 
@@ -129,7 +129,7 @@ def my_recipes(username):
                 recipe = mongo.db.recipes_clean.find_one({"_id": ObjectId(object_id)})
                 user_recipes.append(recipe)
             return render_template("my_recipes.html", username=username, user_recipes=user_recipes, submited_recipes=submited_recipes)
-       
+
     return render_template("my_recipes.html", username=username)
 
 
