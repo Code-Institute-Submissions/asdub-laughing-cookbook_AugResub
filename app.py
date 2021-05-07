@@ -24,22 +24,22 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/recipes")
 def recipes():
-    # filter data before being passed to UI
-    # Only displaying content rich data
-    recipes = list(mongo.db.recipes.find(
-        {"photo_url": {"$exists": True, "$not": {"$type": 10}},
-            "total_time_minutes": {"$gt": 0},
-            "description": {"$exists": True},
-            "$expr": {"$gt": [{"$strLenCP": "$description"}, 80]}
-        }))
+    recipes = list(mongo.db.recipes_clean.find())
     random.shuffle(recipes)
     return render_template("recipes.html", recipes=recipes)
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    tasks = list(mongo.db.tasks.find({"$text": {"$search": query}}))
+    return render_template("tasks.html", tasks=tasks)
 
 
 @app.route("/recipe/<recipe_id>")
 def recipe(recipe_id):
     # recipe id checked against database id
-    recipe_id = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    recipe_id = mongo.db.recipes_clean.find_one({"_id": ObjectId(recipe_id)})
     user_data = mongo.db.users.find_one({"username": session["user"]})
     user_recipes_ids = user_data.get('user_recipes')
 
@@ -119,14 +119,14 @@ def my_recipes(username):
         {"username": session["user"]})["username"]
     user_data = mongo.db.users.find_one({"username": username})
     user_recipes_ids = user_data.get('user_recipes')
-    submited_recipes = list(mongo.db.recipes.find({"chef_id": session["user"]}))
+    submited_recipes = list(mongo.db.recipes_clean.find({"chef_id": session["user"]}))
     # Pass username to my_recipes.html
     if session["user"]:
         # Check if user has pinned recipes for rendering in My Recipe profile
         if user_recipes_ids:
             user_recipes = []
             for object_id in user_recipes_ids:
-                recipe = mongo.db.recipes.find_one({"_id": ObjectId(object_id)})
+                recipe = mongo.db.recipes_clean.find_one({"_id": ObjectId(object_id)})
                 user_recipes.append(recipe)
             return render_template("my_recipes.html", username=username, user_recipes=user_recipes, submited_recipes=submited_recipes)
        
@@ -136,7 +136,7 @@ def my_recipes(username):
 @app.route("/pin_recipe/<recipe_id>")
 def pin_recipe(recipe_id):
     # Add recipe from recipes.html to user my recipes profile page
-    recipe_id = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    recipe_id = mongo.db.recipes_clean.find_one({"_id": ObjectId(recipe_id)})
     # Check if recipe has already been added
     pinned_recipes = mongo.db.users.find({"username": session["user"], "user_recipes": {"$in": [ObjectId(recipe_id.get("_id"))],}}).count()
     if pinned_recipes == 1:
@@ -160,7 +160,7 @@ def remove_recipe(recipe_id):
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     # Delete user submitted receipe
-    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    mongo.db.recipes_clean.remove({"_id": ObjectId(recipe_id)})
     flash("Your submited Recipe has been deleted")
     return redirect(url_for("my_recipes", username=session["user"]))
 
@@ -182,7 +182,7 @@ def add_recipe():
             "total_time_minutes": int(request.form.get("cooking_time_minutes")) + int(request.form.get("preparation_time_minutes"))
 
         }
-        mongo.db.recipes.insert_one(recipe)
+        mongo.db.recipes_clean.insert_one(recipe)
         flash("Your Recipe Has Been Successfully Added")
         return redirect(url_for("my_recipes", username=session["user"]))
     return render_template("add_recipe.html")
@@ -205,10 +205,10 @@ def edit_recipe(recipe_id):
             "total_time_minutes": int(request.form.get("cooking_time_minutes")) + int(request.form.get("preparation_time_minutes"))
 
         }
-        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, edit)
+        mongo.db.recipes_clean.update({"_id": ObjectId(recipe_id)}, edit)
         flash("Your Recipe Has Been Successfully Updated")
 
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    recipe = mongo.db.recipes_clean.find_one({"_id": ObjectId(recipe_id)})
     return render_template("edit_recipe.html", recipe=recipe)
 
 
