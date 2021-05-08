@@ -79,6 +79,7 @@ def register():
             "last_active": datetime.datetime.now(),
             "last_ip": request.remote_addr,
             "submissions": None,
+            "active": True
         }
         mongo.db.users.insert_one(register)
         # put new user into session
@@ -102,6 +103,7 @@ def login():
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 session["is_admin"] = existing_user["is_admin"]
+                existing_user.update_many({"last_active": datetime.datetime.now()}, {"last_ip": request.remote_addr}, {"$set": {"active": True}})
                 name = request.form.get("username").capitalize()
                 flash("Welcome, {}".format(name))
                 render = redirect(
