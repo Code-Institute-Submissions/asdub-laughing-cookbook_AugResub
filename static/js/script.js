@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Vars for mobile side navigation 
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems);
-    // Vars and options for Materialize tooltip for 'Add to My Recipes'
+    // Vars and options for Materialize tooltips
     var save_tooltip = document.querySelectorAll('.tooltipped');
     var instances = M.Tooltip.init(save_tooltip, {
                                     position: "top", 
@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                     });
   });
 
+// Allows users to add additional ingredient/ instruction liness when adding a new recipe
+// Adapted from: https://dev.to/niick007/how-to-add-unlimited-fields-in-form-using-javascript-and-store-into-database-with-php-14ni
 document.getElementById("addingredient").addEventListener("click", function add_ingredient() {
   var x = document.getElementById("incredientsContainer");
   var new_field = document.createElement("input");
@@ -50,5 +52,3 @@ document.getElementById("addinstruction").addEventListener("click", function add
 
   x.insertBefore(new_field, x.childNodes[pos]);
 });
-
-// Adapted from: https://dev.to/niick007/how-to-add-unlimited-fields-in-form-using-javascript-and-store-into-database-with-php-14ni

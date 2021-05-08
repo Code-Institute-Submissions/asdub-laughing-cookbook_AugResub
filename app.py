@@ -135,8 +135,10 @@ def my_recipes(username):
 
 @app.route("/admin/")
 def admin():
-    return render_template("admin.html")
-
+    if session["is_admin"] == "yes":
+        user_data = list(mongo.db.users.find())
+        recipe_data = list(mongo.db.recipe_clean.find())
+    return render_template("admin.html", users=user_data, recipes=recipe_data)
 
 
 @app.route("/pin_recipe/<recipe_id>")

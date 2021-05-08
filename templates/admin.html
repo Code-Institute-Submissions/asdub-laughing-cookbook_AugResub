@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="row">
+        <!-- Page title -->
+        <h3 class="heading"><i class="fas fa-plus-square orange-text text-darken-1"></i> Add a Recipe</h3>
+        <h4 class="heading-tag"> Complete the fields below to add your recipe</h4>
+       {% for user in users %}
+       <span>{{user.username}}</span><br>
+       {% endfor %}
+    </div>
+     <!-- recipe form -->
+    <div class="row">
+        <div class="col s12 m6 l4">
+            <canvas id="myChart" width="400" height="400"></canvas>
+            <script src="{{ url_for('static', filename='js/chart_recipe.js') }}"></script>
+        </div>
+    </div>
+
+{% endblock %}
