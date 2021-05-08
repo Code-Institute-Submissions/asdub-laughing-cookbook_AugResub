@@ -74,7 +74,11 @@ def register():
             "lname": request.form.get("lname").lower(),
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "is_admin": "no"
+            "is_admin": "no",
+            "created_on": datetime.datetime.now(),
+            "last_active": datetime.datetime.now(),
+            "last_ip": request.remote_addr,
+            "submissions": None,
         }
         mongo.db.users.insert_one(register)
         # put new user into session
