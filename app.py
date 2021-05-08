@@ -1,5 +1,6 @@
 import os
 import random
+import datetime
 from flask import (
     Flask, flash, render_template, redirect,
     request, session, url_for)
@@ -153,11 +154,18 @@ def my_recipes(username):
 
 # Admin dashboard
 @app.route("/admin")
+@app.route("/admin/")
 def admin():
     if session["is_admin"] == "yes":
         user_data = list(mongo.db.users.find())
-        recipe_data = list(mongo.db.recipe_clean.find())
-    return render_template("admin.html", users=user_data, recipes=recipe_data)
+        recipe_data = list(mongo.db.recipes_clean.find())
+        chef_data = list(mongo.db.recipes_clean.aggregate([
+            {"$group": {"_id": "$chef"}},
+            {"$group": {"_id": 1, "count": {"$sum": 1}}},
+        ]))
+        text_data = mongo.db.recipes_clean.distinct("chef")
+        flash(chef_data)
+    return render_template("admin.html", users=user_data, recipes=recipe_data, chef_data=chef_data,  text_data=text_data )
 
 
 # Pin recipe route
