@@ -6,7 +6,6 @@ from flask import (
     request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from werkzeug.exceptions import HTTPException
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
@@ -212,10 +211,16 @@ def admin():
                 {"$group": {"_id": "$chef", "count": {"$sum": 1}}}, {"$sort": {"count": -1}}, {"$limit": 5},
                 # {"$group": {"_id": "Chefs", "count": {"$sum": 1}}},
         ]))
-        activity_data = list(mongo.db.users.aggregate([
-                {"$group": {"_id": "$username", "total": { "$sum": { "$size":"$activity" } }}}
+        activity_data = list(mongo.db.users.aggregate([{
+            "$group": {"_id": "$username",
+            "total": {"$sum": {"$size": "$activity"}}}}
         ]))
-    return render_template("admin.html", users=user_data, recipe_data=recipe_data, chef_data=chef_data,  activity_data=activity_data )
+        render = render_template(
+            "admin.html", users=user_data,
+            recipe_data=recipe_data, chef_data=chef_data,
+            activity_data=activity_data
+        )
+    return render
 
 
 @app.route("/admin/user_activity/<user_id>")

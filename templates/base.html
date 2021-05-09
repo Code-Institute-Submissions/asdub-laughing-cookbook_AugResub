@@ -73,6 +73,41 @@
             {% block content %}
             {% endblock %}
         </main>
+        {% block footer %}
+            <footer class="page-footer orange darken-1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col l6 s12">
+                            <h5 class="white-text"><i class="fas fa-utensils icon-logo"></i> The Cookbook</h5>
+                            <p class="white-text">Discover and share your favorite recipes.</p>
+                        </div>
+                        <div class="col l4 offset-l2 s12">
+                            <ul>
+                                <li><a class="white-text" href="{{ url_for('recipes') }}"><i class="fas fa-search icon-nav"></i> Discover Recipes</a></li>
+                                <!-- Check and display user menu level -->
+                               {% if session.user %}
+                                   <li><a class="white-text" href="{{ url_for('my_recipes', username=session['user']) }}"><i class="fas fa-user icon-nav"></i> Your Recipes</a></li>
+                                   <li><a class="white-text" href="{{ url_for('add_recipe') }}"><i class="fas fa-plus-square icon-nav"></i> Add Receipe</a></li>
+                                   <!-- Admin only -->
+                                   {% if session.is_admin == "yes" %}
+                                       <li><a class="white-text" href="{{ url_for('admin') }}"><i class="fas fa-cog icon-nav"></i> Admin Dashboard</a></li>
+                                   {% endif %}
+                                   <li><a class="white-text" href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt icon-nav"></i> Log Out</a></li>
+                               {% else %}
+                                   <li><a class="white-text" href="{{ url_for('login') }}"><i class="fas fa-lock icon-nav"></i> Log In</a></li>
+                                   <li><a class="white-text" href="{{ url_for('register') }}"><i class="fas fa-pencil-alt icon-nav"></i> Register</a></li>
+                               {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-copyright">
+                    <div class="container">
+                        © 2021
+                    </div>
+                </div>
+            </footer>
+        {% endblock %}
         {% block scripts%}
             <!-- Load internal and external scripts (Materialize 1.0.0 & Chart.js) -->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
