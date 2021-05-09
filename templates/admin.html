@@ -45,16 +45,21 @@
             {% endfor %}
         </div>
         <div class="row">
+            <!-- Admin dashboard charts -->
             <div class="col s12 m6 l6">
                 <canvas id="chefChart" width="400" height="400"></canvas> 
-                 <!-- Load Chart.js config and data from database -->
-                <script src="{{ url_for('static', filename='js/charts.js') }}"></script>
-                <script>
-                    document.addEventListener('DOMContentLoaded', function() {
-                        chart = chart_chef({{chef_data|tojson}})
-                    });
-                </script>
             </div>
+            <div class="col s12 m6 l6">
+                <canvas id="userChart" width="400" height="400"></canvas> 
+            </div>
+            <!-- Load Chart.js config and data from database -->
+            <script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    chef_Chart = chart_chef({{chef_data|tojson}})
+                    user_Chart = chart_user({{activity_data|tojson}})
+                });
+            </script>
         </div>
     </div>
 
