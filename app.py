@@ -64,6 +64,9 @@ def register():
         # check if user exists
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
+        # create timestamp for user activity
+        time = datetime.datetime.now()
+        timestamp = time.strftime("%d-%b-%Y (%H:%M:%S)")
 
         if existing_user:
             flash("Username already exists")
@@ -75,11 +78,12 @@ def register():
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
             "is_admin": "no",
-            "created_on": datetime.datetime.now(),
-            "last_active": datetime.datetime.now(),
+            "created_on": timestamp,
+            "last_active": timestamp,
             "last_ip": request.remote_addr,
             "submissions": None,
-            "active": True
+            "active": True,
+            "activity": ["User registered on: " + timestamp]
         }
         mongo.db.users.insert_one(register)
         # put new user into session
@@ -101,9 +105,26 @@ def login():
             # check hashed password matches user input
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
+                # Add user session vars for verification purposes
                 session["user"] = request.form.get("username").lower()
                 session["is_admin"] = existing_user["is_admin"]
-                existing_user.update_many({"last_active": datetime.datetime.now()}, {"last_ip": request.remote_addr}, {"$set": {"active": True}})
+                # update user data
+                time = datetime.datetime.now()
+                timestamp = time.strftime("%d-%b-%Y (%H:%M:%S)")
+                mongo.db.users.update_one({
+                    "_id": existing_user.get("_id")},
+                    {"$set": {
+                        "last_active": timestamp,
+                        "last_ip": request.remote_addr,
+                        "active": True
+                    }
+                })
+                mongo.db.users.update_one({
+                    "_id": existing_user.get("_id")},
+                    {"$addToSet": {
+                        "activity": "User logged in on: " + timestamp
+                    }
+                })
                 name = request.form.get("username").capitalize()
                 flash("Welcome, {}".format(name))
                 render = redirect(
@@ -124,6 +145,27 @@ def login():
 # logout recipe route
 @app.route("/logout")
 def logout():
+    # update user data
+    existing_user = mongo.db.users.find_one(
+            {"username": session["user"]}
+    )
+    # create timestamp for user activity
+    time = datetime.datetime.now()
+    timestamp = time.strftime("%d-%b-%Y (%H:%M:%S)")
+    mongo.db.users.update_one({
+        "_id": existing_user.get("_id")},
+        {"$set": {
+            "last_active": timestamp,
+            "last_ip": request.remote_addr,
+            "active": False
+        }
+    })
+    mongo.db.users.update_one({
+        "_id": existing_user.get("_id")},
+        {"$addToSet": {
+            "activity": "User logged out on: " + timestamp
+        }
+    })
     # remove user session cookies
     flash("You have been successfully logged out")
     session.pop("user")

@@ -31,7 +31,7 @@ document.getElementById("addingredient").addEventListener("click", function add_
   var new_field = document.createElement("input");
   new_field.setAttribute("type", "text");
   new_field.setAttribute("name", "ingredients");
-  new_field.setAttribute("minlength", "5");
+  new_field.setAttribute("minlength", "3");
   new_field.setAttribute("maxlength", "30");
   new_field.setAttribute("class", "validate");
   var pos = x.childElementCount;
@@ -45,7 +45,7 @@ document.getElementById("addinstruction").addEventListener("click", function add
   var new_field = document.createElement("input");
   new_field.setAttribute("type", "text");
   new_field.setAttribute("name", "instructions");
-  new_field.setAttribute("minlength", "5");
+  new_field.setAttribute("minlength", "3");
   new_field.setAttribute("maxlength", "30");
   new_field.setAttribute("class", "validate");
   var pos = x.childElementCount;
