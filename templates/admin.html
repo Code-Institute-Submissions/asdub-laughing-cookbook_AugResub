@@ -12,6 +12,7 @@
         <div class="row">
         {% for user in users %}
             <div class="col s12 m6 l4">
+                <!-- User information card -->
                 <div class="card hoverable">
                     <div class="card-content user-card-content">
                         <span class="card-title"><i class="far fa-user orange-text text-darken-1"></i> {{ user.username }}</span>
@@ -22,6 +23,7 @@
                             <blockquote>{{ user.activity[-1] }}</blockquote>
                         </div>
                     </div>
+                    <!-- Link to user activity view -->
                     <div class="card-action">
                         <a href="" class="orange-text text-darken-1">View Activity</a>
                         <span class="new badge grey darken-1" data-badge-caption="submissions"><i class="fas fa-plus"></i> {{ user.submissions }}</span>
@@ -36,7 +38,7 @@
             </div>
         {% endif %}
     </div>
-     <!-- recipe form -->
+     <!-- Database metrics -->
     <div class="row">
         <h4 class="heading-tag"><i class="fas fa-chart-area orange-text text-darken-1 icon-nav"></i> Statistics</h4>
         <div class="row">
