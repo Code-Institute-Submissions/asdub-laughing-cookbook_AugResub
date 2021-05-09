@@ -3,23 +3,32 @@
 
     <div class="row">
         <!-- Page title -->
-        <h3 class="heading"><i class="fas fa-list-ol orange-text text-darken-1"></i> User Activity</h3>
-        <h4 class="heading-tag"> Username {{ data.username }}</h4>
+        <h3 class="heading"><i class="fas fa-list orange-text text-darken-1"></i> User Activity</h3>
+        <h4 class="heading-tag">{{ user_data.username }}'s activity</h4>
     </div>
     
      <!-- User activing -->
     <div class="row">
         <div class="col s12">
             <div class="card">
-                <div class="card-content user-card-content stat-cards center-align">
-                    <div class="card-title">
-                        <span>User Activity:</span>
+                <div class="card-content user-card-content stat-cards">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Activity:</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in user_data.activity %}
+                            <tr>
+                                <td class="user-card-data">{{ i }}</td>
+                            </tr
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <div class="card-action">
+                        <a href="{{ url_for('admin') }}" class="orange-text text-darken-1"><i class="fas fa-arrow-left icon-nav orange-text text-darken-1"> </i>Back to admin</a>
                     </div>
-                    <ol>
-                        {% for i in data %}
-                        <li>{{ [i].activity }}</li>
-                        {% endfor %}
-                    </ol>
                 </div> 
             </div>
         </div>

@@ -25,7 +25,7 @@
                     </div>
                     <!-- Link to user activity view -->
                     <div class="card-action">
-                        <a href="" class="orange-text text-darken-1">View Activity</a>
+                        <a href="{{ url_for('user_activity', user_id=user._id) }}" class="orange-text text-darken-1">View Activity</a>
                         <span class="new badge grey darken-1" data-badge-caption="submissions"><i class="fas fa-plus"></i> {{ user.submissions }}</span>
                     </div>
                 </div>

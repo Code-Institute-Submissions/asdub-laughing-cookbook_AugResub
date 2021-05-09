@@ -218,6 +218,12 @@ def admin():
     return render_template("admin.html", users=user_data, recipe_data=recipe_data, chef_data=chef_data,  activity_data=activity_data )
 
 
+@app.route("/admin/user_activity/<user_id>")
+def user_activity(user_id):
+    user_activity = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+    return render_template("user_activity.html", user_data=user_activity)
+
+
 # Pin recipe route
 @app.route("/pin_recipe/<recipe_id>")
 def pin_recipe(recipe_id):
