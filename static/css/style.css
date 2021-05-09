@@ -114,5 +114,29 @@ h4.heading-tag {
     border-top: 1px solid rgb(222 145 50 / 35%);
 }
 
+/* Admin Dashboard */
+.user-card-content {
+    padding: 1rem;
+    border-radius: 0 0 2px 2px;
+    display: flex;
+    flex-direction: column;
+}
 
+.user-card-title {
+    font-size: 0.9rem;
+    color: rgba(0,0,0,0.6);
+}
 
+.user-card-data {
+    font-size: 1rem;
+    color: rgba(0,0,0,1);
+}
+
+.user-activity {
+    padding: 5px 0 0 0;
+    font-size: 0.8rem;
+}
+
+blockquote {
+    border-left: 5px solid #fb8c00;
+}

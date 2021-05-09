@@ -3,20 +3,47 @@
 
     <div class="row">
         <!-- Page title -->
-        <h3 class="heading"><i class="fas fa-plus-square orange-text text-darken-1"></i> Add a Recipe</h3>
-        <h4 class="heading-tag"> Complete the fields below to add your recipe</h4>
-       {% for user in users %}
-       <span>{{user.username}}</span><br>
-       {% endfor %}
+        <h3 class="heading"><i class="fas fa-cog orange-text text-darken-1"></i> Admin Dashboard</h3>
+        <h4 class="heading-tag"> View user and recipe statistics</h4>
     </div>
     <div class="row">
-     {{ text_data }}
+        <h4 class="heading-tag"><i class="fas fa-users orange-text text-darken-1 icon-nav"></i> Users</h4>
+        {% if users %}
+        <div class="row">
+        {% for user in users %}
+            <div class="col s12 m6 l4">
+                <div class="card hoverable">
+                    <div class="card-content user-card-content">
+                        <span class="card-title"><i class="far fa-user orange-text text-darken-1"></i> {{ user.username }}</span>
+                        <span class="user-card-title">Full Name: <strong class="user-card-data">{{ user.fname|capitalize + " " + user.lname|capitalize }}</strong></span>
+                        <span class="user-card-title">Last Active: <strong class="user-card-data">{{ user.last_active }}</strong></span>
+                        <div class="user-activity">
+                            <span><i class="fas fa-wave-square orange-text text-darken-1"></i> Last Activity:</span>
+                            <blockquote>{{ user.activity[-1] }}</blockquote>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="" class="orange-text text-darken-1">View Activity</a>
+                        <span class="new badge grey darken-1" data-badge-caption="submissions"><i class="fas fa-plus"></i> {{ user.submissions }}</span>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+        {% else %}
+            <div class="row">
+                <p>No users found</p>
+            </div>
+        {% endif %}
     </div>
      <!-- recipe form -->
     <div class="row">
-        <div class="col s12 m6 l4">
-            <canvas id="myChart" width="400" height="400"></canvas>
-            <script src="{{ url_for('static', filename='js/chart_recipe.js') }}"></script>
+        <h4 class="heading-tag"><i class="fas fa-chart-area orange-text text-darken-1 icon-nav"></i> Statistics</h4>
+        <div class="row">
+            <div class="col s12 m6 l4">
+                <canvas id="myChart" width="400" height="400"></canvas>
+                <script src="{{ url_for('static', filename='js/chart_recipe.js') }}"></script>
+            </div>
         </div>
     </div>
 
