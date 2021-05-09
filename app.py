@@ -81,7 +81,7 @@ def register():
             "created_on": timestamp,
             "last_active": timestamp,
             "last_ip": request.remote_addr,
-            "submissions": None,
+            "submissions": 0,
             "active": True,
             "activity": ["User registered on: " + timestamp]
         }
@@ -241,7 +241,7 @@ def pin_recipe(recipe_id):
     return redirect(url_for("my_recipes", username=session["user"]))
 
 
-# Remove recipe route
+# Remove pinned recipe route
 @app.route("/remove_recipe/<recipe_id>")
 def remove_recipe(recipe_id):
     # Remove pinned recipe from user profile (recipe not deleted)
@@ -254,18 +254,12 @@ def remove_recipe(recipe_id):
     return redirect(url_for("my_recipes", username=session["user"]))
 
 
-# Delete recipe route
-@app.route("/delete_recipe/<recipe_id>")
-def delete_recipe(recipe_id):
-    # Delete user submitted receipe
-    mongo.db.recipes_clean.remove({"_id": ObjectId(recipe_id)})
-    flash("Your submited Recipe has been deleted")
-    return redirect(url_for("my_recipes", username=session["user"]))
-
-
 # Add recipe route
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+    existing_user = mongo.db.users.find_one(
+            {"username": session["user"]}
+    )
     if request.method == "POST":
         recipe = {
             "chef": request.form.get("name"),
@@ -286,6 +280,13 @@ def add_recipe():
 
         }
         mongo.db.recipes_clean.insert_one(recipe)
+        if existing_user:
+            mongo.db.users.update_one({
+                "_id": existing_user.get("_id")},
+                {"$inc": {
+                    "submissions": 1
+                }
+            })
         flash("Your Recipe Has Been Successfully Added")
         return redirect(url_for("my_recipes", username=session["user"]))
     return render_template("add_recipe.html")
@@ -318,6 +319,25 @@ def edit_recipe(recipe_id):
 
     recipe = mongo.db.recipes_clean.find_one({"_id": ObjectId(recipe_id)})
     return render_template("edit_recipe.html", recipe=recipe)
+
+
+# Delete recipe route
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    # Delete user submitted receipe
+    existing_user = mongo.db.users.find_one(
+            {"username": session["user"]}
+    )
+    mongo.db.recipes_clean.remove({"_id": ObjectId(recipe_id)})
+    if existing_user:
+        mongo.db.users.update_one({
+            "_id": existing_user.get("_id")},
+            {"$inc": {
+                "submissions": -1
+            }
+        })
+    flash("Your submited Recipe has been deleted")
+    return redirect(url_for("my_recipes", username=session["user"]))
 
 
 if __name__ == "__main__":
