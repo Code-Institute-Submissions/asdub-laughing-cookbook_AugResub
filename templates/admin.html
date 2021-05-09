@@ -40,17 +40,40 @@
     <div class="row">
         <h4 class="heading-tag"><i class="fas fa-chart-area orange-text text-darken-1 icon-nav"></i> Statistics</h4>
         <div class="row">
-            {% for data in activity_data %}
-                <p>{{ data }}</p>
-            {% endfor %}
+            <div class="col s6">
+                <div class="card">
+                    <div class="card-content user-card-content stat-cards center-align">
+                        <i class="fas fa-utensil-spoon orange-text text-darken-1"></i>
+                        <strong>{{ recipe_data|count}}</strong>
+                        <span>Recipe's in database</span>
+                    </div> 
+                </div>
+            </div>
+            <div class="col s6">
+                <div class="card">
+                    <div class="card-content user-card-content stat-cards center-align">
+                        <i class="fas fa-user orange-text text-darken-1"></i>
+                        <strong>{{ users|count }}</strong>
+                        <span>Registered Users</span>
+                    </div> 
+                </div>
+            </div>
         </div>
         <div class="row">
             <!-- Admin dashboard charts -->
             <div class="col s12 m6 l6">
-                <canvas id="chefChart" width="400" height="400"></canvas> 
+                <div class="card">
+                    <div class="card-content">
+                        <canvas id="chefChart" width="400" height="400"></canvas>
+                    </div>
+                </div>
             </div>
             <div class="col s12 m6 l6">
-                <canvas id="userChart" width="400" height="400"></canvas> 
+                <div class="card">
+                    <div class="card-content">
+                        <canvas id="userChart" width="400" height="400"></canvas>
+                    </div>
+                </div> 
             </div>
             <!-- Load Chart.js config and data from database -->
             <script src="{{ url_for('static', filename='js/charts.js') }}"></script>

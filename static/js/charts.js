@@ -11,7 +11,7 @@ function chart_chef(chef_data) {
     const data = {
         labels: labels,
         datasets: [{
-            label: 'Top 5 Chefs',
+            label: 'Top 5 Chefs, by recipe count',
             data: data_count,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -57,7 +57,6 @@ function chart_user(activity_data) {
         labels.push(activity_data[i]._id)
         data_count.push(activity_data[i].total)
     }
-    console.log(labels)
     const data = {
         labels: labels,
         datasets: [{

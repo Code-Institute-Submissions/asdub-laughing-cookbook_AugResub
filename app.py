@@ -215,7 +215,7 @@ def admin():
         activity_data = list(mongo.db.users.aggregate([
                 {"$group": {"_id": "$username", "total": { "$sum": { "$size":"$activity" } }}}
         ]))
-    return render_template("admin.html", users=user_data, recipes=recipe_data, chef_data=chef_data,  activity_data=activity_data )
+    return render_template("admin.html", users=user_data, recipe_data=recipe_data, chef_data=chef_data,  activity_data=activity_data )
 
 
 # Pin recipe route
