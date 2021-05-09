@@ -209,12 +209,13 @@ def admin():
         user_data = list(mongo.db.users.find())
         recipe_data = list(mongo.db.recipes_clean.find())
         chef_data = list(mongo.db.recipes_clean.aggregate([
-            {"$group": {"_id": "$chef"}},
-            {"$group": {"_id": 1, "count": {"$sum": 1}}},
+                {"$group": {"_id": "$chef", "count": {"$sum": 1}}}, {"$sort": {"count": -1}}, {"$limit": 5},
+                # {"$group": {"_id": "Chefs", "count": {"$sum": 1}}},
         ]))
-        text_data = mongo.db.recipes_clean.distinct("chef")
-        flash(chef_data)
-    return render_template("admin.html", users=user_data, recipes=recipe_data, chef_data=chef_data,  text_data=text_data )
+        activity_data = list(mongo.db.users.aggregate([
+                {"$group": {"_id": "$username", "total": { "$sum": { "$size":"$activity" } }}}
+        ]))
+    return render_template("admin.html", users=user_data, recipes=recipe_data, chef_data=chef_data,  activity_data=activity_data )
 
 
 # Pin recipe route

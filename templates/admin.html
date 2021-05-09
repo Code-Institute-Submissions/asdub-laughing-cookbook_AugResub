@@ -40,9 +40,20 @@
     <div class="row">
         <h4 class="heading-tag"><i class="fas fa-chart-area orange-text text-darken-1 icon-nav"></i> Statistics</h4>
         <div class="row">
-            <div class="col s12 m6 l4">
-                <canvas id="myChart" width="400" height="400"></canvas>
-                <script src="{{ url_for('static', filename='js/chart_recipe.js') }}"></script>
+            {% for data in activity_data %}
+                <p>{{ data }}</p>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <canvas id="chefChart" width="400" height="400"></canvas> 
+                 <!-- Load Chart.js config and data from database -->
+                <script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        chart = chart_chef({{chef_data|tojson}})
+                    });
+                </script>
             </div>
         </div>
     </div>
