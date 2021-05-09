@@ -58,6 +58,10 @@
               </div>
               <div class="card-action">
                 <a href="{{ url_for('recipe', recipe_id=recipe._id) }}" class="orange-text text-darken-1">View Receipe</a>
+                 <!-- Allow admin to edit all recipes -->
+                {% if session.is_admin == "yes" %}
+                  <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="orange-text text-darken-4"><i class="far fa-edit"></i> Edit Receipe</a>
+                {% endif %}
                 <span class="new badge orange darken-1" data-badge-caption="mins"><i class="fas fa-clock"></i> {{ recipe.total_time_minutes }}</span>
               </div>
             </div>

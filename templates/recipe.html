@@ -61,8 +61,9 @@
         <div class="card-action">
           {% if user_recipe_id == recipe_id._id  %}
             <a href="{{ url_for('remove_recipe', recipe_id=recipe_id._id) }}" class="btn red"><i class="fas fa-thumbtack icon-nav"></i>Unpin Recipe</a>
-          {% elif recipe_id.chef_id == session.user %}
+          {% elif recipe_id.chef_id == session.user or session.is_admin == "yes" %}
             <a href="{{ url_for('delete_recipe', recipe_id=recipe_id._id) }}" class="btn red"><i class="fas fa-trash-alt icon-nav"></i>Delete Recipe</a>
+            <a href="{{ url_for('edit_recipe', recipe_id=recipe_id._id) }}" class="btn orange accent-4"><i class="fas fa-edit icon-nav"></i>Edit Recipe</a>
           {% elif session.user %}
             <a href="{{ url_for('pin_recipe', recipe_id=recipe_id._id) }}" class="btn orange darken-1"><i class="fas fa-thumbtack icon-nav"></i> Pin Recipe</a>
           {% else %}
