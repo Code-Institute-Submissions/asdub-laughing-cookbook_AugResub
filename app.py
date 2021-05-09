@@ -105,7 +105,6 @@ def login():
             # check hashed password matches user input
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
-                # Add user session vars for verification purposes
                 session["user"] = request.form.get("username").lower()
                 session["is_admin"] = existing_user["is_admin"]
                 # update user data
@@ -150,6 +149,8 @@ def logout():
             {"username": session["user"]}
     )
     # create timestamp for user activity
+    session.pop("user")
+    session.pop("is_admin")
     time = datetime.datetime.now()
     timestamp = time.strftime("%d-%b-%Y (%H:%M:%S)")
     mongo.db.users.update_one({
@@ -168,7 +169,6 @@ def logout():
     })
     # remove user session cookies
     flash("You have been successfully logged out")
-    session.pop("user")
     return redirect(url_for("login"))
 
 
