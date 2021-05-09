@@ -6,6 +6,7 @@ from flask import (
     request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from werkzeug.exceptions import HTTPException
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
@@ -346,20 +347,10 @@ def delete_recipe(recipe_id):
     return redirect(url_for("my_recipes", username=session["user"]))
 
 
-# 404 error handling
-@app.errorhandler(404)
-def not_found_error(error):
-    return render_template('404.html'),404
- 
-
-# 505 error handling
-@app.errorhandler(500)
-def internal_error(error):
-    return render_template('500.html'),500
-
+# Issue with custom error pages. Removed until later point.
 
 if __name__ == "__main__":
     app.run(host=os.environ.get(
         "IP"), port=int(os.environ.get(
-            "PORT")), debug=False)
+            "PORT")), debug=True)
 # Debug True!!
