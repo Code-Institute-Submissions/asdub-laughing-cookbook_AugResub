@@ -12,7 +12,7 @@
     {% for subrecipe in submited_recipes %}
     <div class="col s12 m6 l4">
       <div class="card hoverable">
-        <div class="card-image">
+        <div class="card-image responsive-img">
           <img src="{{ subrecipe.photo_url }}">
           <div class="recipe-title-container">
             <span class="card-title">{{ subrecipe.title }}</span>
@@ -42,7 +42,7 @@
       {% for recipe in user_recipes %}
       <div class="col s12 m6 l4">
         <div class="card hoverable">
-          <div class="card-image">
+          <div class="card-image responsive-img">
             <img src="{{ recipe.photo_url }}">
             <div class="recipe-title-container">
               <span class="card-title">{{ recipe.title }}</span>
