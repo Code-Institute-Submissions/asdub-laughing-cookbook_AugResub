@@ -148,9 +148,10 @@ def logout():
     existing_user = mongo.db.users.find_one(
             {"username": session["user"]}
     )
-    # create timestamp for user activity
+    # remove session vars
     session.pop("user")
-    session.pop("is_admin")
+    session.pop("is_admin", None)
+    # create timestamp for user activity
     time = datetime.datetime.now()
     timestamp = time.strftime("%d-%b-%Y (%H:%M:%S)")
     mongo.db.users.update_one({
