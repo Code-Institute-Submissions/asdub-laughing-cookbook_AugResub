@@ -15,7 +15,12 @@
                     <!-- User information card -->
                     <div class="card hoverable">
                         <div class="card-content user-card-content">
-                            <span class="card-title"><i class="far fa-user orange-text text-darken-1"></i> {{ user.username }}</span>
+                            <!-- Change user icon if active -->
+                            {% if user.active == True %}
+                                <span class="card-title orange-text text-darken-1"><i class="fa fa-user-alt orange-text text-darken-1"></i> {{ user.username }}</span>
+                            {% else %}
+                                <span class="card-title orange-text text-darken-1"><i class="far fa-user orange-text text-darken-1"></i> {{ user.username }}</span>
+                            {% endif %}
                             <span class="user-card-title">Full Name: <strong class="user-card-data">{{ user.fname|capitalize + " " + user.lname|capitalize }}</strong></span>
                             <span class="user-card-title">Last Active: <strong class="user-card-data">{{ user.last_active }}</strong></span>
                             <div class="user-activity">

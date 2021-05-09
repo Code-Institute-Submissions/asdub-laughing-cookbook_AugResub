@@ -123,13 +123,13 @@ h4.heading-tag {
 }
 
 .user-card-title {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: rgba(0,0,0,0.6);
 }
 
 .user-card-data {
-    font-size: 1rem;
-    color: rgba(0,0,0,1);
+    font-size: 0.9rem;
+    color: rgba(0,0,0,0.9);
 }
 
 .user-activity {
