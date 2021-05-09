@@ -20,7 +20,6 @@ app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-
 # Home
 @app.route("/")
 @app.route("/recipes")
@@ -347,8 +346,20 @@ def delete_recipe(recipe_id):
     return redirect(url_for("my_recipes", username=session["user"]))
 
 
+# 404 error handling
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template('404.html'),404
+ 
+
+# 505 error handling
+@app.errorhandler(500)
+def internal_error(error):
+    return render_template('500.html'),500
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get(
         "IP"), port=int(os.environ.get(
-            "PORT")), debug=True)
+            "PORT")), debug=False)
 # Debug True!!
