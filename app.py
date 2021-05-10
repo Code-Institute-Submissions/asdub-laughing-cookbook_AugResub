@@ -43,6 +43,11 @@ def search():
 def recipe(recipe_id):
     # recipe id checked against database id
     recipe_id = mongo.db.recipes_clean.find_one({"_id": ObjectId(recipe_id)})
+    # retrieve advertising data and confirm active advertiser
+    active = mongo.db.site_data.find()
+    for partner in active:
+        site = partner['active_advertiser']
+    ad = mongo.db.advert_data.find_one({"advertiser_id": site})
     if "user" in session:
         user_data = mongo.db.users.find_one({"username": session["user"]})
         user_recipes_ids = user_data.get('user_recipes')
@@ -50,11 +55,11 @@ def recipe(recipe_id):
             if recipe_id.get("_id") in user_recipes_ids:
                 render = render_template(
                     "recipe.html", recipe_id=recipe_id,
-                    user_recipe_id=recipe_id.get("_id"))
+                    user_recipe_id=recipe_id.get("_id"), advert=ad)
                 return render
     else:
-        return render_template("recipe.html", recipe_id=recipe_id)
-    return render_template("recipe.html", recipe_id=recipe_id)
+        return render_template("recipe.html", recipe_id=recipe_id, advert=ad)
+    return render_template("recipe.html", recipe_id=recipe_id, advert=ad)
 
 
 # Register user route
