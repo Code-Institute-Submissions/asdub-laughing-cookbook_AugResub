@@ -214,12 +214,12 @@ def admin():
         user_data = list(mongo.db.users.find())
         recipe_data = list(mongo.db.recipes_clean.find())
         chef_data = list(mongo.db.recipes_clean.aggregate([
-                {"$group": {"_id": "$chef", "count": {"$sum": 1}}}, {"$sort": {"count": -1}}, {"$limit": 5},
-                # {"$group": {"_id": "Chefs", "count": {"$sum": 1}}},
+                {"$group": {"_id": "$chef", "count": {"$sum": 1}}},
+                {"$sort": {"count": -1}}, {"$limit": 5}
         ]))
-        activity_data = list(mongo.db.users.aggregate([{
-            "$group": {"_id": "$username",
-            "total": {"$sum": {"$size": "$activity"}}}}
+        activity_data = list(mongo.db.users.aggregate([
+            {"$group": {"_id": "$username", "total":
+            {"$sum": {"$size": "$activity"}}}}
         ]))
         # retrieve advertising data and confirm active advertiser
         active = mongo.db.site_data.find()
