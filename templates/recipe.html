@@ -41,12 +41,11 @@
                 <i class="fas fa-shopping-cart orange-text text-darken-1"></i>
                 Making {{ recipe_id.title }} tonight?
               </strong>
+              <span>{{ advert['partner_text'] }} </span>
               <a href="{{ advert['partner_url'] }}">
                 Visit our partners {{ advert['advertiser'] }}
               </a>
-              <span>
-                {{ advert['text'] }} <em>Enjoy {{ advert['discount_rate'] }}% off your first order using, {{ advert['discount_code'] }} - code.</em>
-              </span>
+              <span><em>Enjoy {{ advert['discount_rate'] }}% off your first order using, {{ advert['discount_code'] }} - code.</em></span>
             </div>
           </div>
       {% endif %}
