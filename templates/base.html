@@ -83,27 +83,21 @@
                         </div>
                         <div class="col l4 offset-l2 s12">
                             <ul>
-                                <li><a class="white-text" href="{{ url_for('recipes') }}"><i class="fas fa-search icon-nav"></i> Discover Recipes</a></li>
-                                <!-- Check and display user menu level -->
-                               {% if session.user %}
-                                   <li><a class="white-text" href="{{ url_for('my_recipes', username=session['user']) }}"><i class="fas fa-user icon-nav"></i> Your Recipes</a></li>
-                                   <li><a class="white-text" href="{{ url_for('add_recipe') }}"><i class="fas fa-plus-square icon-nav"></i> Add Receipe</a></li>
-                                   <!-- Admin only -->
-                                   {% if session.is_admin == "yes" %}
-                                       <li><a class="white-text" href="{{ url_for('admin') }}"><i class="fas fa-cog icon-nav"></i> Admin Dashboard</a></li>
-                                   {% endif %}
-                                   <li><a class="white-text" href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt icon-nav"></i> Log Out</a></li>
-                               {% else %}
-                                   <li><a class="white-text" href="{{ url_for('login') }}"><i class="fas fa-lock icon-nav"></i> Log In</a></li>
-                                   <li><a class="white-text" href="{{ url_for('register') }}"><i class="fas fa-pencil-alt icon-nav"></i> Register</a></li>
-                               {% endif %}
+                                <span class="social-heading">Our Social Media</span>
+                                <li><a class="white-text" href="https://en.wikipedia.org/wiki/Facebook,_Inc."><i class="fab fa-facebook icon-nav"></i> TheCookBook</a></li>
+                                <li><a class="white-text" href="https://en.wikipedia.org/wiki/Instagram"><i class="fab fa-instagram icon-nav"></i> The_Cook_Book</a></li>
+                                <li><a class="white-text" href="https://en.wikipedia.org/wiki/Twitter"><i class="fab fa-twitter icon-nav"></i> @TheCookBook</a></li>
+
+
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="footer-copyright">
                     <div class="container">
-                        © 2021
+                        © 2021 The CookBook
+                        <a class="white-text right" href="{{ url_for('recipes') }}"><i class="fas fa-search icon-nav"></i> Discover Recipes</a>
+                    </div>
                     </div>
                 </div>
             </footer>

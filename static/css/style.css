@@ -59,7 +59,7 @@ nav .brand-logo {
 }
 
 
-/* Receipes/ Home */ 
+/* receipes/ home */ 
 h3.heading {
     font-size: 2rem;
 }
@@ -114,7 +114,7 @@ h4.heading-tag {
     border-top: 1px solid rgb(222 145 50 / 35%);
 }
 
-/* Admin Dashboard */
+/* admin dashboard */
 .user-card-content {
     padding: 1rem;
     border-radius: 0 0 2px 2px;
@@ -152,4 +152,15 @@ blockquote {
 
 .stat-cards span {
     font-size: 90%;
+}
+
+/* advertising card */
+.advertising-card {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Footer */
+.social-heading {
+    font-size: 0.8rem;
 }
