@@ -66,9 +66,9 @@
                                 <div class="collection advert-collection">
                                 {% for partner in partners%}
                                     {% if advert['advertiser_id'] == partner['advertiser_id'] %}
-                                        <a href="#" class="collection-item active">{{ partner['advertiser'] }}<span class="new badge" data-badge-caption="Active"></span></a>
+                                        <a href="{{ url_for('advertising', user_id=session['user'], partner_id=partner['advertiser_id']) }}" class="collection-item active">{{ partner['advertiser'] }}<span class="new badge" data-badge-caption="Active"></span></a>
                                     {% else %}
-                                        <a href="#" class="collection-item">{{ partner['advertiser'] }}</a>
+                                        <a href="{{ url_for('advertising', user_id=session['user'], partner_id=partner['advertiser_id']) }}" class="collection-item">{{ partner['advertiser'] }}</a>
                                     {% endif %}
                                 {% endfor %}
                                 </div>  

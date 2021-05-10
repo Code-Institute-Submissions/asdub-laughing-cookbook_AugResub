@@ -236,6 +236,21 @@ def admin():
     return render
 
 
+@app.route("/admin/advertising/<partner_id>/")
+def advertising(partner_id):
+    new_id = mongo.db.advert_data.find_one({"advertiser_id": partner_id})
+    old_id = mongo.db.site_data.find_one()
+    mongo.db.site_data.update_one({
+        "active_advertiser": old_id['active_advertiser']},
+        {"$set": {
+            "active_advertiser": new_id['advertiser_id']
+
+        }
+    })
+    flash("Site advertising partner updated")
+    return redirect(url_for("admin"))
+
+
 @app.route("/admin/user_activity/<user_id>")
 def user_activity(user_id):
     user_activity = mongo.db.users.find_one({"_id": ObjectId(user_id)})
