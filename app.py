@@ -22,7 +22,7 @@ mongo = PyMongo(app)
 
 
 # Letencrypt function to display data at required domain
-@app.route(f"/.well-known/acme-challenge/acme-challenge/t6hXa2gvy263TrRmZr7AbW6evV9W5EbRrBbctD--ezE")
+@app.route("/.well-known/acme-challenge/acme-challenge/t6hXa2gvy263TrRmZr7AbW6evV9W5EbRrBbctD--ezE")
 def ssl():
     data = app.config["LETSENCRYPT"]
     return Response(data, mimetype='text/plain')
