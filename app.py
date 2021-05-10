@@ -2,7 +2,7 @@ import os
 import random
 import datetime
 from flask import (
-    Flask, flash, render_template, redirect,
+    Flask, flash, render_template, redirect, render_template_string,
     request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -16,10 +16,17 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
+app.config["LETSENCRYPT"] = os.environ.get("LETSENCRYPT")
 
 
 mongo = PyMongo(app)
 
+
+# Letencrypt function to display data at required domain
+@app.route("/.well-known/acme-challenge/")
+def ssl():
+    data = os.environ.get("LETSENCRYPT")
+    return render_template_string(f"{data}", data=data)
 
 # Home
 @app.route("/")
