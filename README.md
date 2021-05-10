@@ -8,3 +8,52 @@
 **A live version of this project can be found [here](http://laughing-cookbook.herokuapp.com/)**
 
 <img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/iphone_screenshot.png" width="150" alt="The Cookbook on Mobile" />
+
+
+### Project Description
+This project was made as part of the Code Institute Full Stack Development Course. 
+
+I have created a cooking recipe app. 
+Allowing users to discover new recipes and submit their own for other users to enjoy. 
+Users can pin discovered recipes and manage their own submitted ones. 
+An administration dashboard gives an overview of users, advertising and statistics.  
+
+
+## Contents 
+
+* [User Experience (UX)](#user-experience-(ux))
+    * [Brief](#Brief)
+    * [Project Aims](#the-aim-of-this-project-is-to)
+    * [User Stories](#new-user-stories)
+* [Design](#design)
+    * [Colours](#colours)
+    * [Wireframes](#wireframes)
+    * [Typography](#typography)
+    * [Iconography](#iconography)
+    * [Responsive](#responsive)
+    * [Features](#features)
+    * [Database Design](#databasedesign)
+    * [Future Features](#future-features)
+* [Technologies](#technologies)
+    * [Languages](#languages)
+    * [MongoDB](#mongodb)
+    * [APIs / Data](#apidata)
+    * [Version Control & Managment](#version-control--managment)
+    * [Software/ Tools Used](#other-software-tools-used)
+* [Deployment](#deployment)
+    * [Heroku](#heroku)
+    * [Fork](#fork)
+    * [Clone (Locally)](#clone-locally)
+* [Testing](#testing)
+    * [W3C HTML](#wc3-html-validator-results)
+    * [JS Hink](#js-hint)
+    * [PEP8](#pep8)
+    * [W3C CSS](#wc3-css-validator-results)
+    * [Google Lighthouse](#google-lighthouse)
+        * [Initial Test](#initial-test)
+        * [Re-Test](#re-test)
+    * [Manual Testing](#manual-testing)
+        * [Testing Documentaition](https://github.com/asdub/laughing-cookbook/blob/master/readme/test/TESTME.md)
+        * [User Stories Testing](#user-stories-testing)
+    * [Known Bugs](#known-bugs)
+    * [Credits](#credits)

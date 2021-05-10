@@ -2,13 +2,14 @@ import os
 import random
 import datetime
 from flask import (
-    Flask, flash, render_template, redirect, Response,
+    Flask, flash, render_template, redirect,
     request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
+
 
 # App setep
 app = Flask(__name__)
@@ -18,6 +19,7 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
+
 
 # Home
 @app.route("/")
