@@ -2,7 +2,7 @@ import os
 import random
 import datetime
 from flask import (
-    Flask, flash, render_template, redirect, render_template_string,
+    Flask, flash, render_template, redirect, Response,
     request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -26,7 +26,8 @@ mongo = PyMongo(app)
 @app.route("/.well-known/acme-challenge/")
 def ssl():
     data = os.environ.get("LETSENCRYPT")
-    return render_template_string(f"{data}", data=data)
+    return Response(data, mimetype='text/plain')
+
 
 # Home
 @app.route("/")
