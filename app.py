@@ -18,14 +18,13 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 app.config["LETSENCRYPT"] = os.environ.get("LETSENCRYPT")
 
-
 mongo = PyMongo(app)
 
 
 # Letencrypt function to display data at required domain
-@app.route("/.well-known/acme-challenge/")
+@app.route(f"/.well-known/acme-challenge/acme-challenge/t6hXa2gvy263TrRmZr7AbW6evV9W5EbRrBbctD--ezE")
 def ssl():
-    data = os.environ.get("LETSENCRYPT")
+    data = app.config["LETSENCRYPT"]
     return Response(data, mimetype='text/plain')
 
 
