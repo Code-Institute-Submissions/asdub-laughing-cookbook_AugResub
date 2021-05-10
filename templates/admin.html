@@ -9,7 +9,7 @@
         <div class="row">
             <h4 class="heading-tag"><i class="fas fa-users orange-text text-darken-1 icon-nav"></i> Users</h4>
             {% if users %}
-            <div class="row">
+            <div id="users" class="row">
             {% for user in users %}
                 <div class="col s12 m6 l4">
                     <!-- User information card -->
@@ -45,7 +45,7 @@
         </div>
          <!-- Advertising setttings -->
          {% if advert['advertiser'] %}
-         <div class="row">
+         <div id="advertising" class="row">
             <h4 class="heading-tag"><i class="fas fa-chart-area orange-text text-darken-1 icon-nav"></i> Advertising</h4>
             <div class="row">
                 <div class="col s12 m6 l6">

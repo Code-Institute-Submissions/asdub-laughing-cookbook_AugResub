@@ -145,6 +145,7 @@ h4.heading-tag {
 
 .collection .collection-item.active {
     background-color: #fb8c00;
+    color: #ffffff;
 }
 
 .user-card-title {

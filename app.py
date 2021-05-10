@@ -248,7 +248,7 @@ def advertising(partner_id):
         }
     })
     flash("Site advertising partner updated")
-    return redirect(url_for("admin"))
+    return redirect(url_for("admin") + "#advertising")
 
 
 @app.route("/admin/user_activity/<user_id>")
