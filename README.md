@@ -18,6 +18,8 @@ Allowing users to discover new recipes and submit their own for other users to e
 Users can pin discovered recipes and manage their own submitted ones. 
 An administration dashboard gives an overview of users, advertising and statistics.  
 
+<img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/macbook_screenshot.png" alt="The Cookbook on Desktop"/>
+
 
 ## Contents 
 
@@ -26,6 +28,7 @@ An administration dashboard gives an overview of users, advertising and statisti
     * [Project Aims](#the-aim-of-this-project-is-to)
     * [User Stories](#new-user-stories)
 * [Design](#design)
+    * [Frameworks](#frameworks)
     * [Colours](#colours)
     * [Wireframes](#wireframes)
     * [Typography](#typography)
@@ -57,3 +60,14 @@ An administration dashboard gives an overview of users, advertising and statisti
         * [User Stories Testing](#user-stories-testing)
     * [Known Bugs](#known-bugs)
     * [Credits](#credits)
+
+
+
+
+    ## User Experience (UX)
+
+    My intention was to create a simple app that presents its purpose immediately. 
+    Users can easily discover & manage recipes. And can also submit and manage their own personal recipes. 
+    Having previously designed my own layouts and styles, I wanted to use a front-end framework for this project. 
+    The app has been built using [Materialize](https://materializecss.com/) front-end framework.
+
