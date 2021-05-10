@@ -42,7 +42,7 @@
                 Making {{ recipe_id.title }} tonight?
               </strong>
               <span>{{ advert['partner_text'] }} </span>
-              <a href="{{ advert['partner_url'] }}">
+              <a href="{{ advert['partner_url'] }}" target="_blank">
                 Visit our partners {{ advert['advertiser'] }}
               </a>
               <span><em>Enjoy {{ advert['discount_rate'] }}% off your first order using, {{ advert['discount_code'] }} - code.</em></span>
@@ -79,9 +79,9 @@
             <a href="{{ url_for('remove_recipe', recipe_id=recipe_id._id) }}" class="btn red"><i class="fas fa-thumbtack icon-nav"></i>Unpin Recipe</a>
           {% elif recipe_id.chef_id == session.user or session.is_admin == "yes" %}
             <!-- Modal Trigger -->
-            <a href="#deleteMyRecipe" class="btn red modal-trigger"><i class="fas fa-trash-alt icon-nav"></i>Delete Recipe</a>
+            <a href="#deleterecipe" class="btn red modal-trigger"><i class="fas fa-trash-alt icon-nav"></i>Delete Recipe</a>
              <!-- Modal Structure -->
-            <div id="deleteMyRecipe" class="modal">
+            <div id="deleterecipe" class="modal">
               <div class="modal-content">
                   <h4>Delete Recipe</h4>
                   <span class="red-text">Administrator Delete</span>
