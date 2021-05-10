@@ -2,25 +2,25 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Vars for mobile side navigation 
     var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems);
+    var sidenav = M.Sidenav.init(elems);
     // Vars for delete confirmtion modals
     var delete_modal = document.querySelectorAll('.modal');
-    var instances = M.Modal.init(delete_modal);
+    var modal = M.Modal.init(delete_modal);
     // Vars and options for Materialize tooltips
     var save_tooltip = document.querySelectorAll('.tooltipped');
-    var instances = M.Tooltip.init(save_tooltip, {
+    var tooltipped = M.Tooltip.init(save_tooltip, {
                                     position: "top", 
                                     html: "Save to My Recipes",
                                     margin: 0.2
                                   });
     var remove_tooltip = document.querySelectorAll('.remove-fab');
-    var instances = M.Tooltip.init(remove_tooltip, {
+    var remove_fab = M.Tooltip.init(remove_tooltip, {
                                     position: "top", 
                                     html: "Unpin from My Recipes",
                                     margin: 0.2
                                   });
     var delete_tooltip = document.querySelectorAll('.delete-fab');
-    var instances = M.Tooltip.init(delete_tooltip, {
+    var delete_fab = M.Tooltip.init(delete_tooltip, {
                                     position: "top", 
                                     html: "Delete your Recipe",
                                     margin: 0.2
