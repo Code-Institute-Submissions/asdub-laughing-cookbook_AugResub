@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Vars for mobile side navigation 
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems);
+    // Vars for my_recipe delete modal
+    var delete_modal = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(delete_modal);
     // Vars and options for Materialize tooltips
     var save_tooltip = document.querySelectorAll('.tooltipped');
     var instances = M.Tooltip.init(save_tooltip, {

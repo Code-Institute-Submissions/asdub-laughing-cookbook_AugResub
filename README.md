@@ -13,8 +13,9 @@
 ### Project Description
 This project was made as part of the Code Institute Full Stack Development Course. 
 
-I have created a cooking recipe app. 
+I have created a cooking recipe app.\
 Allowing users to discover new recipes and submit their own for other users to enjoy. 
+
 Users can pin discovered recipes and manage their own submitted ones. 
 An administration dashboard gives an overview of users, advertising and statistics.  
 

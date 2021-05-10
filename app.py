@@ -376,7 +376,7 @@ def delete_recipe(recipe_id):
                 "submissions": -1
             }
         })
-    flash("Your submited Recipe has been deleted")
+    flash("Recipe sucessfully deleted")
     return redirect(url_for("my_recipes", username=session["user"]))
 
 
