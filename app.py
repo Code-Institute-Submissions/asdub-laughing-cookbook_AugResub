@@ -221,10 +221,17 @@ def admin():
             "$group": {"_id": "$username",
             "total": {"$sum": {"$size": "$activity"}}}}
         ]))
+        # retrieve advertising data and confirm active advertiser
+        active = mongo.db.site_data.find()
+        for partner in active:
+            site = partner['active_advertiser']
+        ad = mongo.db.advert_data.find_one({"advertiser_id": site})
+        # create list of advertiser ids
+        partner_list = mongo.db.advert_data.find()
         render = render_template(
             "admin.html", users=user_data,
             recipe_data=recipe_data, chef_data=chef_data,
-            activity_data=activity_data
+            activity_data=activity_data, advert=ad, partners=partner_list
         )
     return render
 

@@ -43,11 +43,47 @@
                 </div>
             {% endif %}
         </div>
+         <!-- Advertising setttings -->
+         {% if advert['advertiser'] %}
+         <div class="row">
+            <h4 class="heading-tag"><i class="fas fa-chart-area orange-text text-darken-1 icon-nav"></i> Advertising</h4>
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <div class="card">
+                        <div class="card-content user-card-content user-card-content-row stat-cards">
+                            <div class="advertising-card-content">
+                                <i class="fas fa-euro-sign orange-text text-darken-1"></i>
+                                <span>Active Advertiser</span>
+                                <strong> {{ advert['advertiser'] }}</strong>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <div class="col s12 m6 l6">
+                    <div class="card">
+                        <div class="card-content user-card-content user-card-content-row stat-cards">
+                            <div class="advertising-card-content">
+                                <div class="collection advert-collection">
+                                {% for partner in partners%}
+                                    {% if advert['advertiser_id'] == partner['advertiser_id'] %}
+                                        <a href="#" class="collection-item active">{{ partner['advertiser'] }}<span class="new badge" data-badge-caption="Active"></span></a>
+                                    {% else %}
+                                        <a href="#" class="collection-item">{{ partner['advertiser'] }}</a>
+                                    {% endif %}
+                                {% endfor %}
+                                </div>  
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
         <!-- Database metrics -->
         <div class="row">
             <h4 class="heading-tag"><i class="fas fa-chart-area orange-text text-darken-1 icon-nav"></i> Statistics</h4>
             <div class="row">
-                <div class="col s6">
+                <div class="col s12 m6 l6">
                     <div class="card">
                         <div class="card-content user-card-content stat-cards center-align">
                             <i class="fas fa-utensil-spoon orange-text text-darken-1"></i>
@@ -56,7 +92,7 @@
                         </div> 
                     </div>
                 </div>
-                <div class="col s6">
+                <div class="col s12 m6 l6">
                     <div class="card">
                         <div class="card-content user-card-content stat-cards center-align">
                             <i class="fas fa-user orange-text text-darken-1"></i>
