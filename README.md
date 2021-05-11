@@ -24,12 +24,12 @@ An administration dashboard gives an overview of users, advertising and statisti
 
 ## Contents 
 
-* [User Experience (UX)](#user-experience-(ux))
+* [User Experience (UX)](#user-experience-ux)
     * [Brief](#Brief)
     * [Project Aims](#the-aim-of-this-project-is-to)
     * [User Stories](#new-user-stories)
 * [Design](#design)
-    * [Frameworks](#frameworks)
+    * [Frameworks (front-end)](#frameworks-front-end)
     * [Colours](#colours)
     * [Wireframes](#wireframes)
     * [Typography](#typography)
@@ -42,7 +42,7 @@ An administration dashboard gives an overview of users, advertising and statisti
 * [Technologies](#technologies)
     * [Languages](#languages)
     * [MongoDB](#mongodb)
-    * [Frameworks](#frameworks)
+    * [Frameworks (back-end)](#frameworks-back-end)
     * [APIs & Data](#apidata)
     * [Version Control & Managment](#version-control--managment)
     * [Software/ Tools Used](#other-software-tools-used)
@@ -50,6 +50,7 @@ An administration dashboard gives an overview of users, advertising and statisti
     * [Heroku](#heroku)
     * [Fork](#fork)
     * [Clone (Locally)](#clone-locally)
+    * [Dependencies](#dependencies)
 * [Testing](#testing)
     * [W3C HTML](#wc3-html-validator-results)
     * [JS Hink](#js-hint)
@@ -68,6 +69,9 @@ An administration dashboard gives an overview of users, advertising and statisti
 
 
 ## User Experience (UX)
+
+
+### Brief
 
 My intention was to create a simple app that presents its purpose immediately. 
 Users can easily discover & manage recipes. And can also submit and manage their own personal recipes. 
@@ -113,7 +117,22 @@ However, given the variety of recipes available there should be something for al
 
 
 ## Design 
+
+### Frameworks (front-end)
 The [Materialize](https://materializecss.com/) front-end framework was used to style this app. 
+With some additional custom css. 
+
+The app uses the following components:
+- [Badges](https://materializecss.com/badges.html)
+- [Buttons](https://materializecss.com/buttons.html)
+- [Cards](https://materializecss.com/cards.html)
+- [Collections](https://materializecss.com/collections.html)
+- [Footer](https://materializecss.com/footer.html)
+- [Navbar](https://materializecss.com/navbar.html)
+- [Modals](https://materializecss.com/modals.html)
+- [Sidenav](https://materializecss.com/sidenav.html)
+- [Tooltips](https://materializecss.com/tooltips.html)
+- [Text Inputs](https://materializecss.com/text-inputs.html)
 
 
 ### Colours 
