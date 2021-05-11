@@ -25,7 +25,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/recipes")
 def recipes():
-    # If had to limit the documents returned - app timning out. 
+    # I had to limit the documents returned - app timning out.
     recipes = list(mongo.db.recipes_clean.find().limit(200))
     random.shuffle(recipes)
     return render_template("recipes.html", recipes=recipes)
@@ -213,7 +213,7 @@ def my_recipes(username):
 def admin():
     if session["is_admin"] == "yes":
         user_data = list(mongo.db.users.find())
-        recipe_data = list(mongo.db.recipes_clean.find())
+        recipe_data = mongo.db.recipes_clean.find().count()
         chef_data = list(mongo.db.recipes_clean.aggregate([
                 {"$group": {"_id": "$chef", "count": {"$sum": 1}}},
                 {"$sort": {"count": -1}}, {"$limit": 5}
