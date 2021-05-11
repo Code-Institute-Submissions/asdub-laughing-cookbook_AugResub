@@ -148,5 +148,5 @@ White - *#ffffff*\
 
 Mock Ups were completed for desktop, tablet & mobile devices. 
 
-Wireframes can be viewed in full resolution [here on Adobe XD](![Wireframes](https://xd.adobe.com/view/07051529-26a9-46df-84cf-76d5c9ea2a4e-5256/ "Wireframes")
+Wireframes can be viewed in full resolution ![here on Adobe XD](![Wireframes](https://xd.adobe.com/view/07051529-26a9-46df-84cf-76d5c9ea2a4e-5256/ "Wireframes")
 ).
