@@ -34,6 +34,7 @@ An administration dashboard gives an overview of users, advertising and statisti
     * [Wireframes](#wireframes)
     * [Typography](#typography)
     * [Iconography](#iconography)
+    * [App Flow](#appflow)
     * [Responsive](#responsive)
     * [Features](#features)
     * [Database Design](#databasedesign)
@@ -41,7 +42,7 @@ An administration dashboard gives an overview of users, advertising and statisti
 * [Technologies](#technologies)
     * [Languages](#languages)
     * [MongoDB](#mongodb)
-    * [APIs / Data](#apidata)
+    * [APIs & Data](#apidata)
     * [Version Control & Managment](#version-control--managment)
     * [Software/ Tools Used](#other-software-tools-used)
 * [Deployment](#deployment)
@@ -138,4 +139,14 @@ Black - *#212121*\
 ![Black](https://github.com/asdub/laughing-cookbook/blob/master/readme/colours/212121.png "Black - #212121")
 
 White - *#ffffff*\
-![Whtie](https://github.com/asdub/laughing-cookbook/blob/master/readme/colours/#ffffff.png "White - #ffffff")
+![Whtie](https://github.com/asdub/laughing-cookbook/blob/master/readme/colours/ffffff.png "White - #ffffff")
+
+
+### Wireframes 
+
+![Wireframes](https://github.com/asdub/laughing-cookbook/blob/master/readme/wireframes.png "Wireframes")
+
+Mock Ups were completed for desktop, tablet & mobile devices. 
+
+Wireframes can be viewed in full resolution [here on Adobe XD](![Wireframes](https://xd.adobe.com/view/07051529-26a9-46df-84cf-76d5c9ea2a4e-5256/ "Wireframes")
+).
