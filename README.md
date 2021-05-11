@@ -168,8 +168,7 @@ White - *#ffffff*\
 
 Mock Ups were completed for desktop, tablet & mobile devices. 
 
-Wireframes can be viewed in full resolution [here on Adobe XD](https://xd.adobe.com/view/07051529-26a9-46df-84cf-76d5c9ea2a4e-5256/ "Wireframes")
-).
+Wireframes can be viewed in full resolution [here on Adobe XD](https://xd.adobe.com/view/07051529-26a9-46df-84cf-76d5c9ea2a4e-5256/ "Wireframes").
 
 
 ### Typography
@@ -203,21 +202,21 @@ The app renders in three layouts for mobile, tablet and desktop.
 <img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/appflow.png" alt="App Flow Diagram"/>
 
 
-Users will initially land at */recipes*, styled as *'Discover Recipes'*. And is available to all user types. 
+Users will initially land at */recipes*, styled as *'Discover Recipes'*. Available to all user types. 
 Unregistered users can navigate to the individual recipe views by clicking *'View Recipe'*. 
-At all times they can navigate to back to *'Discover Recipes'*, *'Login'*, or *'Register'* via the navigation bar (or sidebar on mobile). 
+At all times they can navigate back to *'Discover Recipes'*, *'Login'*, or *'Register'* via the navigation bar (or sidebar on mobile). 
 
-Logged in users have the ability to access their *'My Recipes'* view and have access to the *'Add Recipe'* functionality. Users have additional options available to them such as edit and delete functions - these are explored in further detail in the Features section below. 
+Logged in users have the ability to access their *'My Recipes'* view and have access to the *'Add Recipe'* functionality. Users have additional options available to them such as edit and delete functions - these are explored in further detail in the [Features](#features) section below. 
 
 The navigation/side bar displays different options once logged in, *'Login'* & *'Register'* are replaced with *'My Recipes'*, *'Add Recipe'* and *'Logout'*. 
 
-A user logged in with admin privileges has an additional navigation option - *'Admin Dashboard'*. From there an administrator can view an overview of the app. And has further functions available to them in terms of site advertising.
+A user logged in with admin privileges has an additional navigation option - *'Admin Dashboard'*. From there an administrator has access to an overview of the app. And has further functions available to them in terms of site advertising.
 
 
 ### Database Design
 
-The app uses a document-oriented database program, MongoDB. A NoSQL database program.
-This solution was chosen as it provided the best flexibility for adding future features such as expanding the datasource or including new relevant data. And was the solution I was most confident in deploying. 
+The app uses a document-oriented database, MongoDB. A NoSQL database program.
+This solution was chosen as it provides the best flexibility for adding future features such as expanding the datasource to include further relevant data. And was the solution I was most confident in deploying. 
 
 *Database Overview Diagram*
 <img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/database_overview.png" alt="Database Diagram"/>
@@ -230,7 +229,7 @@ The database contains 5 collections.
 - site_data
 - users
 
-**More in depth informaton on this subject can be found below within the [APIs & Data](#apidata) section below**
+**More in depth informaton on this subject can be found below within the [APIs & Data](#apidata) section below**\n
 I orginally wanted to use an API to provide recipe content for the app. However, this provided impossible to locate without a paid subcription so I opted to used a suitable dataset of recipes instead. . 
 
 
