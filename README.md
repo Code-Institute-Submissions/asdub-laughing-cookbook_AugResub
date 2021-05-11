@@ -150,3 +150,21 @@ Mock Ups were completed for desktop, tablet & mobile devices.
 
 Wireframes can be viewed in full resolution [here on Adobe XD](https://xd.adobe.com/view/07051529-26a9-46df-84cf-76d5c9ea2a4e-5256/ "Wireframes")
 ).
+
+
+### Typography
+
+This project uses [Google Fonts](https://fonts.google.com/).
+
+Only one font is in use:\
+**Roboto** in weights of 400, 500 & 600.
+
+<img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/roboto_font.png" width="150" alt="Google Fonts - Roboto" />
+
+
+### Iconography
+
+All icons in this project are from [Font Awesome](https://fontawesome.com/).
+
+The following icons have been used throughout the app:\
+<img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/icons.png" width="250" alt="Font Awesome Icons Used"/>
