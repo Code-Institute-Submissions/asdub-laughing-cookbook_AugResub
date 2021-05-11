@@ -65,10 +65,13 @@ An administration dashboard gives an overview of users, advertising and statisti
 
 
 
-    ## User Experience (UX)
+## User Experience (UX)
 
-    My intention was to create a simple app that presents its purpose immediately. 
-    Users can easily discover & manage recipes. And can also submit and manage their own personal recipes. 
-    Having previously designed my own layouts and styles, I wanted to use a front-end framework for this project. 
-    The app has been built using [Materialize](https://materializecss.com/) front-end framework.
+My intention was to create a simple app that presents its purpose immediately. 
+Users can easily discover & manage recipes. And can also submit and manage their own personal recipes. 
+Having previously designed my own layouts and styles, I wanted to use a front-end framework for this project. 
+The app has been built using the [Materialize](https://materializecss.com/) front-end framework.
 
+
+App users will likely be keen on food and cooking. 
+However, given the variety of recipes available there should be somehting for all age groups and demographics. 
