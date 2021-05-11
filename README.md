@@ -168,3 +168,26 @@ All icons in this project are from [Font Awesome](https://fontawesome.com/).
 
 The following icons have been used throughout the app:\
 <img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/icons.png" width="250" alt="Font Awesome Icons Used"/>
+
+
+### Responsive 
+
+The app uses the [Materialize](https://materializecss.com/) front-end framework.
+Which is fully responsive. Materialize uses a 12 column grid system for layout.
+
+The app renders in three layouts for mobile, tablet and desktop. 
+
+
+### App Flow
+<img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/appflow.png" alt="App Flow Diagram"/>
+
+
+Users will initially land at /recipes, styled as 'Discover Recipes'. And is available to all user types. 
+Unregistered users can navigate to the individual recipe views by clicking 'View Recipe'. 
+At all times they can navigate to back to 'Discover Recipes', 'Login', or 'Register' via the navigation bar (or sidebar on mobile). 
+
+Logged in users have the ability to access their 'My Recipes' view and have access to the 'Add Recipe' functionality. Users have additional options available to them such as edit and delete functions - these are explored in further detail in the Features section below. 
+
+The navigation/side bar displays different options once logged in, 'Login' & 'Register' are replaced with 'My Recipes', 'Add Recipe' and 'Logout'. 
+
+A user logged in with admin privileges has an additional navigation option - 'Admin Dashboard'. From there an administrator can view an overview of the app. And has further functions available to them in terms of site advertising.
