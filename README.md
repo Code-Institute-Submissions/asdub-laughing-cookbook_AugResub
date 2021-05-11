@@ -42,6 +42,7 @@ An administration dashboard gives an overview of users, advertising and statisti
 * [Technologies](#technologies)
     * [Languages](#languages)
     * [MongoDB](#mongodb)
+    * [Frameworks](#frameworks)
     * [APIs & Data](#apidata)
     * [Version Control & Managment](#version-control--managment)
     * [Software/ Tools Used](#other-software-tools-used)
@@ -116,10 +117,10 @@ The [Materialize](https://materializecss.com/) front-end framework was used to s
 
 
 ### Colours 
-A limited palette of colours was used throughout the app.\n
+A limited palette of colours was used throughout the app.
 As the app contains dynamically loaded imagery I thought it best to limit the use of colours to avoid potential colour clashing. 
 
-**There are six colours used in total throughout the app.**\n
+**There are six colours used in total throughout the app.**
 
 Orange - *#fb8c00*\
 ![Orange](https://github.com/asdub/laughing-cookbook/blob/master/readme/colours/fb8c00.png "Orange - #fb8c00")
@@ -154,9 +155,9 @@ Wireframes can be viewed in full resolution [here on Adobe XD](https://xd.adobe.
 
 ### Typography
 
-This project uses [Google Fonts](https://fonts.google.com/).
+[Materialize](https://materializecss.com/) uses [Google Fonts](https://fonts.google.com/).
 
-Only one font is in use:\
+Only one font is in use:\n
 **Roboto** in weights of 400, 500 & 600.
 
 <img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/roboto_font.png" width="150" alt="Google Fonts - Roboto" />
@@ -179,7 +180,8 @@ The app renders in three layouts for mobile, tablet and desktop.
 
 
 ### App Flow
-<img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/appflow.png" alt="App Flow Diagram"/>
+*Diagram*
+<img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/appflow.png" alt="App Flow Diagram"/>
 
 
 Users will initially land at /recipes, styled as 'Discover Recipes'. And is available to all user types. 
