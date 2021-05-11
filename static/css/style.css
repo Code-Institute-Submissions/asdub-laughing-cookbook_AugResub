@@ -40,6 +40,16 @@ hr {
   min-height: 18px;
 }
 
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+  
+main {
+    flex: 1 0 auto;
+}
+
 /* header */
 .icon-logo {
     padding: 0 0 0 1.4rem;
@@ -190,3 +200,5 @@ blockquote {
 .social-heading {
     font-size: 0.8rem;
 }
+
+
