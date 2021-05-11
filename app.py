@@ -25,10 +25,10 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/recipes")
 def recipes():
-    # I had to limit the documents returned - app timning out.
-    recipes = list(mongo.db.recipes_clean.find().limit(200))
+    recipe_count = mongo.db.recipes_clean.find().count()
+    recipes = list(mongo.db.recipes_clean.find().limit(20))
     random.shuffle(recipes)
-    return render_template("recipes.html", recipes=recipes)
+    return render_template("recipes.html", recipes=recipes, recipe_count=recipe_count)
 
 
 # Search route
