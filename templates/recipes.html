@@ -8,15 +8,15 @@
           <!-- Display count of av available receipes in data-->
           Discover up to <strong>{{ recipes|length }}</strong> recipes and counting!<br>
           <span class="smaller-heading">From your favorite chefs to user submitted recipes</span>
-        </p>
-        <p>
+          </p>
+          <p>
           <span>Store your favorite recipes on your <strong>My Recipes</strong> profile or submit your own for other users to enjoy</span><br>
           <!-- Do not show the sign up link if user is alreay logged in -->
           {% if not session.user %}
             <a href="{{ url_for('register') }}">Sign Up</a> now to start storing your favorites! 
           {% endif %}
         </p>
-    </div>
+      </div>
   </div>
   <!-- search recipe titles, desciptions and chefs -->
   <div class="row card valign-wrapper">
@@ -39,7 +39,7 @@
   <div class="row">
     <!-- For loop generation a grid of recipe cards - recipe list is randomised on each reload-->
       {% for recipe in recipes %}
-        {% if loop.index0 < 30 %}
+        {% if loop.index0 < 20 %}
           <div class="col s12 m6 l4">
             <div class="card hoverable">
               <div class="card-image">

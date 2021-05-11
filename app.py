@@ -25,7 +25,8 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/recipes")
 def recipes():
-    recipes = list(mongo.db.recipes_clean.find())
+    # If had to limit the documents returned - app timning out. 
+    recipes = list(mongo.db.recipes_clean.find().limit(200))
     random.shuffle(recipes)
     return render_template("recipes.html", recipes=recipes)
 
@@ -385,4 +386,4 @@ def delete_recipe(recipe_id):
 if __name__ == "__main__":
     app.run(host=os.environ.get(
         "IP"), port=int(os.environ.get(
-            "PORT")), debug=False)
+            "PORT")), debug=True)

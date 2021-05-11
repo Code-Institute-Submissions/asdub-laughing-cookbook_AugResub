@@ -2,7 +2,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Vars for mobile side navigation 
     var elems = document.querySelectorAll('.sidenav');
-    var sidenav = M.Sidenav.init(elems);
+    var instance = M.Sidenav.init(elems,{
+                                    edge: "right"
+                                  });
     // Vars for delete confirmtion modals
     var delete_modal = document.querySelectorAll('.modal');
     var modal = M.Modal.init(delete_modal);
