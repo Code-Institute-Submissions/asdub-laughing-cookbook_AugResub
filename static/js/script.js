@@ -31,29 +31,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Allows users to add additional ingredient/ instruction liness when adding a new recipe
 // Adapted from: https://dev.to/niick007/how-to-add-unlimited-fields-in-form-using-javascript-and-store-into-database-with-php-14ni
-document.getElementById("addingredient").addEventListener("click", function add_ingredient() {
-  var x = document.getElementById("incredientsContainer");
-  var new_field = document.createElement("input");
-  new_field.setAttribute("type", "text");
-  new_field.setAttribute("name", "ingredients");
-  new_field.setAttribute("minlength", "3");
-  new_field.setAttribute("maxlength", "50");
-  new_field.setAttribute("class", "validate");
-  var pos = x.childElementCount;
 
-  x.insertBefore(new_field, x.childNodes[pos]);
+// Added if statment to ensure function fires on requried path
+if (window.location.pathname=='/add_recipe') {
+  document.getElementById("addingredient").addEventListener("click", function add_ingredient() {
+    var x = document.getElementById("incredientsContainer");
+    var new_field = document.createElement("input");
+    new_field.setAttribute("type", "text");
+    new_field.setAttribute("name", "ingredients");
+    new_field.setAttribute("minlength", "3");
+    new_field.setAttribute("maxlength", "50");
+    new_field.setAttribute("class", "validate");
+    var pos = x.childElementCount;
 
-});
+    x.insertBefore(new_field, x.childNodes[pos]);
 
-document.getElementById("addinstruction").addEventListener("click", function add_instruction() {
-  var x = document.getElementById("instructionsContainer");
-  var new_field = document.createElement("input");
-  new_field.setAttribute("type", "text");
-  new_field.setAttribute("name", "instructions");
-  new_field.setAttribute("minlength", "3");
-  new_field.setAttribute("maxlength", "140");
-  new_field.setAttribute("class", "validate");
-  var pos = x.childElementCount;
+  });
 
-  x.insertBefore(new_field, x.childNodes[pos]);
-});
+  document.getElementById("addinstruction").addEventListener("click", function add_instruction() {
+    var x = document.getElementById("instructionsContainer");
+    var new_field = document.createElement("input");
+    new_field.setAttribute("type", "text");
+    new_field.setAttribute("name", "instructions");
+    new_field.setAttribute("minlength", "3");
+    new_field.setAttribute("maxlength", "140");
+    new_field.setAttribute("class", "validate");
+    var pos = x.childElementCount;
+
+    x.insertBefore(new_field, x.childNodes[pos]);
+  });
+};
