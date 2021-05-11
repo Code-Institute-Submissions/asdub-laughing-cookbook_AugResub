@@ -74,4 +74,68 @@ The app has been built using the [Materialize](https://materializecss.com/) fron
 
 
 App users will likely be keen on food and cooking. 
-However, given the variety of recipes available there should be somehting for all age groups and demographics. 
+However, given the variety of recipes available there should be something for all age groups and demographics. 
+
+
+#### The aim of this project is to:
+- Be simple and easy to use (as always!)
+- Visually pleasing. 
+- Provide users with a structured and easy to navigate catalog of recipes. 
+- Allow users to pin recipes to their one 'My Recipes' profile. 
+- Allow users to submit and manage their own recipes (CRUD). 
+- Provide defensive design in terms of data editing or deletion. 
+- Provide seamless login/ registration functionality.
+- Allow administrators to manage any recipe. 
+- Provide an admin dashboard giving a site overview. 
+- Provide administrator functionality to manage advertising partners. 
+- Provide a clear help section.
+
+
+#### Business/ Monetisation
+- The app provides functionality for advertising partners. Managed by the administrator.
+- Provide an administrator with an app overview in the form of a dashboard.
+
+
+#### New User Stories
+- I want the app purpose to be obvious or easy to figure out
+- I want to have access to the information available in as few steps of possible
+- I want to be able to quickly search for a recipe. 
+- I would like to store recipes of interest to me. 
+- I would like to store and share my own recipes.
+
+
+#### Returning & Regular User Stores
+- I would like to manage my saved recipes. 
+- I would like the ability to edit my own recipes. 
+- I would like the ability to also delete my own recipes. 
+
+
+## Design 
+The [Materialize](https://materializecss.com/) front-end framework was used to style this app. 
+
+
+### Colours 
+A limited palette of colours was used throughout the app.\n
+As the app contains dynamically loaded imagery I thought it best to limit the use of colours to avoid potential colour clashing. 
+
+**There are six colours used in total throughout the app.**\n
+
+Orange - *#fb8c00*\
+![Orange](https://github.com/asdub/laughing-cookbook/blob/master/readme/colours/fb8c00.png "Orange - #fb8c00")
+
+Teal - *#00bfa5*\
+![Teal](https://github.com/asdub/laughing-cookbook/blob/master/readme/colours/00bfa5.png "Teal - #00bfa5")
+
+Grey - *#fafafa*\
+![Grey](https://github.com/asdub/laughing-cookbook/blob/master/readme/colours/fafafa.png "Grey - #fafafa")
+
+**These are used for text and delete buttons**: 
+
+Red - *#f44335*\
+![Red](https://github.com/asdub/laughing-cookbook/blob/master/readme/colours/f44335.png "Red - #f44335")
+
+Black - *#212121*\
+![Black](https://github.com/asdub/laughing-cookbook/blob/master/readme/colours/212121.png "Black - #212121")
+
+White - *#ffffff*\
+![Whtie](https://github.com/asdub/laughing-cookbook/blob/master/readme/colours/#ffffff.png "White - #ffffff")
