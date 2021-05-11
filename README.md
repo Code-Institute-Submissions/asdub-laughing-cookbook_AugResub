@@ -184,12 +184,12 @@ The app renders in three layouts for mobile, tablet and desktop.
 <img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/appflow.png" alt="App Flow Diagram"/>
 
 
-Users will initially land at /recipes, styled as 'Discover Recipes'. And is available to all user types. 
-Unregistered users can navigate to the individual recipe views by clicking 'View Recipe'. 
-At all times they can navigate to back to 'Discover Recipes', 'Login', or 'Register' via the navigation bar (or sidebar on mobile). 
+Users will initially land at */recipes*, styled as *'Discover Recipes'*. And is available to all user types. 
+Unregistered users can navigate to the individual recipe views by clicking *'View Recipe'*. 
+At all times they can navigate to back to *'Discover Recipes'*, *'Login'*, or *'Register'* via the navigation bar (or sidebar on mobile). 
 
-Logged in users have the ability to access their 'My Recipes' view and have access to the 'Add Recipe' functionality. Users have additional options available to them such as edit and delete functions - these are explored in further detail in the Features section below. 
+Logged in users have the ability to access their *'My Recipes'* view and have access to the *'Add Recipe'* functionality. Users have additional options available to them such as edit and delete functions - these are explored in further detail in the Features section below. 
 
-The navigation/side bar displays different options once logged in, 'Login' & 'Register' are replaced with 'My Recipes', 'Add Recipe' and 'Logout'. 
+The navigation/side bar displays different options once logged in, *'Login'* & *'Register'* are replaced with *'My Recipes'*, *'Add Recipe'* and *'Logout'*. 
 
-A user logged in with admin privileges has an additional navigation option - 'Admin Dashboard'. From there an administrator can view an overview of the app. And has further functions available to them in terms of site advertising.
+A user logged in with admin privileges has an additional navigation option - *'Admin Dashboard'*. From there an administrator can view an overview of the app. And has further functions available to them in terms of site advertising.
