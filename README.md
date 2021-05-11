@@ -34,10 +34,10 @@ An administration dashboard gives an overview of users, advertising and statisti
     * [Wireframes](#wireframes)
     * [Typography](#typography)
     * [Iconography](#iconography)
-    * [App Flow](#appflow)
     * [Responsive](#responsive)
-    * [Features](#features)
+    * [App Flow](#appflow)
     * [Database Design](#databasedesign)
+    * [Features](#features)
     * [Future Features](#future-features)
 * [Technologies](#technologies)
     * [Languages](#languages)
@@ -180,7 +180,7 @@ The app renders in three layouts for mobile, tablet and desktop.
 
 
 ### App Flow
-*Diagram*
+*App Flow Diagram*
 <img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/appflow.png" alt="App Flow Diagram"/>
 
 
@@ -193,3 +193,181 @@ Logged in users have the ability to access their *'My Recipes'* view and have ac
 The navigation/side bar displays different options once logged in, *'Login'* & *'Register'* are replaced with *'My Recipes'*, *'Add Recipe'* and *'Logout'*. 
 
 A user logged in with admin privileges has an additional navigation option - *'Admin Dashboard'*. From there an administrator can view an overview of the app. And has further functions available to them in terms of site advertising.
+
+
+### Database Design
+
+The app uses a document-oriented database program, MongoDB. A NoSQL database program.
+This solution was chosen as it provided the best flexibility for adding future features such as expanding the datasource or including new relevant data. And was the solution I was most confident in deploying. 
+
+*Database Overview Diagram*
+<img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/database_overview.png" alt="Database Diagram"/>
+
+
+The database contains 5 collections. 
+- advert_data,
+- recipes
+- recipes_clean
+- site_data
+- users
+
+**More in depth informaton on this subject can be found below within the [APIs & Data](#apidata) section below**
+I orginally wanted to use an API to provide recipe content for the app. However, this provided impossible to locate without a paid subcription so I opted to used a suitable dataset of recipes instead. . 
+
+
+##### Document Structure: **advert_data**:
+```
+{
+  "_id": {
+    "$oid": "6098ff0addfddbb58a9c2f03"
+  },
+  "advertiser": "Le Creuset",
+  "advertiser_id": "le_creuset",
+  "category": "cookware",
+  "partner_url": "https://www.lecreuset.ie/en_IE/",
+  "partner_text": "For the best in cookware",
+  "discount_rate": {
+    "$numberInt": "10"
+  },
+  "discount_code": "thecookbook"
+}
+
+```
+This collection provides a data source for the apps advertising. Check out the [current](#features) and potential [future features](#features) here.
+
+
+##### Document Structure: **recipe / recipe_clean**:
+```
+{
+  "_id": {
+    "$oid": "6091b6e6215627810515bbce"
+  },
+  "chef": "Mary Berry",
+  "chef_id": "mary_berry",
+  "cooking_time_minutes": {
+    "$numberInt": "0"
+  },
+  "description": "This is my standby pasta supper as it is so delicious, so quick and everyone loves it. Great for everyday or for casual supper parties too.",
+  "error": false,
+  "ingredients": [
+    "350g/12oz penne pasta",
+    "2 x 80g/3oz packs Parma ham, snipped into small pieces",
+    "250g/9oz small brown chestnut mushrooms, halved or quartered",
+    "200g/7oz full-fat crème fraîche",
+    "100g/3½oz Parmesan, grated",
+    "2 tbsp chopped parsley",
+    "salt and pepper, to taste",
+    "green salad",
+    "crunchy bread"
+  ],
+  "instructions": [
+    "Cook the pasta in a pan of boiling salted water according to the packet instructions. Drain and set aside",
+    "Heat a frying pan until hot. Add the pieces of Parma ham and fry until crisp, remove half of the ham onto a plate and set aside. Add the mushrooms to the pan and fry for two minutes. Add the crème fraîche and bring up to the boil. Add the pasta, Parmesan and parsley and toss together over the heat. Season well with salt and pepper.",
+    "Serve with a green salad and crunchy bread."
+  ],
+  "instructions_detailed": [
+    {
+      "ingredient": "pasta",
+      "line": "350g/12oz penne pasta"
+    },
+    {
+      "ingredient": "ham",
+      "line": "2 x 80g/3oz packs Parma ham, snipped into small pieces"
+    },
+    {
+      "ingredient": "chestnut mushrooms",
+      "line": "250g/9oz small brown chestnut mushrooms, halved or quartered"
+    },
+    {
+      "ingredient": "crème fraîche",
+      "line": "200g/7oz full-fat crème fraîche"
+    },
+    {
+      "ingredient": "Parmesan",
+      "line": "100g/3½oz Parmesan, grated"
+    },
+    {
+      "ingredient": "parsley",
+      "line": "2 tbsp chopped parsley"
+    },
+    {
+      "ingredient": "pepper",
+      "line": "salt and pepper, to taste"
+    },
+    {
+      "ingredient": "salad",
+      "line": "green salad"
+    },
+    {
+      "ingredient": "bread",
+      "line": "crunchy bread"
+    }
+  ],
+  "photo_url": "https://ichef.bbci.co.uk/food/ic/food_16x9_608/recipes/15_minute_pasta_33407_16x9.jpg",
+  "preparation_time_minutes": {
+    "$numberInt": "30"
+  },
+  "program": "Mary Berry Cooks",
+  "program_id": "p01s4q10",
+  "serves": {
+    "$numberInt": "6"
+  },
+  "time_scraped": {
+    "$numberInt": "1499227763"
+  },
+  "title": "15 minute pasta",
+  "total_time_minutes": {
+    "$numberInt": "30"
+  },
+  "url": "http://bbc.co.uk/food/recipes/15_minute_pasta_33407"
+}
+```
+The recipe collection document stucture followed through from its JSON key pairs from the dataset.
+It is a rather extensive collection of recipes (10,601!) from BBC cookery programs. 
+For the purposes of this app I created a futher collection, recipe_clean containing 1991 recipes (some of which are user submitted). This was to ensure that the data always had the required field values to A) avoid errors and B) ensure content quality. 
+
+I maintained the fields that are presently unused for potential future features, which I explore in the [Future Features](#future-features) section. 
+
+
+##### Document Structure: **recipe / site_data**:
+```
+{
+  "_id": {
+    "$oid": "60990015ddfddbb58a9c2f06"
+  },
+  "active_advertiser": "cuisinart"
+}
+```
+This is a relatively sparse collection at present, it currently only stores the active advertiser. 
+My view is that this collection would be used for an future site specific variables, perhaps themes or the site content itself. 
+
+
+##### Document Structure: **recipe / site_data**:
+```
+{
+  "_id": {
+    "$oid": "6098108592a14a6700096d7c"
+  },
+  "fname": "pat",
+  "lname": "mustard",
+  "username": "pmustard",
+  "password": "pbkdf2:sha256:150000$4Q2YQLD2$480c809281d82d801c2783a00bba21f86aa3be51d69bb1faef9429828d6ca07e",
+  "is_admin": "no",
+  "created_on": "09-May-2021 (16:40:37)",
+  "last_active": "09-May-2021 (16:40:57)",
+  "last_ip": "10.12.1.183",
+  "submissions": {
+    "$numberInt": "0"
+  },
+  "active": false,
+  "activity": [
+    "User registered on: 09-May-2021 (16:40:37)",
+    "User logged out on: 09-May-2021 (16:40:57)"
+  ],
+  "user_recipes": [
+    {
+      "$oid": "6091b6e6215627810515c6e9"
+    }
+  ]
+}
+```
