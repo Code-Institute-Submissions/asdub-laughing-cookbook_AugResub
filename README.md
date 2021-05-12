@@ -47,9 +47,9 @@ An administration dashboard gives an overview of users, advertising and statisti
     * [Version Control & Managment](#version-control--managment)
     * [Software/ Tools Used](#other-software-tools-used)
 * [Deployment](#deployment)
-    * [Heroku](#heroku)
     * [Fork](#fork)
     * [Clone (Locally)](#clone-locally)
+    * [Heroku](#heroku)
 * [Testing](#testing)
     * [W3C HTML](#wc3-html-validator-results)
     * [JS Hint](#js-hint)
@@ -619,23 +619,58 @@ Dependencies are in the repository under requirements.txt.
 - [Github](https://github.com/)
 
 ### Other software/ tools Used
-- [Adobe InDesign](https://en.wikipedia.org/wiki/Adobe_InDesign)
-- [Adobe Illustrator](https://en.wikipedia.org/wiki/Adobe_Illustrator)
-- [Gitpod](https://gitpod.io)
-- [JSfiffle](https://jsfiddle.net/)
-- [Chrome Dev Tools](https://developers.google.com/web/tools/chrome-devtools)
-- [Safari Web Development Tools](https://developer.apple.com/safari/tools/)
-
-
-### Version Control & Managment
-- [Git](https://git-scm.com/)
-- [Github](https://github.com/)
-
-### Other software/ tools Used
 - [Adobe XD](https://en.wikipedia.org/wiki/Adobe_InDesign)
 - [Gitpod](https://gitpod.io)
 - [Chrome Dev Tools](https://developers.google.com/web/tools/chrome-devtools)
 - [Safari Web Development Tools](https://developer.apple.com/safari/tools/)
 
 
-## Deployment 
+## Deployment
+
+#### Fork
+1. [Login](https://github.com/login) to your GitHub account([or join](https://github.com/join)).
+2. Go to the repo by clicking [here](https://github.com/asdub/5km-parks-MP2).
+3. Click fork in the top right corner of the screen. 
+
+#### Clone (Locally)
+1. [Login](https://github.com/login) to your GitHub account([or join](https://github.com/join)).
+2. Go to the repo by clicking [here](https://github.com/asdub/5km-parks-MP2).
+3. On the main page of the repository click on 'Code'. 
+4. Click on the 'Clipboard'/ copy icopy the clone URL (Clone with HTTPs). 
+4. In your local environment open your terminal, navigate to or create a directory.
+5. Paste the URL into your terminal and enter. The repo should be successfully cloned.  
+
+#### Deploy on Heroku
+Deploying the app on heroku is very straight forward. 
+
+You need to make sure the following files are in the repo you wish to deploy: 
+1. requirements.txt 
+  > If not, you can create this by opening your terminal, make sure you are in the apps main folder and typing the following command:
+      ```
+      pip freeze --local > requirements.txt
+      ```
+      It creates the txt file in the working directory (where it belongs).
+
+2. Procfile, this tells Heroku to start your app. 
+  > You can create one by typing the following into your terminal:
+  ```
+  echo "web: python app.py" > Procfile
+  ```
+
+Once certain those files are present. Go to [Heroku](https://dashboard.heroku.com/) and login or create an account. 
+
+1. Click on 'new' in the top right corner and then create app. 
+2. Choose a name and select your region 
+3. Your app overview will load. Click on 'Deploy' 
+4. Select Github under the deployment method and follow the auth instructions. 
+5. Select the repo you wish to use. 
+6. In the top ribbon menu select settings then 'Reveal Vars', halfway down the page. 
+7. You will need to enter and save the following key/ values: 
+    - "IP" : "0.0.0.0"
+    - "PORT" : "5000"
+    - "SECRET_KEY" : "<you-can-pick-your-own>"
+      (Required by Werkzeug for the password hashing)
+8. Go back to 'Deploy' and enable automatic deploys.
+9. Below you can click the 'Deploy Branch' button. 
+10. Once the app loads click the 'View' button to see your live app. 
+
