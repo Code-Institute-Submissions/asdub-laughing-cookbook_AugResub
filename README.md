@@ -468,11 +468,55 @@ The Cookbook is a database driven app providing the following functionality:
 - A user can unpin any previously pinned recipe. 
 - This functionality is available on the recipe card and also within the individual recipe view. 
 
-**My Recipes** - *(/my_recipes/<user_id>)*
+**Your Recipes** - *(/my_recipes/<user_id>)*
 - Provides this user with their own recipe collection. 
 - The view is divided into two groups:
   - Submitted Recipes 
   - Pinned Recipes
-- From this view a user can view, edit or delete their recipe. 
-  - When selecting delete, a notification appears above the button reaffriming the users action. Once clicked/ tapped a confirmation modal overlay will appear informing the user of the recipe title they are deleting. There action is required to confirm the deletion. 
-- In the pinned recipes section, a user can choose to unpin a recipe, 
+- From this view a user can view, edit or delete their recipe card. 
+  - When selecting delete, a notification appears above the button reaffirming the users action. Once clicked/ tapped a confirmation modal overlay will appear informing the user of the recipe title they are deleting. Their action is required to confirm the deletion. 
+- In the pinned recipes section, a user can choose to view and unpin a pinned recipe card, 
+
+**Recipe**  - *(/recipe/<recipe_id>)*
+- This view displays the complete recipe. 
+- The recipe information provided to the user are: 
+ - Recipe Name
+ - Recipe Chef/ Author
+ - Recipe Image
+ - Recipe Description
+ - Recipe Timing & Servings Count
+ - Recipe ingredients 
+ - Recipe Instructions
+- Below the recipe description, a user can pin the recipe being viewed. If already pinned, they can unpin the recipe. Or if it is one of their own submitted recipes they have the options to edit or delete the recipe. 
+- An administrator has the edit and delete options for any recipe. 
+- This view has a section for advertising, controlled via the admin dashboard.
+
+
+**Admin Dashboard**  - *(/admin)*
+- This view is only available to admin users only. 
+- It provides three areas of overview - Users, Advertising & Statistics.
+*Users*
+- The user section displays a card for each user displaying: 
+  - User activity - the user fontawesome icon is solid for active users. 
+  - Username 
+  - Users full name 
+  - User last active time and date
+  - Users last activity (limited to login/logout/registration events at present)
+  - A recipe submission counter 
+  - A link to view user activity view
+    - Which displays all the users activity in a table within a seperate view. 
+    - This view contains a 'Back to Admin Dashboard' and the end of the activity records. 
+*Advertising*
+- This section displays the current advertiser active on the app. 
+- An admin can change the active advertiser via the list displayed. 
+- Selecting a different advertiser evokes the advertising function which updates the database with the new active advertiser, in turn changing the data being displayed on the 'Recipe' view advert, and then redirects the admin back to where they were. 
+
+*Statistics*
+- This section gives the admin a count of recipes in the database. 
+- The number of registered users. 
+- Two bar charts:
+  - Displaying the top 5 chefs by recipe count.
+  - The most active users by activity count. 
+
+
+
