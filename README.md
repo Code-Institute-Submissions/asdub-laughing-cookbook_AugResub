@@ -223,13 +223,14 @@ This solution was chosen as it provides the best flexibility for adding future f
 
 
 The database contains 5 collections. 
-- advert_data,
+- advert_data
 - recipes
 - recipes_clean
 - site_data
 - users
 
-**More in depth informaton on this subject can be found below within the [APIs & Data](#apidata) section below**\n
+**More in depth informaton on this subject can be found below within the [APIs & Data](#apidata) section below**
+
 I orginally wanted to use an API to provide recipe content for the app. However, this provided impossible to locate without a paid subcription so I opted to used a suitable dataset of recipes instead. . 
 
 
@@ -360,7 +361,7 @@ This is a relatively sparse collection at present, it currently only stores the 
 My view is that this collection would be used for an future site specific variables, perhaps themes or the site content itself. 
 
 
-##### Document Structure: **recipe / site_data**:
+##### Document Structure: **recipe / user_data**:
 ```
 {
   "_id": {
@@ -389,3 +390,35 @@ My view is that this collection would be used for an future site specific variab
   ]
 }
 ```
+
+
+### Features
+
+The Cookbook is a database driven app providing the following functionality:
+
+**Navigation**
+- The app has a dynamic menu structure. Providing a standard horizontal navbar on medium and large screens, and a hamburger menu with sidebar when used via a small/ mobile screen.  
+- An unregistered user has the navigation options of: *'Discover Recipes'*, *'Log In'* and *'Register'*. 
+- An authorised user has the following options: *'Discover Recipes'*, *'Your Recipes'*, *'Add Recipe'* and *'Log Out'*
+- In addition to the above, an admin user also has access to *'Admin Dashboard'*
+
+**Discover Recipes** - *(/recipes)*
+- A count of current recipes is provided within the welcome text. 
+- Search functionality is provided, a user can search title text, recipe description, and chef name. 
+- On load the user will be presented with 20 recipe cards, which are randomised on each page reload. 
+  - Each recipe card contains an image, title, description, a pin recipe button (if logged in), the recipes time and a link to *'View Recipe'* to proceed to the recipe page. 
+- The user can pin a recipe to their 'My Recipe' profile or click 'View Recipe to see more information (once authorised). 
+- An administrator has the ability to edit any recipe from this view. 
+
+**Recipe** - *(/recipe/<recipe_id>)*
+- This view gives the user the complete recipe inclusing inredients and instuctions. 
+- Under the description, an unauthorised user will see a login button. 
+  - If authorised, this button will change to a pin or unpin recipe button.
+  - If the user submitted the recipe in view they will have the option to delete and edit. 
+  - An administrator can delete and edit any recipe. 
+  - Defenisive design is present here, when deleting a recipe a modal will appear to confirm the users choice. 
+  - In addition to the recipe related content, advertising content is displayed under the recipes timings. 
+    - This content is stored in the advert_data database collection mentioned above. 
+    - An administrator can change the active advertiser from the admin dashboard. 
+
+**Add Recipe** - *(/add_recipe)*
