@@ -494,7 +494,9 @@ The Cookbook is a database driven app providing the following functionality:
 **Admin Dashboard**  - *(/admin)*
 - This view is only available to admin users only. 
 - It provides three areas of overview - Users, Advertising & Statistics.
+
 *Users*
+
 - The user section displays a card for each user displaying: 
   - User activity - the user fontawesome icon is solid for active users. 
   - Username 
@@ -504,13 +506,16 @@ The Cookbook is a database driven app providing the following functionality:
   - A recipe submission counter 
   - A link to view user activity view
     - Which displays all the users activity in a table within a seperate view. 
-    - This view contains a 'Back to Admin Dashboard' and the end of the activity records. 
+    - This view contains a 'Back to Admin Dashboard' and the end of the activity records.
+
 *Advertising*
+
 - This section displays the current advertiser active on the app. 
 - An admin can change the active advertiser via the list displayed. 
 - Selecting a different advertiser evokes the advertising function which updates the database with the new active advertiser, in turn changing the data being displayed on the 'Recipe' view advert, and then redirects the admin back to where they were. 
 
 *Statistics*
+
 - This section gives the admin a count of recipes in the database. 
 - The number of registered users. 
 - Two bar charts:
@@ -553,6 +558,7 @@ I would like to provide the user with a dropdown of filters applicable to the da
 - **[CSS3](https://www.w3schools.com/css/)**
 - **[Javascript](https://www.javascript.com/)**
 - **[Python](https://www.python.org/)**
+- **[Jinja2](https://jinja.palletsprojects.com/)** (templating language)
 
 
 ### MongoDB & Dataset
@@ -560,7 +566,18 @@ This app uses [MongoDB's](https://www.mongodb.com/cloud/atlas) cloud atlas.
 Where I have deployed a database with five collections, four of which are serving this app. 
 MongoDB is a cross-platform document-oriented database database. The shared instance of which is hosted on AWS. 
 
-For this project I used a dataset as I could not locate a suitable api. 
+The following methods are in use:
+- [db.collection.aggregate()](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/)
+- [db.collection.find()](https://docs.mongodb.com/manual/reference/method/db.collection.find/)
+- [db.collection.find_one()](https://docs.mongodb.com/manual/reference/method/db.collection.findOne/)
+- [db.collection.insert()](https://docs.mongodb.com/manual/reference/method/db.collection.insert/)
+- [db.collection.insert_one()](https://docs.mongodb.com/manual/reference/method/db.collection.insertOne/)
+- [db.collection.update()](https://docs.mongodb.com/manual/reference/method/db.collection.update/)
+- [db.collection.update_one()](https://docs.mongodb.com/manual/reference/method/db.collection.updateOne/)
+- [db.collection.remove()](https://docs.mongodb.com/manual/reference/method/db.collection.remove/)
+
+
+For this project I used a dataset as I could not locate a suitable api with rich content (for free). 
 
 I located the [following and very extensive dataset](https://archive.org/download/recipes-en-201706/) - containing gigabytes of recipes! Using just the BBC recipes, which contain over 10,000 recipes. 
 This was uploaded to MongoDB and then aggregated and a new collection was created from the filtered data. 
@@ -577,3 +594,48 @@ It performs the following:
   - And that the description exists, using the $expr operator an expression is formed to check that the character length of the description has a greater character length than 80. 
 - The results are then made into a new collection using $out. As the collection does not exist a new one will be created. 
 
+
+### Frameworks (back-end)
+
+- **[Flask](https://flask.palletsprojects.com/)**
+  > A python micro web framework
+
+
+### Dependencies
+
+The following are used in this app:
+- **[click](https://pypi.org/project/click/)**
+- **[dnspython](https://pypi.org/project/dnspython/)**
+- **[Flask](https://pypi.org/project/flask/)**
+- **[Flask-PyMongo](https://pypi.org/project/Flask-PyMongo/)**
+- **[itsdangerous](https://pypi.org/project/itsdangerous/)**
+- **[pymongo](https://pypi.org/project/pymongo/)**
+- **[Werkzeug](https://pypi.org/project/Werkzeug/)**
+
+Dependencies are in the repository under requirements.txt. 
+
+### Version Control & Managment
+- [Git](https://git-scm.com/)
+- [Github](https://github.com/)
+
+### Other software/ tools Used
+- [Adobe InDesign](https://en.wikipedia.org/wiki/Adobe_InDesign)
+- [Adobe Illustrator](https://en.wikipedia.org/wiki/Adobe_Illustrator)
+- [Gitpod](https://gitpod.io)
+- [JSfiffle](https://jsfiddle.net/)
+- [Chrome Dev Tools](https://developers.google.com/web/tools/chrome-devtools)
+- [Safari Web Development Tools](https://developer.apple.com/safari/tools/)
+
+
+### Version Control & Managment
+- [Git](https://git-scm.com/)
+- [Github](https://github.com/)
+
+### Other software/ tools Used
+- [Adobe XD](https://en.wikipedia.org/wiki/Adobe_InDesign)
+- [Gitpod](https://gitpod.io)
+- [Chrome Dev Tools](https://developers.google.com/web/tools/chrome-devtools)
+- [Safari Web Development Tools](https://developer.apple.com/safari/tools/)
+
+
+## Deployment 
