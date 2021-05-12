@@ -690,3 +690,8 @@ The WC3 validator found 3 initial issues:
 #### [JS Hint](https://jshint.com/)
 JS Hint found 1 initial issues:
 1. *Warning* Unnecessary semicolon. (line 63) [x]
+
+#### [PEP8 Checker](http://pep8online.com/)
+Found 2 initial PEP8 issues:
+1. *Warning* E501	line too long (86 > 79 characters). (line 31) [x]
+2. *Warning* E129	continuation line under-indented for visual indent. (line 223) [x]

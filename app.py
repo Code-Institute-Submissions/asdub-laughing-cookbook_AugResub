@@ -28,7 +28,10 @@ def recipes():
     recipe_count = mongo.db.recipes_clean.find().count()
     recipes = list(mongo.db.recipes_clean.find().limit(20))
     random.shuffle(recipes)
-    return render_template("recipes.html", recipes=recipes, recipe_count=recipe_count)
+    render = render_template(
+                "recipes.html", recipes=recipes, recipe_count=recipe_count
+                )
+    return render
 
 
 # Search route
@@ -214,14 +217,41 @@ def admin():
     if session["is_admin"] == "yes":
         user_data = list(mongo.db.users.find())
         recipe_data = mongo.db.recipes_clean.find().count()
-        chef_data = list(mongo.db.recipes_clean.aggregate([
-                {"$group": {"_id": "$chef", "count": {"$sum": 1}}},
-                {"$sort": {"count": -1}}, {"$limit": 5}
-        ]))
-        activity_data = list(mongo.db.users.aggregate([
-            {"$group": {"_id": "$username", "total":
-            {"$sum": {"$size": "$activity"}}}}
-        ]))
+        chef_data = list(
+            mongo.db.recipes_clean.aggregate(
+                [{
+                    "$group": {
+                        "_id": "$chef", "count":
+                        {
+                            "$sum": 1
+                        }
+                    }
+                },
+                    {
+                        "$sort": {
+                            "count": -1
+                        }
+                    },
+                    {
+                        "$limit": 5
+                        },
+                ]
+            )
+        )
+        activity_data = list(
+            mongo.db.users.aggregate(
+                [{
+                    "$group": {
+                        "_id": "$username", "total":
+                        {
+                            "$sum": {
+                                "$size": "$activity"
+                            }
+                        }
+                    }
+                }]
+            )
+        )
         # retrieve advertising data and confirm active advertiser
         active = mongo.db.site_data.find()
         for partner in active:
