@@ -402,6 +402,23 @@ The Cookbook is a database driven app providing the following functionality:
 - An authorised user has the following options: *'Discover Recipes'*, *'Your Recipes'*, *'Add Recipe'* and *'Log Out'*
 - In addition to the above, an admin user also has access to *'Admin Dashboard'*
 
+**Register** - *(/register)*
+- Provides the user with a registration form. 
+- A CTA is in place under the login form inviting a user to login if already registered. 
+- Once submitted, a user is redirected to their 'My Recipes' profile. 
+- A notification will appear in the top right corner of the screen welcoming the user. 
+
+**Login** - *(/login)*
+- Provide the user with a login form. 
+- Once authenticated, a user is redirected to their 'My Recipes' profile. 
+- A CTA is in place under the login form inviting a user to register. 
+- A notification will appear in the top right corner of the screen welcoming the user. 
+
+**Log Out** - *(/logout)*
+- Provides logout functionality. 
+- A user is redirected to the login form. 
+- A notification will appear in the top right corner confirming log out. 
+
 **Discover Recipes** - *(/recipes)*
 - A count of current recipes is provided within the welcome text. 
 - Search functionality is provided, a user can search title text, recipe description, and chef name. 
@@ -411,14 +428,51 @@ The Cookbook is a database driven app providing the following functionality:
 - An administrator has the ability to edit any recipe from this view. 
 
 **Recipe** - *(/recipe/<recipe_id>)*
-- This view gives the user the complete recipe inclusing inredients and instuctions. 
+- This view gives the user the complete recipe including ingredients and instructions. 
 - Under the description, an unauthorised user will see a login button. 
   - If authorised, this button will change to a pin or unpin recipe button.
   - If the user submitted the recipe in view they will have the option to delete and edit. 
   - An administrator can delete and edit any recipe. 
-  - Defenisive design is present here, when deleting a recipe a modal will appear to confirm the users choice. 
+  - Defensive design is present here, when deleting a recipe a modal will appear to confirm the users choice. 
   - In addition to the recipe related content, advertising content is displayed under the recipes timings. 
     - This content is stored in the advert_data database collection mentioned above. 
     - An administrator can change the active advertiser from the admin dashboard. 
 
 **Add Recipe** - *(/add_recipe)*
+- This view provides the user with the ability to add a recipe to the database.
+- The form, which provides validation and feedback to the user, has the following fields: 
+  - Display Name - Pre-populated, the user can choose a display name 
+  - Recipe Name 
+  - Prep Time/ Cook Time/ Servings
+  - Recipe Description 
+  - Ingredients - additional lines can dynamically be added. 
+  - Instructions - additional lines can dynamically be added. 
+  - Photo URL 
+- Once submitted, the user is redirected to their 'My Recipes Profile'
+- A notification will appear in the top right corner confirming the recipe has been added. 
+
+**Edit Recipe** - *(/edit_recipe/<recipe_id>)*
+- A user can edit their previously submitted recipe. 
+- The fields are pre-populated with the stored values which the user can freely edit and save. 
+- An administrator has this functionality available for any recipe. 
+- A notification will appear in the top right corner confirming the recipe has been updated. 
+
+**Delete Recipe** - *(/delete_recipe/<recipe_id>)*
+- Provides the functionality to delete a recipe. 
+- This functionality is only available if the user submitted the recipe selected. 
+- An administrator can delete any recipe. 
+- A notification will appear in the top right corner confirming deletion of the recipe. 
+
+**Pin /Unpin Recipes**
+- A user can pin any recipe in the database. 
+- A user can unpin any previously pinned recipe. 
+- This functionality is available on the recipe card and also within the individual recipe view. 
+
+**My Recipes** - *(/my_recipes/<user_id>)*
+- Provides this user with their own recipe collection. 
+- The view is divided into two groups:
+  - Submitted Recipes 
+  - Pinned Recipes
+- From this view a user can view, edit or delete their recipe. 
+  - When selecting delete, a notification appears above the button reaffriming the users action. Once clicked/ tapped a confirmation modal overlay will appear informing the user of the recipe title they are deleting. There action is required to confirm the deletion. 
+- In the pinned recipes section, a user can choose to unpin a recipe, 
