@@ -680,8 +680,13 @@ Once certain those files are present. Go to [Heroku](https://dashboard.heroku.co
 
 ## Testing
 
-#### [WC3 HTML Validator]() *(Results)*
-The WC3 validator found 3 issues initally:
+#### [WC3 HTML Validator](https://validator.w3.org/nu/?doc=http%3A%2F%2Flaughing-cookbook.herokuapp.com%2Frecipes) *(Results)*
+The WC3 validator found 3 initial issues:
 1. Warning: Section lacks heading. (line 42) [x]
 2. Error: Element span not allowed as child of element ul in this context. (line 603) [x]
 3. Error: Stray end tag div. (line 619) [x]
+
+
+#### [JS Hint](https://jshint.com/)
+JS Hint found 1 initial issues:
+1. *Warning* Unnecessary semicolon. (line 63) [x]

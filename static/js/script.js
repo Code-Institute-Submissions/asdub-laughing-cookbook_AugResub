@@ -60,4 +60,4 @@ if (window.location.pathname=='/add_recipe') {
 
     x.insertBefore(new_field, x.childNodes[pos]);
   });
-};
+}
