@@ -519,4 +519,31 @@ The Cookbook is a database driven app providing the following functionality:
   - The most active users by activity count. 
 
 
+### Future Features 
+
+*Recipes Collection*
+I would like to expand on the data being presented to the user. 
+While outside the scope of this project (and my present ability!), I would like to include the TV program information contained within the collection. This could be potentially used to find the episode in question and present a video of the recipe being made by the chef to the user or a link to the platform it is available on. 
+
+The detailed ingredients data could be used in conjunction with a supermarkets api (not in Ireland!) to show the user the total cost of the recipe, and the ability to order the goods required to make it. 
+Avenues such as this provide further monetisation routes for the app. 
+
+*Users Collection*
+I would like to expand on storing user activity to include recipe submission, edit & deletion events. 
+
+A user profile which other users can interact with, perhaps ask questions about recipes submitted and leave feedback for the chef. The int variable count of users submission could be explained on here to create a user scoring system, giving awards in the form of profile icons when certain milestones are reached in terms of submissions or feedback received. 
+
+The ability for registered users to leave text reviews and ratings for each recipe. The recipes score could be displayed on the recipe card. 
+
+*Site Data Collection*
+All site content (excluding recipes) would be stored in this collection. 
+I would like the admin to have the functionality to edit any content on the app from the app itself. 
+
+*Advert Data Collection*
+A selection of partners could be added to this collection. The ability for the administrator to add to this collection from the app. And perhaps have adverts apply based on specific recipe keywords, or the date and time. 
+
+*Filtering*
+I would like to provide the user with a dropdown of filters applicable to the data presented within the 'Discover Recipes' view. Ideally the 20 recipe cards would dynamically change as the user makes their filtering choices. 
+
+
 
