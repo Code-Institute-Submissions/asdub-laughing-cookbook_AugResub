@@ -26,14 +26,20 @@ def load_json_data():
     data = [json.loads(line) for line in open('data/recipes.json', 'r')]
     if isinstance(data, list):
         mongo.db.recipes.insert_many(data)
-        mongo.db.recipes.aggregate([
-            {"$match": {"photo_url": {"$exists": True, "$not": {"$type": 10}},
-            "total_time_minutes": {"$gt": 0},
-            "description": {"$exists": True},
-            "$expr": {"$gt": [{"$strLenCP": "$description"}, 80]}
-            }},
-            {"$out": 'recipes_clean'}
-        ])
+        # This command creates a new collection from filered data
+        # Ensuring photo_url is not null, total_time is not 0
+        # And that the description is greater than 80 characters
+        mongo.db.recipes.aggregate([{"$match": {"photo_url":
+                                    {"$exists": True, "$not":
+                                        {"$type": 10}}, "total_time_minutes":
+                                            {"$gt": 0}, "description":
+                                                {"$exists": True}, "$expr":
+                                                    {"$gt": [
+                                                        {"$strLenCP":
+                                                            "$description"}, 80
+                                                        ]}}},
+                                    {"$out": 'recipes_clean'}
+                                    ])
 
 
 load_json_data()

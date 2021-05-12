@@ -41,16 +41,15 @@ An administration dashboard gives an overview of users, advertising and statisti
     * [Future Features](#future-features)
 * [Technologies](#technologies)
     * [Languages](#languages)
-    * [MongoDB](#mongodb)
+    * [MongoDB & Dataset](#---------)
     * [Frameworks (back-end)](#frameworks-back-end)
-    * [APIs & Data](#apidata)
+    * [Dependencies](#dependencies)
     * [Version Control & Managment](#version-control--managment)
     * [Software/ Tools Used](#other-software-tools-used)
 * [Deployment](#deployment)
     * [Heroku](#heroku)
     * [Fork](#fork)
     * [Clone (Locally)](#clone-locally)
-    * [Dependencies](#dependencies)
 * [Testing](#testing)
     * [W3C HTML](#wc3-html-validator-results)
     * [JS Hink](#js-hint)
@@ -546,4 +545,35 @@ A selection of partners could be added to this collection. The ability for the a
 I would like to provide the user with a dropdown of filters applicable to the data presented within the 'Discover Recipes' view. Ideally the 20 recipe cards would dynamically change as the user makes their filtering choices. 
 
 
+## Technologies
+
+
+### Languages
+- **[HTML5](https://html.com/html5/)**
+- **[CSS3](https://www.w3schools.com/css/)**
+- **[Javascript](https://www.javascript.com/)**
+- **[Python](https://www.python.org/)**
+
+
+### MongoDB & Dataset
+This app uses [MongoDB's](https://www.mongodb.com/cloud/atlas) cloud atlas. 
+Where I have deployed a database with five collections, four of which are serving this app. 
+MongoDB is a cross-platform document-oriented database database. The shared instance of which is hosted on AWS. 
+
+For this project I used a dataset as I could not locate a suitable api. 
+
+I located the [following and very extensive dataset](https://archive.org/download/recipes-en-201706/) - containing gigabytes of recipes! Using just the BBC recipes, which contain over 10,000 recipes. 
+This was uploaded to MongoDB and then aggregated and a new collection was created from the filtered data. 
+
+I wrote a script to achieve this, json_import.py (which should only be run once!). 
+It performs the following:
+- It reads the JSON recipe data file from archive.org.
+- Iterates through it, storing the pairs as a list. 
+- isinstance() checks if the data is a list. 
+- insert_many() inserts the data to the recipe collection.
+- aggregate() is filtering this collection for the following:
+  - Finds 'photo_url', check if it exists and the value is not null.
+  - It checks that the total_cooking_time is greater than 0 minutes.
+  - And that the description exists, using the $expr operator an expression is formed to check that the character length of the description has a greater character length than 80. 
+- The results are then made into a new collection using $out. As the collection does not exist a new one will be created. 
 
