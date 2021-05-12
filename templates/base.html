@@ -55,7 +55,7 @@
                {% endif %}
             </ul>
         </header>
-        <section>
+        <div>
          <!-- flash message-->
         {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -68,7 +68,7 @@
                 {% endfor %}
             {% endif %}
         {% endwith%}
-        </section>
+        </div>
         <main class="container">
             {% block content %}
             {% endblock %}
@@ -82,13 +82,11 @@
                             <p class="white-text">Discover and share your favorite recipes.</p>
                         </div>
                         <div class="col l4 offset-l2 s12">
+                            <span class="social-heading">Our Social Media</span>
                             <ul>
-                                <span class="social-heading">Our Social Media</span>
-                                <li><a class="white-text" href="https://en.wikipedia.org/wiki/Facebook,_Inc."><i class="fab fa-facebook icon-nav"></i> TheCookBook</a></li>
-                                <li><a class="white-text" href="https://en.wikipedia.org/wiki/Instagram"><i class="fab fa-instagram icon-nav"></i> The_Cook_Book</a></li>
-                                <li><a class="white-text" href="https://en.wikipedia.org/wiki/Twitter"><i class="fab fa-twitter icon-nav"></i> @TheCookBook</a></li>
-
-
+                                <li><a class="white-text" href="https://en.wikipedia.org/wiki/Facebook,_Inc."><i class="fab fa-facebook icon-social"></i> TheCookBook</a></li>
+                                <li><a class="white-text" href="https://en.wikipedia.org/wiki/Instagram"><i class="fab fa-instagram icon-social"></i> The_Cook_Book</a></li>
+                                <li><a class="white-text" href="https://en.wikipedia.org/wiki/Twitter"><i class="fab fa-twitter icon-social"></i> @TheCookBook</a></li>
                             </ul>
                         </div>
                     </div>
@@ -97,7 +95,6 @@
                     <div class="container">
                         © 2021 The CookBook
                         <a class="white-text right" href="{{ url_for('recipes') }}"><i class="fas fa-search icon-nav"></i> Discover Recipes</a>
-                    </div>
                     </div>
                 </div>
             </footer>

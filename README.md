@@ -49,7 +49,7 @@ An administration dashboard gives an overview of users, advertising and statisti
 * [Deployment](#deployment)
     * [Fork](#fork)
     * [Clone (Locally)](#clone-locally)
-    * [Heroku](#heroku)
+    * [Heroku](#deploy-on-heroku)
 * [Testing](#testing)
     * [W3C HTML](#wc3-html-validator-results)
     * [JS Hint](#js-hint)
@@ -174,7 +174,7 @@ Wireframes can be viewed in full resolution [here on Adobe XD](https://xd.adobe.
 
 [Materialize](https://materializecss.com/) uses [Google Fonts](https://fonts.google.com/).
 
-Only one font is in use:\n
+Only one font is in use:\
 **Roboto** in weights of 400, 500 & 600.
 
 <img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/roboto_font.png" width="150" alt="Google Fonts - Roboto" />
@@ -228,9 +228,9 @@ The database contains 5 collections.
 - site_data
 - users
 
-**More in depth informaton on this subject can be found below within the [APIs & Data](#apidata) section below**
+**More in depth informaton on this subject can be found below within the [Data](##mongodb--dataset) section below**
 
-I orginally wanted to use an API to provide recipe content for the app. However, this provided impossible to locate without a paid subcription so I opted to used a suitable dataset of recipes instead. . 
+I orginally wanted to use an API to provide recipe content for the app. However, this provided impossible to locate without a paid subcription or poor qaulity content, so I opted to used a suitable dataset of recipes instead.
 
 
 ##### Document Structure: **advert_data**:
@@ -342,7 +342,7 @@ This collection provides a data source for the apps advertising. Check out the [
 ```
 The recipe collection document stucture followed through from its JSON key pairs from the dataset.
 It is a rather extensive collection of recipes (10,601!) from BBC cookery programs. 
-For the purposes of this app I created a futher collection, recipe_clean containing 1991 recipes (some of which are user submitted). This was to ensure that the data always had the required field values to A) avoid errors and B) ensure content quality. 
+For the purposes of this app I created a futher collection, recipe_clean containing 1900+ recipes (some of which are user submitted). This was to ensure that the data always had the required field values to A) avoid errors and B) ensure content quality. 
 
 I maintained the fields that are presently unused for potential future features, which I explore in the [Future Features](#future-features) section. 
 
@@ -357,7 +357,7 @@ I maintained the fields that are presently unused for potential future features,
 }
 ```
 This is a relatively sparse collection at present, it currently only stores the active advertiser. 
-My view is that this collection would be used for an future site specific variables, perhaps themes or the site content itself. 
+My view is that this collection would be used for any future site specific variables, perhaps themes or the site content itself. 
 
 
 ##### Document Structure: **recipe / user_data**:
@@ -550,6 +550,7 @@ A selection of partners could be added to this collection. The ability for the a
 I would like to provide the user with a dropdown of filters applicable to the data presented within the 'Discover Recipes' view. Ideally the 20 recipe cards would dynamically change as the user makes their filtering choices. 
 
 
+
 ## Technologies
 
 
@@ -564,7 +565,7 @@ I would like to provide the user with a dropdown of filters applicable to the da
 ### MongoDB & Dataset
 This app uses [MongoDB's](https://www.mongodb.com/cloud/atlas) cloud atlas. 
 Where I have deployed a database with five collections, four of which are serving this app. 
-MongoDB is a cross-platform document-oriented database database. The shared instance of which is hosted on AWS. 
+MongoDB is a cross-platform document-oriented database. The shared instance of which is hosted on AWS. 
 
 The following methods are in use:
 - [db.collection.aggregate()](https://docs.mongodb.com/manual/reference/method/db.collection.aggregate/)
@@ -582,7 +583,8 @@ For this project I used a dataset as I could not locate a suitable api with rich
 I located the [following and very extensive dataset](https://archive.org/download/recipes-en-201706/) - containing gigabytes of recipes! Using just the BBC recipes, which contain over 10,000 recipes. 
 This was uploaded to MongoDB and then aggregated and a new collection was created from the filtered data. 
 
-I wrote a script to achieve this, json_import.py (which should only be run once!). 
+I wrote a script to achieve this, json_import.py 
+(which should only be run once!). 
 It performs the following:
 - It reads the JSON recipe data file from archive.org.
 - Iterates through it, storing the pairs as a list. 
@@ -649,7 +651,7 @@ You need to make sure the following files are in the repo you wish to deploy:
       ```
       pip freeze --local > requirements.txt
       ```
-      It creates the txt file in the working directory (where it belongs).
+  > It creates the txt file in the working directory (where it belongs).
 
 2. Procfile, this tells Heroku to start your app. 
   > You can create one by typing the following into your terminal:
@@ -668,7 +670,7 @@ Once certain those files are present. Go to [Heroku](https://dashboard.heroku.co
 7. You will need to enter and save the following key/ values: 
     - "IP" : "0.0.0.0"
     - "PORT" : "5000"
-    - "SECRET_KEY" : "<you-can-pick-your-own>"
+    - "SECRET_KEY" : "pick your own"
       (Required by Werkzeug for the password hashing)
 8. Go back to 'Deploy' and enable automatic deploys.
 9. Below you can click the 'Deploy Branch' button. 
@@ -676,4 +678,10 @@ Once certain those files are present. Go to [Heroku](https://dashboard.heroku.co
 
 
 
+## Testing
 
+#### [WC3 HTML Validator]() *(Results)*
+The WC3 validator found 3 issues initally:
+1. Warning: Section lacks heading. (line 42) [x]
+2. Error: Element span not allowed as child of element ul in this context. (line 603) [x]
+3. Error: Stray end tag div. (line 619) [x]
