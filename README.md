@@ -680,8 +680,8 @@ Once certain those files are present. Go to [Heroku](https://dashboard.heroku.co
 
 ## Testing
 
-#### [WC3 HTML Validator](https://validator.w3.org/nu/?doc=http%3A%2F%2Flaughing-cookbook.herokuapp.com%2Frecipes) *(Results)*
-The WC3 validator found 3 initial issues:
+#### [W3C HTML Validator](https://validator.w3.org/nu/?doc=http%3A%2F%2Flaughing-cookbook.herokuapp.com%2Frecipes) *(Results)*
+The W3C validator found 3 initial issues:
 1. Warning: Section lacks heading. (line 42) [x]
 2. Error: Element span not allowed as child of element ul in this context. (line 603) [x]
 3. Error: Stray end tag div. (line 619) [x]
@@ -695,3 +695,7 @@ JS Hint found 1 initial issues:
 Found 2 initial PEP8 issues:
 1. *Warning* E501	line too long (86 > 79 characters). (line 31) [x]
 2. *Warning* E129	continuation line under-indented for visual indent. (line 223) [x]
+
+#### [WC3 CSS Validator](https://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Flaughing-cookbook.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en#errors) *(Results)*
+WC3 CSS Validator found 1 error & 38 warnings:
+1. *Error* & *Warnings* relate to external stylesheets  [ ]
