@@ -5,7 +5,7 @@
       <h3 class="heading"><i class="fas fa-search orange-text text-darken-1"></i> Discover Recipes</h3>
       <div class="col s12">
         <p>
-          <!-- Display count of av available receipes in data-->
+          <!-- Display count of available receipes in data-->
           Discover up to <strong>{{ recipe_count }}</strong> recipes and counting!<br>
           <span class="smaller-heading">From your favorite chefs to user submitted recipes</span>
           </p>
@@ -28,7 +28,7 @@
           <label for="query">Search</label>
         </div>
         <div class="col s12 m4">
-          <button type="submit" class="btn orange darken-1">
+          <button type="submit" class="btn orange darken-2">
             Search 
           </button>
           <a href="{{ url_for('recipes') }}" class="btn-flat orange-text text-accent-4">Reset</a>
@@ -43,7 +43,7 @@
           <div class="col s12 m6 l4">
             <div class="card hoverable">
               <div class="card-image">
-                <img src="{{ recipe.photo_url }}">
+                <img src="{{ recipe.photo_url }}" alt="{{ recipe.title }}">
                 <div class="recipe-title-container">
                   <span class="card-title">{{ recipe.title }}</span>
                   {% if session.user %}
@@ -57,12 +57,12 @@
                 <p><em>by</em> <strong>{{ recipe.chef }}</strong></p>
               </div>
               <div class="card-action">
-                <a href="{{ url_for('recipe', recipe_id=recipe._id) }}" class="orange-text text-darken-1">View Receipe</a>
+                <a href="{{ url_for('recipe', recipe_id=recipe._id) }}" class="orange-text text-darken-3">View Receipe</a>
                  <!-- Allow admin to edit all recipes -->
                 {% if session.is_admin == "yes" %}
                   <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="orange-text text-darken-4"><i class="far fa-edit"></i> Edit Receipe</a>
                 {% endif %}
-                <span class="new badge orange darken-1" data-badge-caption="mins"><i class="fas fa-clock"></i> {{ recipe.total_time_minutes }}</span>
+                <span class="new badge orange darken-3" data-badge-caption="mins"><i class="fas fa-clock"></i> {{ recipe.total_time_minutes }}</span>
               </div>
             </div>
           </div>
