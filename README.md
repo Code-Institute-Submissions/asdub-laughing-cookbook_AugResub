@@ -791,12 +791,12 @@ Users can search any recipe, an index of the recipe title, chef, description and
 
 Users can pin any recipe of interest using the pin button located on each recipe card or on the main recipe page. 
 
-<img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/myrecipes-pin.png" width="400" alt="User Stories - App Search" />
+<img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/myrecipes-pin.png" width="200" alt="User Stories - App Search" />
 
 Pinned recipes are stored in the Pinned Recipes section of Your Recipes
 
 **I would like to store and share my own recipes.**\
-<img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/add-recipe.png" width="300" alt="User Stories - App Search" />
+<img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/add_recipe.png" width="300" alt="User Stories - App Search" />
 
 A user can submit a recipe to the database using the add recipe feature, recipes submitted can be pinned by other users. 
 
