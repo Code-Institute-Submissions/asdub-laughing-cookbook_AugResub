@@ -705,7 +705,7 @@ WC3 CSS Validator found 1 error & 38 warnings:
 #### Initial Test
 ![Lighthouse Results](https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/lighthouse_initial.png "Lighthouse Results")
 
-**Best Practices** 
+**Best Practices**\
 Issues reported, 
   - Serve images in next-gen format
   - Eliminate render-blocking resources
@@ -714,17 +714,17 @@ Issues reported,
   - Remove unused CSS
   - Enable text compression
 
-**Accessibility**
+**Accessibility**\
 Issues reported, 
   - Background and foreground colors do not have a sufficient contrast ratio.
   - Heading elements are not in a sequentially-descending order
   - Links do not have a discernible name
 
-**Best Practices**
+**Best Practices**\
 Issues reported, 
   - Does not use HTTPS
 
-**SEO**
+**SEO**\
 Issues reported, 
   - Document does not have a meta description
 
@@ -755,3 +755,10 @@ I tried deploying ssl certs via letsencrypt certbot. However, a paid subscriptio
 The SEO score increase to 100 with the addition correct meta tags. 
 [Thank you! Heymeta ](https://www.heymeta.com/ )
 
+
+## Manual Testing 
+
+### Testing Documentation
+Testing documentation can be found [here](https://github.com/asdub/laughing-cookbook/blob/master/readme/test/TESTME.md)
+
+### User Stories testing
