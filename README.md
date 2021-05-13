@@ -7,6 +7,15 @@
 
 **A live version of this project can be found [here](http://laughing-cookbook.herokuapp.com/)**
 
+You can use the following demo accounts, or create your own to expore: 
+*Standard User*\
+User: moleary
+Pass: moleary
+
+*Admin User*\
+User: admin3
+Pass: admin3
+
 <img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/iphone_screenshot.png" width="150" alt="The Cookbook on Mobile" />
 
 
