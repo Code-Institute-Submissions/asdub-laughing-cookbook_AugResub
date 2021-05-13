@@ -33,8 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Adapted from: https://dev.to/niick007/how-to-add-unlimited-fields-in-form-using-javascript-and-store-into-database-with-php-14ni
 
 // Added if statment to ensure function fires on requried path
-if (window.location.pathname=='/add_recipe') {
-  document.getElementById("addingredient").addEventListener("click", function add_ingredient() {
+document.getElementById("addingredient").addEventListener("click", function add_ingredient() {
     var x = document.getElementById("incredientsContainer");
     var new_field = document.createElement("input");
     new_field.setAttribute("type", "text");
@@ -59,5 +58,4 @@ if (window.location.pathname=='/add_recipe') {
     var pos = x.childElementCount;
 
     x.insertBefore(new_field, x.childNodes[pos]);
-  });
-}
+});
