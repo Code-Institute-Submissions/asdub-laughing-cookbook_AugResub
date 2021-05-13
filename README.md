@@ -783,6 +783,7 @@ A user can navigate to the full recipe page by clicking 'View Recipe'
 
 **I want to be able to quickly search for a recipe.**\
 <img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/search.png" width="300" alt="User Stories - App Search" />
+
 Users can search any recipe, an index of the recipe title, chef, description and ingredients. 
 
 **I would like to store recipes of interest to me.**\
