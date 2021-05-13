@@ -55,14 +55,14 @@ The follow screen sizes were tested using both above tools:
 |Dell (Win7)	| IE11       | Firefox    | N/a       |
 
 There were Less than ideal result on smaller mobile devices in landscape. 
-But all elements are still visable and all features are usable. 
+But all elements are still visible and all features are usable. 
 I did not tese on anything under IE11. 
 
 
 ### Manual testing process
 
     Header/ Navbar
-    - Logo & navigation clearly visable and unobstructed.
+    - Logo & navigation clearly visible and unobstructed.
     - When unauthorised, the following nav options should display:
         - Discover Recipes
         - Login
@@ -77,7 +77,7 @@ I did not tese on anything under IE11.
     - Confirm on medium/ small screens that the nav text changes to an icon and the sidebar is functional.
     - The sidebar, when active, should have the same menu options detailed above. 
     - Make sure the welcome text contains the correct recipe count. 
-    - Confirm the 'Sign Up' CTA is only visable to unauthorised users. 
+    - Confirm the 'Sign Up' CTA is only visible to unauthorised users. 
     - Conform the search functionality is working. Search items are: 
         - Recipe Title
         - Recipe Description
@@ -85,9 +85,9 @@ I did not tese on anything under IE11.
         - Recipe Chef
     - Confirm the search reset button is working. 
     
-    Main 
+    Recipes
     - Confirm 20 recipe cards are visbale. 
-    - Confrim there is no missing data from the cards, including:
+    - Confirm there is no missing data from the cards, including:
         - Recipe Title
         - Recipe Description
         - Recipe Chef
@@ -99,6 +99,108 @@ I did not tese on anything under IE11.
     Footer
     - Confirm footer is positioned correctly at the end of each page. 
     - All links are functioning. 
+
+    Recipe
+    - Confirm the following recipe data is present:
+        - Recipe Title
+        - Recipe Chef/ Author
+        - Recipe Image
+        - Timings 
+        - Description
+        - Ingredients
+        - Instructions
+        - Servings
+    - Confirm that the following data is rendered in the advertising div:
+        - Recipe title
+        - Advertiser Name
+        - Advertising Text
+        - Advertising URL
+        - Advertising Discount amount
+        - Discount Code
+    - Confirm the button(s) within the description div:
+        Unauthorised:
+        - Button should read login and redirect user to login
+        Authorised:
+        - Button should read pin, user is redirected to 'My Recipes'
+        - If already pinned by user, the button should read 'Unin'
+        - If a user submitted recipe, the button should read 'Edit' and an additional button 'Delete Recipe' should be visible. 
+        Admin
+        - If an admin user, edit and delete buttons should be always present. 
+
+    My Recipes
+    - Confirm user submitted recipes and pinned recipes are correctly displayed and in their correct sections. 
+    User submitted recipes: 
+    - Confirm all relevant recipe card data is present (refer to section above for data points).
+    - Confirm tooltip notification is present when hovering over the delete icon. 
+    - Confirm clicking delete opens a model requiring further user confirmation. 
+    - Confirm clicking edit directs user to edit recipe view.
+    - Confirm click view recipe directs user to the recipe view. 
+    Pinned recipes: 
+    - Confirm all relevant recipe card data is present (refer to section above for data points).
+    - Confirm tooltip notification is present when hovering over the unpin icon. 
+    - Confirm clicking edit directs user to edit recipe view.
+    - Confirm click view recipe directs user to the recipe view. 
+
+    Add Recipe
+    - Confirm heading and subheading is present and visible. 
+    - Confirm the following fields are displayed: 
+        - Display Name
+        - Recipe Name
+        - Time Prep
+        - Time Cook
+        - Servings
+        - Recipe Description
+        - Ingredients
+        - Instructions
+        - Photo URL
+    - Confirm additional fields are dynamically added for:
+        - 'Add Ingredient'
+        - 'Add Instruction'
+    - Confirm both cancel and add recipe buttons are functioning. 
+
+    Edit Recipe
+    - Confirm heading and subheading is present and visible. 
+    - Confirm the following fields are displayed and pre populated  with data: 
+        - Display Name
+        - Recipe Name
+        - Time Prep
+        - Time Cook
+        - Servings
+        - Recipe Description
+        - Ingredients
+        - Instructions
+        - Photo URL
+     - Confirm both cancel and add recipe buttons are functioning. 
     
+    Admin Dashboard 
+    - Confirm heading and subheading is present and visible. 
+    - Confirm the user section and user cards within contain the following: 
+        - Username 
+        - Active state (icon fill)
+        - Full Name
+        - Last Active 
+        - Last Activity 
+        - # of submissions. 
+    - Confirm clicking 'View Activity' directs user to the activity page and a list of user activity is presented. 
+    - Confirm the back button at the end of the activity table is functioning. 
+    - Confirm the following data is present in the advertising section:
+        - Active advertiser name
+        - Advertiser list
+    - Confirm selecting an alternative advertiser updates the active advertiser div. 
+    - Confirm that the new selected advertiser is appearing on the recipe view. 
+    - Confirm the statistics show the # of recipes in the database and users. 
+    - Confirm chart.js charts are rendering correctly. 
+
+    Logout
+    - Confirm clicking logout pops the session cookie. 
+
+    notifications
+    A notification should appear in the top right corner for user actions. 
+    - Confirm a notification is present for register, login and logout events. 
+    - Confirm a notification is present for recipe addition, edit and deletion events. 
+    - Confirm a notification is present for recipe pin and unpin events. 
+
+
+
 
 

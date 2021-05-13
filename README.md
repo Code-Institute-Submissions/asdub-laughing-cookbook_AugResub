@@ -616,6 +616,9 @@ The following are used in this app:
 
 Dependencies are in the repository under requirements.txt. 
 
+- **[Chart.js]**(https://www.chartjs.org/)
+Was used to provide graphs on the admin dashboard 
+
 ### Version Control & Managment
 - [Git](https://git-scm.com/)
 - [Github](https://github.com/)
