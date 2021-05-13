@@ -771,11 +771,13 @@ Testing documentation can be found [here](https://github.com/asdub/laughing-cook
 ##### New User Stories
 
 **I want the app purpose to be obvious or easy to figure out.**\
-<img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/purpose.png" width="300" alt="User Stories - App Purpose" />
+<img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/purpose.png" width="400" alt="User Stories - App Purpose" />
+
 The apps name and iconograpty used help convey the apps use. The initial page heading and intro text make the purpose of the app clear in my opinion. 
 
 **I want to have access to the information available in as few steps of possible.**\
-<img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/steps.png" width="150" alt="User Stories - App Steps" />
+<img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/steps.png" width="300" alt="User Stories - App Steps" />
+
 Recipe cards are used to provide the user with an overview of the most relevant information. 
 A user can navigate to the full recipe page by clicking 'View Recipe'
 
@@ -783,21 +785,25 @@ A user can navigate to the full recipe page by clicking 'View Recipe'
 <img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/search.png" width="300" alt="User Stories - App Search" />
 Users can search any recipe, an index of the recipe title, chef, description and ingredients. 
 
-**I would like to store recipes of interest to me.**
-<img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/pin.png" width="150" alt="User Stories - App Search" />
+**I would like to store recipes of interest to me.**\
+<img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/pin.png" width="300" alt="User Stories - App Search" />
+
 Users can pin any recipe of interest using the pin button located on each recipe card or on the main recipe page. 
 
-<img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/myrecipes-pin.png" width="300" alt="User Stories - App Search" />
+<img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/myrecipes-pin.png" width="400" alt="User Stories - App Search" />
+
 Pinned recipes are stored in the Pinned Recipes section of Your Recipes
 
 **I would like to store and share my own recipes.**\
 <img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/add-recipe.png" width="300" alt="User Stories - App Search" />
+
 A user can submit a recipe to the database using the add recipe feature, recipes submitted can be pinned by other users. 
 
 ##### Returning User Stories
 
 **I would like to manage, edit and delete my saved recipes.**\
 <img src="https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/myrecipes.png" width="300" alt="User Stories - App Purpose" />
+
 The users recipes both pinned and submitted are managed via the My Recipes view. 
 A user can choose to unpin previously pinned recipes. Or edit and delete their own submitted recipes. 
 
