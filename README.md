@@ -730,8 +730,8 @@ Issues reported,
 
 
 #### Steps taken 
-1. [Accessibility]Darkened orange to increase constrast ratio[x]
-2. [Accessibility]Corrected heading element out of seqence [x]
+1. [Accessibility]Darkened orange to increase contrast ratio[x]
+2. [Accessibility]Corrected heading element out of sequence [x]
 3. [Accessibility]Aria label added to mobile menu icon [x]
 4. [SEO] Added meta tags [x]
 
