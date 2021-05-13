@@ -703,7 +703,7 @@ WC3 CSS Validator found 1 error & 38 warnings:
 ### Google Lighthouse
 
 #### Initial Test
-![Lighthouse Results](https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/lighthousei_nitial.png "Lighthouse Results")
+![Lighthouse Results](https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/lighthouse_initial.png "Lighthouse Results")
 
 **Best Practices** 
 Issues reported, 
@@ -737,6 +737,21 @@ Issues reported,
 
 
 #### Re Test
-![Lighthouse Results](https://github.com/asdub/5km-parks-MP2/blob/master/readme/screenshots/second_lighthouse.png "Lighthouse Results")
+![Lighthouse Results](https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/lighthouse_retest.png "Lighthouse Results")
 
+**Performance**\
+No performance increases. How the app renders images will need to be actioned on a future update. 
+
+**Accessibility**\
+I tried to ensure good contrast between colours. 
+Lighthouse has picked up on some of the funner colours as not having sufficient contrast ratio. 
+
+**Best Practices**\
+HTTPS is not un use which is lowering this score. 
+\
+I tried deploying ssl certs via letsencrypt certbot. However, a paid subscription is required on Heroku to use SSL.  
+
+**SEO**\
+The SEO score increase to 100 with the addition correct meta tags. 
+[Thank you! Heymeta ](https://www.heymeta.com/ )
 
