@@ -699,3 +699,44 @@ Found 2 initial PEP8 issues:
 #### [WC3 CSS Validator](https://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Flaughing-cookbook.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en#errors) *(Results)*
 WC3 CSS Validator found 1 error & 38 warnings:
 1. *Error* & *Warnings* relate to external stylesheets  [ ]
+
+### Google Lighthouse
+
+#### Initial Test
+![Lighthouse Results](https://github.com/asdub/laughing-cookbook/blob/master/readme/screenshots/lighthousei_nitial.png "Lighthouse Results")
+
+**Best Practices** 
+Issues reported, 
+  - Serve images in next-gen format
+  - Eliminate render-blocking resources
+  - Efficiently encode images
+  - Remove unused JavaScript
+  - Remove unused CSS
+  - Enable text compression
+
+**Accessibility**
+Issues reported, 
+  - Background and foreground colors do not have a sufficient contrast ratio.
+  - Heading elements are not in a sequentially-descending order
+  - Links do not have a discernible name
+
+**Best Practices**
+Issues reported, 
+  - Does not use HTTPS
+
+**SEO**
+Issues reported, 
+  - Document does not have a meta description
+
+
+#### Steps taken 
+1. [Accessibility]Darkened orange to increase constrast ratio[x]
+2. [Accessibility]Corrected heading element out of seqence [x]
+3. [Accessibility]Aria label added to mobile menu icon [x]
+4. [SEO] Added meta tags [x]
+
+
+#### Re Test
+![Lighthouse Results](https://github.com/asdub/5km-parks-MP2/blob/master/readme/screenshots/second_lighthouse.png "Lighthouse Results")
+
+
