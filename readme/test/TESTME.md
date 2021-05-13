@@ -194,7 +194,7 @@ I did not tese on anything under IE11.
     Logout
     - Confirm clicking logout pops the session cookie. 
 
-    notifications
+    Notifications
     A notification should appear in the top right corner for user actions. 
     - Confirm a notification is present for register, login and logout events. 
     - Confirm a notification is present for recipe addition, edit and deletion events. 
