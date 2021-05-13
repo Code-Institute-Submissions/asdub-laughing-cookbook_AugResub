@@ -8,6 +8,7 @@
 **A live version of this project can be found [here](http://laughing-cookbook.herokuapp.com/)**
 
 You can use the following demo accounts, or create your own to expore: 
+
 *Standard User*\
 User: moleary
 Pass: moleary
