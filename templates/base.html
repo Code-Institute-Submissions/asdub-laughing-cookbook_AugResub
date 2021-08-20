@@ -7,8 +7,7 @@
     <!-- HTML Meta Tags -->
     <title>The Cook Book</title>
     <meta name="description" content="A simple web app for discovering and storing recipes. ">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
-
+    
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content="http://laughing-cookbook.herokuapp.com/recipes">
     <meta property="og:type" content="website">
@@ -25,8 +24,8 @@
     <!-- Meta Tags Generated via http://heymeta.com -->
     <!-- Internal & External stylesheets -->
     {% block styles %}
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
             integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" type="text/css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
