@@ -33,19 +33,22 @@ document.addEventListener('DOMContentLoaded', function() {
 // Adapted from: https://dev.to/niick007/how-to-add-unlimited-fields-in-form-using-javascript-and-store-into-database-with-php-14ni
 
 // Added if statment to ensure function fires on requried path
-document.getElementById("addingredient").addEventListener("click", function add_ingredient() {
-    var x = document.getElementById("incredientsContainer");
-    var new_field = document.createElement("input");
-    new_field.setAttribute("type", "text");
-    new_field.setAttribute("name", "ingredients");
-    new_field.setAttribute("minlength", "3");
-    new_field.setAttribute("maxlength", "50");
-    new_field.setAttribute("class", "validate");
-    var pos = x.childElementCount;
+if(document.getElementById("addingredient"))
+{
+  document.getElementById("addingredient").addEventListener("click", function add_ingredient() {
+      var x = document.getElementById("incredientsContainer");
+      var new_field = document.createElement("input");
+      new_field.setAttribute("type", "text");
+      new_field.setAttribute("name", "ingredients");
+      new_field.setAttribute("minlength", "3");
+      new_field.setAttribute("maxlength", "50");
+      new_field.setAttribute("class", "validate");
+      var pos = x.childElementCount;
 
-    x.insertBefore(new_field, x.childNodes[pos]);
+      x.insertBefore(new_field, x.childNodes[pos]);
 
-  });
+    });
+}
 
   document.getElementById("addinstruction").addEventListener("click", function add_instruction() {
     var x = document.getElementById("instructionsContainer");
